@@ -606,6 +606,16 @@ check can ever detect.
   `MinecraftPacketIds`, so `table[id]` -> `make_packet<T>` -> `operator new` is
   two hops. Cross-check on Linux, where the D0 dtor's sized
   `operator delete(this, N)` gives `sizeof` independently.
+- **A factory's ordered `operator new` immediates fingerprint it across versions -
+  the name-free way to carry a PDB-named `sizeof` forward.** The function that
+  builds a big object allocates dozens of sub-objects, and that ordered list of
+  immediates is effectively unique and survives a release nearly unchanged. Match
+  the list in the new binary to re-identify the same factory, and the one entry
+  that moved is the new `sizeof`. `ServerLevel` (33 allocations, only slot 2
+  changing `0x998` -> `0x9a0`) and `ServerScriptManager` (`0x4e8` -> `0x500`) were
+  both settled this way on Windows with no RTTI and no PDB. Read the immediate
+  from the `operator new` argument, or from the `mov qword [rsp+0x28], N` the
+  allocation-failure assert spills - the latter is greppable as a byte pattern.
 - **When no `operator new` site exists, MSVC's scalar deleting destructor has
   the size.** A class that is only ever stack-constructed (most packets -
   `StartGamePacket` has no `operator new` immediate anywhere in the image) still
@@ -700,6 +710,14 @@ Two things that make the guard weaker than it looks:
   unmarked class" is not a mechanical sweep: derive the real size first, and
   where the declaration is short either finish it or add the marker - never both
   a silent prefix and an assert.
+- **Read the Endstone header before measuring anything.** A class that declares
+  no data members at all has no offset that can be wrong, so any `sizeof` change
+  is a non-event however large, and an assert on it would be false rather than
+  protective. `ServerLevel` is `class ServerLevel : public Level {};` and both
+  `Level` and `ILevel` are virtuals-only, so 1.26.40's +8 could not reach
+  Endstone; `ServerScriptManager` declares 0 of its 1280 bytes and is only ever
+  held by `unique_ptr`. Confirm the growth really is outside the declared prefix
+  rather than assuming it - but then stop, and do not manufacture an edit.
 
 ## Detecting cereal-packet layout changes (the cereal manager)
 
