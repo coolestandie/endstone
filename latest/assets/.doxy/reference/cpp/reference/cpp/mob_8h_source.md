@@ -31,11 +31,14 @@
 #include "endstone/actor/actor.h"
 #include "endstone/attribute/attribute_instance.h"
 #include "endstone/potion/effect.h"
+#include "endstone/util/pointers.h"
 
 namespace endstone {
 class Mob : public Actor {
 public:
     [[nodiscard]] virtual bool isGliding() const = 0;
+
+    [[nodiscard]] virtual bool isSwimming() const = 0;
 
     [[nodiscard]] virtual int getHealth() const = 0;
 
@@ -47,9 +50,9 @@ public:
 
     [[nodiscard]] virtual bool hasAttribute(AttributeId id) const = 0;
 
-    [[nodiscard]] virtual std::unique_ptr<AttributeInstance> getAttribute(AttributeId id) = 0;
+    [[nodiscard]] virtual Nullable<AttributeInstance> getAttribute(AttributeId id) = 0;
 
-    [[nodiscard]] virtual std::vector<std::unique_ptr<AttributeInstance>> getAttributes() = 0;
+    [[nodiscard]] virtual std::vector<NotNull<AttributeInstance>> getAttributes() = 0;
 
     virtual void addEffect(const Effect &effect) = 0;
 

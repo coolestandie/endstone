@@ -4,14 +4,21 @@
     <compoundname>endstone</compoundname>
     <innerclass refid="classendstone_1_1ActionForm" prot="public">endstone::ActionForm</innerclass>
     <innerclass refid="classendstone_1_1Actor" prot="public">endstone::Actor</innerclass>
+    <innerclass refid="classendstone_1_1ActorChangeBlockEvent" prot="public">endstone::ActorChangeBlockEvent</innerclass>
+    <innerclass refid="classendstone_1_1ActorCollideWithActorEvent" prot="public">endstone::ActorCollideWithActorEvent</innerclass>
     <innerclass refid="classendstone_1_1ActorDamageEvent" prot="public">endstone::ActorDamageEvent</innerclass>
     <innerclass refid="classendstone_1_1ActorDeathEvent" prot="public">endstone::ActorDeathEvent</innerclass>
+    <innerclass refid="classendstone_1_1ActorDismountEvent" prot="public">endstone::ActorDismountEvent</innerclass>
+    <innerclass refid="classendstone_1_1ActorEffectEvent" prot="public">endstone::ActorEffectEvent</innerclass>
     <innerclass refid="classendstone_1_1ActorEvent" prot="public">endstone::ActorEvent</innerclass>
     <innerclass refid="classendstone_1_1ActorExplodeEvent" prot="public">endstone::ActorExplodeEvent</innerclass>
     <innerclass refid="classendstone_1_1ActorKnockbackEvent" prot="public">endstone::ActorKnockbackEvent</innerclass>
+    <innerclass refid="classendstone_1_1ActorPickupItemEvent" prot="public">endstone::ActorPickupItemEvent</innerclass>
     <innerclass refid="classendstone_1_1ActorRemoveEvent" prot="public">endstone::ActorRemoveEvent</innerclass>
     <innerclass refid="classendstone_1_1ActorSpawnEvent" prot="public">endstone::ActorSpawnEvent</innerclass>
     <innerclass refid="classendstone_1_1ActorTeleportEvent" prot="public">endstone::ActorTeleportEvent</innerclass>
+    <innerclass refid="classendstone_1_1ActorToggleGlideEvent" prot="public">endstone::ActorToggleGlideEvent</innerclass>
+    <innerclass refid="classendstone_1_1ActorToggleSwimEvent" prot="public">endstone::ActorToggleSwimEvent</innerclass>
     <innerclass refid="classendstone_1_1ActorType" prot="public">endstone::ActorType</innerclass>
     <innerclass refid="classendstone_1_1Attribute" prot="public">endstone::Attribute</innerclass>
     <innerclass refid="classendstone_1_1AttributeInstance" prot="public">endstone::AttributeInstance</innerclass>
@@ -79,6 +86,7 @@
     <innerclass refid="classendstone_1_1ICancellable" prot="public">endstone::ICancellable</innerclass>
     <innerclass refid="classendstone_1_1Identifier" prot="public">endstone::Identifier</innerclass>
     <innerclass refid="classendstone_1_1Image" prot="public">endstone::Image</innerclass>
+    <innerclass refid="classendstone_1_1Input" prot="public">endstone::Input</innerclass>
     <innerclass refid="classendstone_1_1Inventory" prot="public">endstone::Inventory</innerclass>
     <innerclass refid="classendstone_1_1IpBanEntry" prot="public">endstone::IpBanEntry</innerclass>
     <innerclass refid="classendstone_1_1IpBanList" prot="public">endstone::IpBanList</innerclass>
@@ -120,18 +128,24 @@
     <innerclass refid="classendstone_1_1PermissionAttachment" prot="public">endstone::PermissionAttachment</innerclass>
     <innerclass refid="classendstone_1_1PermissionAttachmentInfo" prot="public">endstone::PermissionAttachmentInfo</innerclass>
     <innerclass refid="classendstone_1_1Player" prot="public">endstone::Player</innerclass>
+    <innerclass refid="classendstone_1_1PlayerArmorStandManipulateEvent" prot="public">endstone::PlayerArmorStandManipulateEvent</innerclass>
+    <innerclass refid="classendstone_1_1PlayerArmSwingEvent" prot="public">endstone::PlayerArmSwingEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerBanEntry" prot="public">endstone::PlayerBanEntry</innerclass>
     <innerclass refid="classendstone_1_1PlayerBanList" prot="public">endstone::PlayerBanList</innerclass>
     <innerclass refid="classendstone_1_1PlayerBedEnterEvent" prot="public">endstone::PlayerBedEnterEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerBedLeaveEvent" prot="public">endstone::PlayerBedLeaveEvent</innerclass>
+    <innerclass refid="classendstone_1_1PlayerBucketActorEvent" prot="public">endstone::PlayerBucketActorEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerChatEvent" prot="public">endstone::PlayerChatEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerCommandEvent" prot="public">endstone::PlayerCommandEvent</innerclass>
+    <innerclass refid="classendstone_1_1PlayerCraftItemEvent" prot="public">endstone::PlayerCraftItemEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerDeathEvent" prot="public">endstone::PlayerDeathEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerDimensionChangeEvent" prot="public">endstone::PlayerDimensionChangeEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerDropItemEvent" prot="public">endstone::PlayerDropItemEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerEmoteEvent" prot="public">endstone::PlayerEmoteEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerEvent" prot="public">endstone::PlayerEvent</innerclass>
+    <innerclass refid="classendstone_1_1PlayerExpChangeEvent" prot="public">endstone::PlayerExpChangeEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerGameModeChangeEvent" prot="public">endstone::PlayerGameModeChangeEvent</innerclass>
+    <innerclass refid="classendstone_1_1PlayerInputEvent" prot="public">endstone::PlayerInputEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerInteractActorEvent" prot="public">endstone::PlayerInteractActorEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerInteractEvent" prot="public">endstone::PlayerInteractEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerInventory" prot="public">endstone::PlayerInventory</innerclass>
@@ -144,12 +158,18 @@
     <innerclass refid="classendstone_1_1PlayerLoginEvent" prot="public">endstone::PlayerLoginEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerMoveEvent" prot="public">endstone::PlayerMoveEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerPickupArrowEvent" prot="public">endstone::PlayerPickupArrowEvent</innerclass>
+    <innerclass refid="classendstone_1_1PlayerPickupExperienceEvent" prot="public">endstone::PlayerPickupExperienceEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerPickupItemEvent" prot="public">endstone::PlayerPickupItemEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerPortalEvent" prot="public">endstone::PlayerPortalEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerQuitEvent" prot="public">endstone::PlayerQuitEvent</innerclass>
+    <innerclass refid="classendstone_1_1PlayerRecipeBookSettingsChangeEvent" prot="public">endstone::PlayerRecipeBookSettingsChangeEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerRespawnEvent" prot="public">endstone::PlayerRespawnEvent</innerclass>
+    <innerclass refid="classendstone_1_1PlayerRiptideEvent" prot="public">endstone::PlayerRiptideEvent</innerclass>
+    <innerclass refid="classendstone_1_1PlayerShearActorEvent" prot="public">endstone::PlayerShearActorEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerSkinChangeEvent" prot="public">endstone::PlayerSkinChangeEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerTeleportEvent" prot="public">endstone::PlayerTeleportEvent</innerclass>
+    <innerclass refid="classendstone_1_1PlayerToggleCrawlEvent" prot="public">endstone::PlayerToggleCrawlEvent</innerclass>
+    <innerclass refid="classendstone_1_1PlayerToggleFlightEvent" prot="public">endstone::PlayerToggleFlightEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerToggleSneakEvent" prot="public">endstone::PlayerToggleSneakEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerToggleSprintEvent" prot="public">endstone::PlayerToggleSprintEvent</innerclass>
     <innerclass refid="classendstone_1_1Plugin" prot="public">endstone::Plugin</innerclass>
@@ -1074,7 +1094,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/block/block_type.h" line="29" column="1" bodyfile="include/endstone/block/block_type.h" bodystart="29" bodyend="-1"/>
+        <location file="include/endstone/block/block_type.h" line="30" column="1" bodyfile="include/endstone/block/block_type.h" bodystart="30" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="namespaceendstone_1a996c90f609bfd792a8245bb60fd3e4ea" prot="public" static="no">
         <type><ref refid="classendstone_1_1Identifier" kindref="compound">Identifier</ref>&lt; <ref refid="classendstone_1_1Identifier" kindref="compound">class</ref> <ref refid="classendstone_1_1Enchantment" kindref="compound">Enchantment</ref> &gt;</type>
@@ -1274,9 +1294,9 @@
         </inbodydescription>
         <location file="include/endstone/nbt/tag.h" line="45" column="1" bodyfile="include/endstone/nbt/tag.h" bodystart="45" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="typedef" id="namespaceendstone_1afe5c52ae8db67deff2df8c157cd1c71e" prot="public" static="no">
-        <type>std::function&lt; <ref refid="classendstone_1_1Identifier" kindref="compound">void</ref>(<ref refid="classendstone_1_1Identifier" kindref="compound">const</ref> <ref refid="classendstone_1_1PermissionAttachment" kindref="compound">PermissionAttachment</ref> &amp;)&gt;</type>
-        <definition>using endstone::PermissionRemovedExecutor = typedef std::function&lt;void(const PermissionAttachment &amp;)&gt;</definition>
+      <memberdef kind="typedef" id="namespaceendstone_1abc500d9b323691204fe1cf0dbe9d7262" prot="public" static="no">
+        <type>std::function&lt; <ref refid="classendstone_1_1Identifier" kindref="compound">void</ref>(<ref refid="classendstone_1_1Identifier" kindref="compound">const</ref> <ref refid="classendstone_1_1NotNull" kindref="compound">NotNull</ref>&lt; <ref refid="classendstone_1_1PermissionAttachment" kindref="compound">PermissionAttachment</ref> &gt; &amp;)&gt;</type>
+        <definition>using endstone::PermissionRemovedExecutor = typedef std::function&lt;void(const NotNull&lt;PermissionAttachment&gt; &amp;)&gt;</definition>
         <argsstring></argsstring>
         <name>PermissionRemovedExecutor</name>
         <qualifiedname>endstone::PermissionRemovedExecutor</qualifiedname>
@@ -1286,7 +1306,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/permissions/permission_attachment.h" line="28" column="1" bodyfile="include/endstone/permissions/permission_attachment.h" bodystart="28" bodyend="-1"/>
+        <location file="include/endstone/permissions/permission_attachment.h" line="30" column="1" bodyfile="include/endstone/permissions/permission_attachment.h" bodystart="30" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="namespaceendstone_1a07d5edd6a4210fd917b36d15e1f3097c" prot="public" static="no">
         <type><ref refid="classendstone_1_1Identifier" kindref="compound">Identifier</ref>&lt; <ref refid="classendstone_1_1EffectType" kindref="compound">EffectType</ref> &gt;</type>
@@ -1483,7 +1503,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/util/pointers.h" line="205" column="6" bodyfile="include/endstone/util/pointers.h" bodystart="205" bodyend="208"/>
+        <location file="include/endstone/util/pointers.h" line="270" column="6" bodyfile="include/endstone/util/pointers.h" bodystart="270" bodyend="273"/>
       </memberdef>
       <memberdef kind="function" id="namespaceendstone_1a3c5ee19f3b24cf5bec78edae534f6090" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <templateparamlist>
@@ -1513,7 +1533,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/util/pointers.h" line="211" column="6" bodyfile="include/endstone/util/pointers.h" bodystart="211" bodyend="214"/>
+        <location file="include/endstone/util/pointers.h" line="276" column="6" bodyfile="include/endstone/util/pointers.h" bodystart="276" bodyend="279"/>
       </memberdef>
       <memberdef kind="function" id="namespaceendstone_1ad7d0fbae7e1dd31cae1c84965a2f65a8" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classendstone_1_1Identifier" kindref="compound">bool</ref></type>

@@ -16,6 +16,7 @@
 * `#include "endstone/event/cancellable.h"`
 * `#include "endstone/event/player/player_event.h"`
 * `#include "endstone/inventory/item_stack.h"`
+* `#include "endstone/util/pointers.h"`
 
 
 
@@ -40,7 +41,7 @@
 
 | Type | Name |
 | ---: | :--- |
-| class | [**PlayerInteractEvent**](classendstone_1_1PlayerInteractEvent.md) <br>_Represents an event that is called when a player interacts with an object or air._  |
+| class | [**PlayerInteractEvent**](classendstone_1_1PlayerInteractEvent.md) <br>_Called when a player interacts with an object or air._  |
 
 
 

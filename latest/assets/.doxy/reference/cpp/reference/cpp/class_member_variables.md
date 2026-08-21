@@ -5,7 +5,10 @@
 
 ## a
 
-* **actor\_** ([**endstone::ActorEvent**](classendstone_1_1ActorEvent.md), [**endstone::PlayerInteractActorEvent**](classendstone_1_1PlayerInteractActorEvent.md))
+* **actors\_** ([**endstone::ActorCollideWithActorEvent**](classendstone_1_1ActorCollideWithActorEvent.md))
+* **action\_** ([**endstone::ActorEffectEvent**](classendstone_1_1ActorEffectEvent.md), [**endstone::PlayerInteractEvent**](classendstone_1_1PlayerInteractEvent.md))
+* **actor\_** ([**endstone::ActorEvent**](classendstone_1_1ActorEvent.md), [**endstone::PlayerBucketActorEvent**](classendstone_1_1PlayerBucketActorEvent.md), [**endstone::PlayerInteractActorEvent**](classendstone_1_1PlayerInteractActorEvent.md), [**endstone::PlayerShearActorEvent**](classendstone_1_1PlayerShearActorEvent.md))
+* **amount\_** ([**endstone::ActorPickupItemEvent**](classendstone_1_1ActorPickupItemEvent.md), [**endstone::AttributeModifier**](classendstone_1_1AttributeModifier.md), [**endstone::PlayerCraftItemEvent**](classendstone_1_1PlayerCraftItemEvent.md), [**endstone::PlayerExpChangeEvent**](classendstone_1_1PlayerExpChangeEvent.md), [**endstone::PlayerPickupExperienceEvent**](classendstone_1_1PlayerPickupExperienceEvent.md))
 * **Agent** ([**endstone::ActorType**](classendstone_1_1ActorType.md))
 * **Allay** ([**endstone::ActorType**](classendstone_1_1ActorType.md))
 * **AreaEffectCloud** ([**endstone::ActorType**](classendstone_1_1ActorType.md))
@@ -15,7 +18,6 @@
 * **Axolotl** ([**endstone::ActorType**](classendstone_1_1ActorType.md))
 * **Absorption** ([**endstone::Attribute**](classendstone_1_1Attribute.md), [**endstone::EffectType**](classendstone_1_1EffectType.md))
 * **AttackDamage** ([**endstone::Attribute**](classendstone_1_1Attribute.md))
-* **amount\_** ([**endstone::AttributeModifier**](classendstone_1_1AttributeModifier.md))
 * **Air** ([**endstone::BlockType**](classendstone_1_1BlockType.md), [**endstone::ItemType**](classendstone_1_1ItemType.md))
 * **alpha\_** ([**endstone::Color**](classendstone_1_1Color.md))
 * **Aqua** ([**endstone::ColorFormat**](structendstone_1_1ColorFormat.md))
@@ -26,7 +28,7 @@
 * **async\_** ([**endstone::Event**](classendstone_1_1Event.md))
 * **address\_** ([**endstone::IpBanEntry**](classendstone_1_1IpBanEntry.md), [**endstone::PacketReceiveEvent**](classendstone_1_1PacketReceiveEvent.md), [**endstone::PacketSendEvent**](classendstone_1_1PacketSendEvent.md), [**endstone::ServerListPingEvent**](classendstone_1_1ServerListPingEvent.md))
 * **attachment\_** ([**endstone::PermissionAttachmentInfo**](classendstone_1_1PermissionAttachmentInfo.md))
-* **action\_** ([**endstone::PlayerInteractEvent**](classendstone_1_1PlayerInteractEvent.md))
+* **armor\_stand\_item\_** ([**endstone::PlayerArmorStandManipulateEvent**](classendstone_1_1PlayerArmorStandManipulateEvent.md))
 * **arrow\_** ([**endstone::PlayerPickupArrowEvent**](classendstone_1_1PlayerPickupArrowEvent.md))
 * **api\_version\_** ([**endstone::PluginDescription**](classendstone_1_1PluginDescription.md))
 * **authors\_** ([**endstone::PluginDescription**](classendstone_1_1PluginDescription.md))
@@ -36,6 +38,7 @@
 
 ## b
 
+* **block\_** ([**endstone::ActorChangeBlockEvent**](classendstone_1_1ActorChangeBlockEvent.md), [**endstone::BlockEvent**](classendstone_1_1BlockEvent.md))
 * **blocks\_** ([**endstone::ActorExplodeEvent**](classendstone_1_1ActorExplodeEvent.md), [**endstone::BlockExplodeEvent**](classendstone_1_1BlockExplodeEvent.md))
 * **Balloon** ([**endstone::ActorType**](classendstone_1_1ActorType.md))
 * **Bat** ([**endstone::ActorType**](classendstone_1_1ActorType.md))
@@ -45,7 +48,6 @@
 * **Bogged** ([**endstone::ActorType**](classendstone_1_1ActorType.md))
 * **Breeze** ([**endstone::ActorType**](classendstone_1_1ActorType.md))
 * **BreezeWindChargeProjectile** ([**endstone::ActorType**](classendstone_1_1ActorType.md))
-* **block\_** ([**endstone::BlockEvent**](classendstone_1_1BlockEvent.md))
 * **BIT\_MASK** ([**endstone::Color**](classendstone_1_1Color.md))
 * **blue\_** ([**endstone::Color**](classendstone_1_1Color.md))
 * **Black** ([**endstone::ColorFormat**](structendstone_1_1ColorFormat.md))
@@ -59,6 +61,7 @@
 * **BlastProtection** ([**endstone::Enchantment**](classendstone_1_1Enchantment.md))
 * **Breach** ([**endstone::Enchantment**](classendstone_1_1Enchantment.md))
 * **baked\_handlers\_** ([**endstone::HandlerList**](classendstone_1_1HandlerList.md))
+* **backward\_** ([**endstone::Input**](classendstone_1_1Input.md))
 * **button1\_text\_** ([**endstone::MessageForm**](classendstone_1_1MessageForm.md))
 * **button2\_text\_** ([**endstone::MessageForm**](classendstone_1_1MessageForm.md))
 * **bed\_** ([**endstone::PlayerBedEnterEvent**](classendstone_1_1PlayerBedEnterEvent.md), [**endstone::PlayerBedLeaveEvent**](classendstone_1_1PlayerBedLeaveEvent.md))
@@ -101,6 +104,7 @@
 * **command\_** ([**endstone::PlayerCommandEvent**](classendstone_1_1PlayerCommandEvent.md), [**endstone::ServerCommandEvent**](classendstone_1_1ServerCommandEvent.md))
 * **clicked\_position\_** ([**endstone::PlayerInteractEvent**](classendstone_1_1PlayerInteractEvent.md))
 * **current\_** ([**endstone::PlayerItemHeldEvent**](classendstone_1_1PlayerItemHeldEvent.md))
+* **crawling\_** ([**endstone::PlayerToggleCrawlEvent**](classendstone_1_1PlayerToggleCrawlEvent.md))
 * **commands\_** ([**endstone::PluginDescription**](classendstone_1_1PluginDescription.md))
 * **contributors\_** ([**endstone::PluginDescription**](classendstone_1_1PluginDescription.md))
 * **cape\_id\_** ([**endstone::Skin**](classendstone_1_1Skin.md))
@@ -161,6 +165,7 @@
 
 ## e
 
+* **effect\_** ([**endstone::ActorEffectEvent**](classendstone_1_1ActorEffectEvent.md))
 * **Egg** ([**endstone::ActorType**](classendstone_1_1ActorType.md))
 * **ElderGuardian** ([**endstone::ActorType**](classendstone_1_1ActorType.md))
 * **ElderGuardianGhost** ([**endstone::ActorType**](classendstone_1_1ActorType.md))
@@ -206,12 +211,15 @@
 * **FireDamage** ([**endstone::GameRule**](classendstone_1_1GameRule.md))
 * **FreezeDamage** ([**endstone::GameRule**](classendstone_1_1GameRule.md))
 * **FunctionCommandLimit** ([**endstone::GameRule**](classendstone_1_1GameRule.md))
+* **forward\_** ([**endstone::Input**](classendstone_1_1Input.md))
 * **format\_** ([**endstone::PlayerChatEvent**](classendstone_1_1PlayerChatEvent.md))
+* **flying\_** ([**endstone::PlayerToggleFlightEvent**](classendstone_1_1PlayerToggleFlightEvent.md))
 * **full\_name\_** ([**endstone::PluginDescription**](classendstone_1_1PluginDescription.md))
 
 
 ## g
 
+* **gliding\_** ([**endstone::ActorToggleGlideEvent**](classendstone_1_1ActorToggleGlideEvent.md))
 * **Ghast** ([**endstone::ActorType**](classendstone_1_1ActorType.md))
 * **GlowSquid** ([**endstone::ActorType**](classendstone_1_1ActorType.md))
 * **Goat** ([**endstone::ActorType**](classendstone_1_1ActorType.md))
@@ -236,7 +244,7 @@
 * **Hunger** ([**endstone::EffectType**](classendstone_1_1EffectType.md))
 * **handlers\_** ([**endstone::HandlerList**](classendstone_1_1HandlerList.md))
 * **height\_** ([**endstone::Image**](classendstone_1_1Image.md))
-* **hand\_** ([**endstone::PlayerItemConsumeEvent**](classendstone_1_1PlayerItemConsumeEvent.md))
+* **hand\_** ([**endstone::PlayerBucketActorEvent**](classendstone_1_1PlayerBucketActorEvent.md), [**endstone::PlayerItemConsumeEvent**](classendstone_1_1PlayerItemConsumeEvent.md), [**endstone::PlayerShearActorEvent**](classendstone_1_1PlayerShearActorEvent.md))
 * **Harming** ([**endstone::PotionType**](classendstone_1_1PotionType.md))
 * **Healing** ([**endstone::PotionType**](classendstone_1_1PotionType.md))
 * **hostname\_** ([**endstone::SocketAddress**](classendstone_1_1SocketAddress.md))
@@ -244,6 +252,7 @@
 
 ## i
 
+* **item\_** ([**endstone::ActorPickupItemEvent**](classendstone_1_1ActorPickupItemEvent.md), [**endstone::PlayerArmSwingEvent**](classendstone_1_1PlayerArmSwingEvent.md), [**endstone::PlayerCraftItemEvent**](classendstone_1_1PlayerCraftItemEvent.md), [**endstone::PlayerInteractEvent**](classendstone_1_1PlayerInteractEvent.md), [**endstone::PlayerItemConsumeEvent**](classendstone_1_1PlayerItemConsumeEvent.md), [**endstone::PlayerPickupItemEvent**](classendstone_1_1PlayerPickupItemEvent.md), [**endstone::PlayerRiptideEvent**](classendstone_1_1PlayerRiptideEvent.md), [**endstone::PlayerShearActorEvent**](classendstone_1_1PlayerShearActorEvent.md))
 * **IceBomb** ([**endstone::ActorType**](classendstone_1_1ActorType.md))
 * **IronGolem** ([**endstone::ActorType**](classendstone_1_1ActorType.md))
 * **Item** ([**endstone::ActorType**](classendstone_1_1ActorType.md))
@@ -259,7 +268,9 @@
 * **ignore\_cancelled\_** ([**endstone::EventHandler**](classendstone_1_1EventHandler.md))
 * **impl\_** ([**endstone::ItemStack**](classendstone_1_1ItemStack.md))
 * **is\_contextual\_** ([**endstone::MapRenderer**](classendstone_1_1MapRenderer.md))
-* **item\_** ([**endstone::PlayerInteractEvent**](classendstone_1_1PlayerInteractEvent.md), [**endstone::PlayerItemConsumeEvent**](classendstone_1_1PlayerItemConsumeEvent.md), [**endstone::PlayerPickupItemEvent**](classendstone_1_1PlayerPickupItemEvent.md))
+* **input\_** ([**endstone::PlayerInputEvent**](classendstone_1_1PlayerInputEvent.md))
+* **is\_filtering\_** ([**endstone::PlayerRecipeBookSettingsChangeEvent**](classendstone_1_1PlayerRecipeBookSettingsChangeEvent.md))
+* **is\_open\_** ([**endstone::PlayerRecipeBookSettingsChangeEvent**](classendstone_1_1PlayerRecipeBookSettingsChangeEvent.md))
 * **image\_** ([**endstone::Skin**](classendstone_1_1Skin.md))
 
 
@@ -267,6 +278,7 @@
 
 * **JumpStrength** ([**endstone::Attribute**](classendstone_1_1Attribute.md))
 * **JumpBoost** ([**endstone::EffectType**](classendstone_1_1EffectType.md))
+* **jump\_** ([**endstone::Input**](classendstone_1_1Input.md))
 * **join\_message\_** ([**endstone::PlayerJoinEvent**](classendstone_1_1PlayerJoinEvent.md))
 
 
@@ -298,6 +310,7 @@
 * **Lunge** ([**endstone::Enchantment**](classendstone_1_1Enchantment.md))
 * **Lure** ([**endstone::Enchantment**](classendstone_1_1Enchantment.md))
 * **LocatorBar** ([**endstone::GameRule**](classendstone_1_1GameRule.md))
+* **left\_** ([**endstone::Input**](classendstone_1_1Input.md))
 * **level\_** ([**endstone::LevelEvent**](classendstone_1_1LevelEvent.md), [**endstone::WeatherEvent**](classendstone_1_1WeatherEvent.md))
 * **loader\_** ([**endstone::Plugin**](classendstone_1_1Plugin.md))
 * **logger\_** ([**endstone::Plugin**](classendstone_1_1Plugin.md))
@@ -397,6 +410,7 @@
 * **Oozing** ([**endstone::EffectType**](classendstone_1_1EffectType.md), [**endstone::PotionType**](classendstone_1_1PotionType.md))
 * **on\_close\_** ([**endstone::Form**](classendstone_1_1Form.md))
 * **owned\_payload\_** ([**endstone::PacketReceiveEvent**](classendstone_1_1PacketReceiveEvent.md), [**endstone::PacketSendEvent**](classendstone_1_1PacketSendEvent.md))
+* **original\_bucket\_** ([**endstone::PlayerBucketActorEvent**](classendstone_1_1PlayerBucketActorEvent.md))
 * **old\_level\_** ([**endstone::PlayerLevelChangeEvent**](classendstone_1_1PlayerLevelChangeEvent.md))
 * **owner\_** ([**endstone::PluginCommand**](classendstone_1_1PluginCommand.md))
 
@@ -443,6 +457,7 @@
 * **plugin\_manager\_** ([**endstone::Permission**](classendstone_1_1Permission.md))
 * **permissible\_** ([**endstone::PermissionAttachment**](classendstone_1_1PermissionAttachment.md), [**endstone::PermissionAttachmentInfo**](classendstone_1_1PermissionAttachmentInfo.md))
 * **permission\_** ([**endstone::PermissionAttachmentInfo**](classendstone_1_1PermissionAttachmentInfo.md))
+* **player\_item\_** ([**endstone::PlayerArmorStandManipulateEvent**](classendstone_1_1PlayerArmorStandManipulateEvent.md))
 * **previous\_** ([**endstone::PlayerItemHeldEvent**](classendstone_1_1PlayerItemHeldEvent.md))
 * **prefix\_** ([**endstone::PluginDescription**](classendstone_1_1PluginDescription.md))
 * **provides\_** ([**endstone::PluginDescription**](classendstone_1_1PluginDescription.md))
@@ -480,12 +495,16 @@
 * **RandomTickSpeed** ([**endstone::GameRule**](classendstone_1_1GameRule.md))
 * **RecipesUnlock** ([**endstone::GameRule**](classendstone_1_1GameRule.md))
 * **RespawnBlocksExplode** ([**endstone::GameRule**](classendstone_1_1GameRule.md))
+* **right\_** ([**endstone::Input**](classendstone_1_1Input.md))
 * **removed\_** ([**endstone::PermissionAttachment**](classendstone_1_1PermissionAttachment.md))
+* **recipe\_id\_** ([**endstone::PlayerCraftItemEvent**](classendstone_1_1PlayerCraftItemEvent.md))
+* **recipe\_book\_type\_** ([**endstone::PlayerRecipeBookSettingsChangeEvent**](classendstone_1_1PlayerRecipeBookSettingsChangeEvent.md))
 
 
 ## s
 
 * **source\_** ([**endstone::ActorKnockbackEvent**](classendstone_1_1ActorKnockbackEvent.md), [**endstone::BanEntry**](classendstone_1_1BanEntry.md), [**endstone::BlockCookEvent**](classendstone_1_1BlockCookEvent.md))
+* **swimming\_** ([**endstone::ActorToggleSwimEvent**](classendstone_1_1ActorToggleSwimEvent.md))
 * **Salmon** ([**endstone::ActorType**](classendstone_1_1ActorType.md))
 * **Sheep** ([**endstone::ActorType**](classendstone_1_1ActorType.md))
 * **Shulker** ([**endstone::ActorType**](classendstone_1_1ActorType.md))
@@ -523,8 +542,11 @@
 * **ShowRecipeMessages** ([**endstone::GameRule**](classendstone_1_1GameRule.md))
 * **ShowTags** ([**endstone::GameRule**](classendstone_1_1GameRule.md))
 * **SpawnRadius** ([**endstone::GameRule**](classendstone_1_1GameRule.md))
+* **sneak\_** ([**endstone::Input**](classendstone_1_1Input.md))
+* **sprint\_** ([**endstone::Input**](classendstone_1_1Input.md))
 * **submit\_button\_text\_** ([**endstone::ModalForm**](classendstone_1_1ModalForm.md))
 * **sub\_client\_id\_** ([**endstone::PacketReceiveEvent**](classendstone_1_1PacketReceiveEvent.md), [**endstone::PacketSendEvent**](classendstone_1_1PacketSendEvent.md))
+* **slot\_** ([**endstone::PlayerArmorStandManipulateEvent**](classendstone_1_1PlayerArmorStandManipulateEvent.md))
 * **sneaking\_** ([**endstone::PlayerToggleSneakEvent**](classendstone_1_1PlayerToggleSneakEvent.md))
 * **sprinting\_** ([**endstone::PlayerToggleSprintEvent**](classendstone_1_1PlayerToggleSprintEvent.md))
 * **server\_** ([**endstone::Plugin**](classendstone_1_1Plugin.md), [**endstone::PluginLoader**](classendstone_1_1PluginLoader.md))
@@ -579,6 +601,7 @@
 
 ## v
 
+* **vehicle\_** ([**endstone::ActorDismountEvent**](classendstone_1_1ActorDismountEvent.md))
 * **Vex** ([**endstone::ActorType**](classendstone_1_1ActorType.md))
 * **Villager** ([**endstone::ActorType**](classendstone_1_1ActorType.md))
 * **VillagerV2** ([**endstone::ActorType**](classendstone_1_1ActorType.md))

@@ -39,14 +39,21 @@ _Represents a button with text and an optional icon._
 | ---: | :--- |
 | class | [**ActionForm**](classendstone_1_1ActionForm.md) <br>_Represents a form with buttons that let the player take action._  |
 | class | [**Actor**](classendstone_1_1Actor.md) <br>_Represents a base actor in the level._  |
+| class | [**ActorChangeBlockEvent**](classendstone_1_1ActorChangeBlockEvent.md) <br>_Called when an_ [_**Actor**_](classendstone_1_1Actor.md) _changes a block as part of its own behaviour, such as a creeper exploding, an enderman picking a block up, a ravager trampling crops or a zombie breaking a door._ |
+| class | [**ActorCollideWithActorEvent**](classendstone_1_1ActorCollideWithActorEvent.md) <br>_Called when two Actors collide with each other._  |
 | class | [**ActorDamageEvent**](classendstone_1_1ActorDamageEvent.md) <br>_Called when an_ [_**Actor**_](classendstone_1_1Actor.md) _is damaged._ |
 | class | [**ActorDeathEvent**](classendstone_1_1ActorDeathEvent.md) <br>_Called when an_ [_**Actor**_](classendstone_1_1Actor.md) _dies._ |
+| class | [**ActorDismountEvent**](classendstone_1_1ActorDismountEvent.md) <br>_Called when an_ [_**Actor**_](classendstone_1_1Actor.md) _stops riding another_[_**Actor**_](classendstone_1_1Actor.md) _._ |
+| class | [**ActorEffectEvent**](classendstone_1_1ActorEffectEvent.md) <br>_Called when an effect on a_ [_**Mob**_](classendstone_1_1Mob.md) _changes._ |
 | class | [**ActorEvent**](classendstone_1_1ActorEvent.md) &lt;[**typename**](classendstone_1_1Identifier.md) [**ActorType**](classendstone_1_1ActorType.md)&gt;<br>_Represents an Actor-related event._  |
 | class | [**ActorExplodeEvent**](classendstone_1_1ActorExplodeEvent.md) <br>_Called when an actor explodes._  |
 | class | [**ActorKnockbackEvent**](classendstone_1_1ActorKnockbackEvent.md) <br>_Called when a living entity receives knockback._  |
+| class | [**ActorPickupItemEvent**](classendstone_1_1ActorPickupItemEvent.md) <br>_Called when an_ [_**Actor**_](classendstone_1_1Actor.md) _picks an item up from the ground._ |
 | class | [**ActorRemoveEvent**](classendstone_1_1ActorRemoveEvent.md) <br>_Called when an_ [_**Actor**_](classendstone_1_1Actor.md) _is removed._ |
 | class | [**ActorSpawnEvent**](classendstone_1_1ActorSpawnEvent.md) <br>_Called when an_ [_**Actor**_](classendstone_1_1Actor.md) _is spawned into a world._ |
 | class | [**ActorTeleportEvent**](classendstone_1_1ActorTeleportEvent.md) <br>_Called when a non-player entity is teleported from one location to another._  |
+| class | [**ActorToggleGlideEvent**](classendstone_1_1ActorToggleGlideEvent.md) <br>_Called when an_ [_**Actor**_](classendstone_1_1Actor.md) _'s gliding state is toggled with an elytra._ |
+| class | [**ActorToggleSwimEvent**](classendstone_1_1ActorToggleSwimEvent.md) <br>_Called when an_ [_**Actor**_](classendstone_1_1Actor.md) _'s swimming state is toggled._ |
 | class | [**ActorType**](classendstone_1_1ActorType.md) <br> |
 | class | [**Attribute**](classendstone_1_1Attribute.md) <br>_All attribute types._  |
 | class | [**AttributeInstance**](classendstone_1_1AttributeInstance.md) <br>_Represents a mutable instance of an attribute and its associated modifiers and values._  |
@@ -115,6 +122,7 @@ _Represents a button with text and an optional icon._
 | class | [**IRegistry**](classendstone_1_1IRegistry.md) <br>_Type-erased base interface for registries._  |
 | class | [**Identifier**](classendstone_1_1Identifier.md) &lt;[**typename**](classendstone_1_1Identifier.md) [**T**](classendstone_1_1Identifier.md)&gt;<br>_Represents a identifier consisting of two components: a namespace and a key._  |
 | class | [**Image**](classendstone_1_1Image.md) <br>_Represents an RGBA image._  |
+| class | [**Input**](classendstone_1_1Input.md) <br>_Represents a movement input applied to a player._  |
 | class | [**Inventory**](classendstone_1_1Inventory.md) <br>_Interface to the various inventories._  |
 | class | [**IpBanEntry**](classendstone_1_1IpBanEntry.md) <br>_Represents an entry for a banned IP address._  |
 | class | [**IpBanList**](classendstone_1_1IpBanList.md) <br>_Represents a ban list, containing banned IP addresses._  |
@@ -154,36 +162,48 @@ _Represents a button with text and an optional icon._
 | class | [**PermissionAttachment**](classendstone_1_1PermissionAttachment.md) <br>_Holds information about a permission attachment on a_ [_**Permissible**_](classendstone_1_1Permissible.md) _object._ |
 | class | [**PermissionAttachmentInfo**](classendstone_1_1PermissionAttachmentInfo.md) <br>_Holds information on a permission and which_ [_**PermissionAttachment**_](classendstone_1_1PermissionAttachment.md) _provides it._ |
 | class | [**Player**](classendstone_1_1Player.md) <br>_Represents a player._  |
+| class | [**PlayerArmSwingEvent**](classendstone_1_1PlayerArmSwingEvent.md) <br>_Called when a player swings their arm._  |
+| class | [**PlayerArmorStandManipulateEvent**](classendstone_1_1PlayerArmorStandManipulateEvent.md) <br>_Called when a player interacts with an armor stand and will either swap, retrieve or place an item._  |
 | class | [**PlayerBanEntry**](classendstone_1_1PlayerBanEntry.md) <br>_Represents an entry for a banned player._  |
 | class | [**PlayerBanList**](classendstone_1_1PlayerBanList.md) <br>_Represents a ban list, containing banned players._  |
 | class | [**PlayerBedEnterEvent**](classendstone_1_1PlayerBedEnterEvent.md) <br>_Called when a player is almost about to enter the bed._  |
 | class | [**PlayerBedLeaveEvent**](classendstone_1_1PlayerBedLeaveEvent.md) <br>_Called when a player is leaving a bed._  |
+| class | [**PlayerBucketActorEvent**](classendstone_1_1PlayerBucketActorEvent.md) <br>_Represents an event that is called when a player captures an actor in a bucket._  |
 | class | [**PlayerChatEvent**](classendstone_1_1PlayerChatEvent.md) <br>_Called when a player sends a chat message._  |
 | class | [**PlayerCommandEvent**](classendstone_1_1PlayerCommandEvent.md) <br>_Called whenever a player runs a command._  |
+| class | [**PlayerCraftItemEvent**](classendstone_1_1PlayerCraftItemEvent.md) <br>_Called when a player crafts an item._  |
 | class | [**PlayerDeathEvent**](classendstone_1_1PlayerDeathEvent.md) <br>_Called when a_ [_**Player**_](classendstone_1_1Player.md) _dies._ |
 | class | [**PlayerDimensionChangeEvent**](classendstone_1_1PlayerDimensionChangeEvent.md) <br>_Called when a player switches to another dimension._  |
 | class | [**PlayerDropItemEvent**](classendstone_1_1PlayerDropItemEvent.md) <br>_Called when a player drops an item from their inventory._  |
 | class | [**PlayerEmoteEvent**](classendstone_1_1PlayerEmoteEvent.md) <br>_Called when a player uses an emote._  |
 | class | [**PlayerEvent**](classendstone_1_1PlayerEvent.md) <br>_Represents a player related event._  |
+| class | [**PlayerExpChangeEvent**](classendstone_1_1PlayerExpChangeEvent.md) <br>_Called when a player's experience changes._  |
 | class | [**PlayerGameModeChangeEvent**](classendstone_1_1PlayerGameModeChangeEvent.md) <br>_Called when the GameMode of the player is changed._  |
-| class | [**PlayerInteractActorEvent**](classendstone_1_1PlayerInteractActorEvent.md) <br>_Represents an event that is called when a player right-clicks an actor._  |
-| class | [**PlayerInteractEvent**](classendstone_1_1PlayerInteractEvent.md) <br>_Represents an event that is called when a player interacts with an object or air._  |
+| class | [**PlayerInputEvent**](classendstone_1_1PlayerInputEvent.md) <br>_Called when a player sends updated input to the server._  |
+| class | [**PlayerInteractActorEvent**](classendstone_1_1PlayerInteractActorEvent.md) <br>_Called when a player right-clicks an actor._  |
+| class | [**PlayerInteractEvent**](classendstone_1_1PlayerInteractEvent.md) <br>_Called when a player interacts with an object or air._  |
 | class | [**PlayerInventory**](classendstone_1_1PlayerInventory.md) <br>_Interface to the inventory of a_ [_**Player**_](classendstone_1_1Player.md) _, including the four armor slots and any extra slots._ |
 | class | [**PlayerItemConsumeEvent**](classendstone_1_1PlayerItemConsumeEvent.md) <br>_Called when a player is finishing consuming an item (food, potion, milk bucket)._  |
 | class | [**PlayerItemHeldEvent**](classendstone_1_1PlayerItemHeldEvent.md) <br>_Called when a player changes their currently held item._  |
 | class | [**PlayerJoinEvent**](classendstone_1_1PlayerJoinEvent.md) <br>_Called when a player joins a server._  |
 | class | [**PlayerJumpEvent**](classendstone_1_1PlayerJumpEvent.md) <br>_Called when a player jumps._  |
 | class | [**PlayerKickEvent**](classendstone_1_1PlayerKickEvent.md) <br>_Called when a player gets kicked from the server._  |
-| class | [**PlayerLevelChangeEvent**](classendstone_1_1PlayerLevelChangeEvent.md) <br>_Represents an event that is called when a player's level changes._  |
+| class | [**PlayerLevelChangeEvent**](classendstone_1_1PlayerLevelChangeEvent.md) <br>_Called when a player's level changes._  |
 | class | [**PlayerLoginEvent**](classendstone_1_1PlayerLoginEvent.md) <br>_Called when a player attempts to login in._  |
 | class | [**PlayerMoveEvent**](classendstone_1_1PlayerMoveEvent.md) <br>_Called when a player moves._  |
-| class | [**PlayerPickupArrowEvent**](classendstone_1_1PlayerPickupArrowEvent.md) <br>_Represents an event that is called when a player picks up an arrow from the ground._  |
+| class | [**PlayerPickupArrowEvent**](classendstone_1_1PlayerPickupArrowEvent.md) <br>_Called when a player picks up an arrow or a thrown trident from the ground._  |
+| class | [**PlayerPickupExperienceEvent**](classendstone_1_1PlayerPickupExperienceEvent.md) <br>_Called when a player picks up an experience orb._  |
 | class | [**PlayerPickupItemEvent**](classendstone_1_1PlayerPickupItemEvent.md) <br>_Called when a player picks an item up from the ground._  |
 | class | [**PlayerPortalEvent**](classendstone_1_1PlayerPortalEvent.md) <br>_Called when a player is about to teleport because it is in contact with a portal._  |
 | class | [**PlayerQuitEvent**](classendstone_1_1PlayerQuitEvent.md) <br>_Called when a player leaves a server._  |
+| class | [**PlayerRecipeBookSettingsChangeEvent**](classendstone_1_1PlayerRecipeBookSettingsChangeEvent.md) <br>_Called when a player changes recipe book settings._  |
 | class | [**PlayerRespawnEvent**](classendstone_1_1PlayerRespawnEvent.md) <br>_Called when a player respawns._  |
+| class | [**PlayerRiptideEvent**](classendstone_1_1PlayerRiptideEvent.md) <br>_Called when a player activates the riptide enchantment, using their trident to propel them through the air._  |
+| class | [**PlayerShearActorEvent**](classendstone_1_1PlayerShearActorEvent.md) <br>_Called when a player shears an_ [_**Actor**_](classendstone_1_1Actor.md) _._ |
 | class | [**PlayerSkinChangeEvent**](classendstone_1_1PlayerSkinChangeEvent.md) <br>_Called when a player changes their skin._  |
 | class | [**PlayerTeleportEvent**](classendstone_1_1PlayerTeleportEvent.md) <br>_Called when a player is teleported from one location to another._  |
+| class | [**PlayerToggleCrawlEvent**](classendstone_1_1PlayerToggleCrawlEvent.md) <br>_Called when a player toggles their crawling state._  |
+| class | [**PlayerToggleFlightEvent**](classendstone_1_1PlayerToggleFlightEvent.md) <br>_Called when a player toggles their flying state._  |
 | class | [**PlayerToggleSneakEvent**](classendstone_1_1PlayerToggleSneakEvent.md) <br>_Called when a player toggles their sneaking state._  |
 | class | [**PlayerToggleSprintEvent**](classendstone_1_1PlayerToggleSprintEvent.md) <br>_Called when a player toggles their sprinting state._  |
 | class | [**Plugin**](classendstone_1_1Plugin.md) <br>_Represents a_ [_**Plugin**_](classendstone_1_1Plugin.md) _._ |
@@ -263,7 +283,7 @@ _Represents a button with text and an optional icon._
 | enum  | [**ObjectiveSortOrder**](#enum-objectivesortorder)  <br>_Represents the sort order of objectives on a DisplaySlot._  |
 | enum  | [**PermissionDefault**](#enum-permissiondefault)  <br>_Represents the possible default values for permissions._  |
 | enum  | [**PermissionLevel**](#enum-permissionlevel)  <br>_Represents the permission level of a_ [_**Permissible**_](classendstone_1_1Permissible.md) _._ |
-| typedef std::function&lt; [**void**](classendstone_1_1Identifier.md)([**const**](classendstone_1_1Identifier.md) [**PermissionAttachment**](classendstone_1_1PermissionAttachment.md) &)&gt; | [**PermissionRemovedExecutor**](#typedef-permissionremovedexecutor)  <br> |
+| typedef std::function&lt; [**void**](classendstone_1_1Identifier.md)([**const**](classendstone_1_1Identifier.md) [**NotNull**](classendstone_1_1NotNull.md)&lt; [**PermissionAttachment**](classendstone_1_1PermissionAttachment.md) &gt; &)&gt; | [**PermissionRemovedExecutor**](#typedef-permissionremovedexecutor)  <br> |
 | enum  | [**PluginLoadOrder**](#enum-pluginloadorder)  <br>_Represents the order in which a plugin should be initialized and enabled._  |
 | typedef [**Identifier**](classendstone_1_1Identifier.md)&lt; [**PotionType**](classendstone_1_1PotionType.md) &gt; | [**PotionId**](#typedef-potionid)  <br> |
 | enum std::uint8\_t | [**RenderType**](#enum-rendertype)  <br>_Controls the way in which an_ [_**Objective**_](classendstone_1_1Objective.md) _is rendered on the client side._ |
@@ -836,7 +856,7 @@ enum endstone::PermissionLevel {
 ### typedef PermissionRemovedExecutor 
 
 ```C++
-using endstone::PermissionRemovedExecutor = typedef std::function<void(const PermissionAttachment &)>;
+using endstone::PermissionRemovedExecutor = typedef std::function<void(const NotNull<PermissionAttachment> &)>;
 ```
 
 

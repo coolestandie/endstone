@@ -5,7 +5,7 @@
 
 ## a
 
-* **Action** ([**endstone::PlayerInteractEvent**](classendstone_1_1PlayerInteractEvent.md))
+* **Action** ([**endstone::ActorEffectEvent**](classendstone_1_1ActorEffectEvent.md), [**endstone::PlayerInteractEvent**](classendstone_1_1PlayerInteractEvent.md))
 
 
 ## g
@@ -26,6 +26,7 @@
 
 ## r
 
+* **RecipeBookType** ([**endstone::PlayerRecipeBookSettingsChangeEvent**](classendstone_1_1PlayerRecipeBookSettingsChangeEvent.md))
 * **RespawnReason** ([**endstone::PlayerRespawnEvent**](classendstone_1_1PlayerRespawnEvent.md))
 
 

@@ -7,14 +7,21 @@ Here are the classes, structs, unions and interfaces with brief descriptions:
 * **namespace** [**endstone**](namespaceendstone.md) _Represents a button with text and an optional icon._     
     * **class** [**ActionForm**](classendstone_1_1ActionForm.md) _Represents a form with buttons that let the player take action._     
     * **class** [**Actor**](classendstone_1_1Actor.md) _Represents a base actor in the level._     
+    * **class** [**ActorChangeBlockEvent**](classendstone_1_1ActorChangeBlockEvent.md) _Called when an_ [_**Actor**_](classendstone_1_1Actor.md) _changes a block as part of its own behaviour, such as a creeper exploding, an enderman picking a block up, a ravager trampling crops or a zombie breaking a door._    
+    * **class** [**ActorCollideWithActorEvent**](classendstone_1_1ActorCollideWithActorEvent.md) _Called when two Actors collide with each other._     
     * **class** [**ActorDamageEvent**](classendstone_1_1ActorDamageEvent.md) _Called when an_ [_**Actor**_](classendstone_1_1Actor.md) _is damaged._    
     * **class** [**ActorDeathEvent**](classendstone_1_1ActorDeathEvent.md) _Called when an_ [_**Actor**_](classendstone_1_1Actor.md) _dies._    
+    * **class** [**ActorDismountEvent**](classendstone_1_1ActorDismountEvent.md) _Called when an_ [_**Actor**_](classendstone_1_1Actor.md) _stops riding another_[_**Actor**_](classendstone_1_1Actor.md) _._    
+    * **class** [**ActorEffectEvent**](classendstone_1_1ActorEffectEvent.md) _Called when an effect on a_ [_**Mob**_](classendstone_1_1Mob.md) _changes._    
     * **class** [**ActorEvent**](classendstone_1_1ActorEvent.md) _Represents an Actor-related event._     
     * **class** [**ActorExplodeEvent**](classendstone_1_1ActorExplodeEvent.md) _Called when an actor explodes._     
     * **class** [**ActorKnockbackEvent**](classendstone_1_1ActorKnockbackEvent.md) _Called when a living entity receives knockback._     
+    * **class** [**ActorPickupItemEvent**](classendstone_1_1ActorPickupItemEvent.md) _Called when an_ [_**Actor**_](classendstone_1_1Actor.md) _picks an item up from the ground._    
     * **class** [**ActorRemoveEvent**](classendstone_1_1ActorRemoveEvent.md) _Called when an_ [_**Actor**_](classendstone_1_1Actor.md) _is removed._    
     * **class** [**ActorSpawnEvent**](classendstone_1_1ActorSpawnEvent.md) _Called when an_ [_**Actor**_](classendstone_1_1Actor.md) _is spawned into a world._    
     * **class** [**ActorTeleportEvent**](classendstone_1_1ActorTeleportEvent.md) _Called when a non-player entity is teleported from one location to another._     
+    * **class** [**ActorToggleGlideEvent**](classendstone_1_1ActorToggleGlideEvent.md) _Called when an_ [_**Actor**_](classendstone_1_1Actor.md) _'s gliding state is toggled with an elytra._    
+    * **class** [**ActorToggleSwimEvent**](classendstone_1_1ActorToggleSwimEvent.md) _Called when an_ [_**Actor**_](classendstone_1_1Actor.md) _'s swimming state is toggled._    
     * **class** [**ActorType**](classendstone_1_1ActorType.md)     
     * **class** [**Attribute**](classendstone_1_1Attribute.md) _All attribute types._     
     * **class** [**AttributeInstance**](classendstone_1_1AttributeInstance.md) _Represents a mutable instance of an attribute and its associated modifiers and values._     
@@ -83,6 +90,7 @@ Here are the classes, structs, unions and interfaces with brief descriptions:
     * **class** [**IRegistry**](classendstone_1_1IRegistry.md) _Type-erased base interface for registries._     
     * **class** [**Identifier**](classendstone_1_1Identifier.md) _Represents a identifier consisting of two components: a namespace and a key._     
     * **class** [**Image**](classendstone_1_1Image.md) _Represents an RGBA image._     
+    * **class** [**Input**](classendstone_1_1Input.md) _Represents a movement input applied to a player._     
     * **class** [**Inventory**](classendstone_1_1Inventory.md) _Interface to the various inventories._     
     * **class** [**IpBanEntry**](classendstone_1_1IpBanEntry.md) _Represents an entry for a banned IP address._     
     * **class** [**IpBanList**](classendstone_1_1IpBanList.md) _Represents a ban list, containing banned IP addresses._     
@@ -122,36 +130,48 @@ Here are the classes, structs, unions and interfaces with brief descriptions:
     * **class** [**PermissionAttachment**](classendstone_1_1PermissionAttachment.md) _Holds information about a permission attachment on a_ [_**Permissible**_](classendstone_1_1Permissible.md) _object._    
     * **class** [**PermissionAttachmentInfo**](classendstone_1_1PermissionAttachmentInfo.md) _Holds information on a permission and which_ [_**PermissionAttachment**_](classendstone_1_1PermissionAttachment.md) _provides it._    
     * **class** [**Player**](classendstone_1_1Player.md) _Represents a player._     
+    * **class** [**PlayerArmSwingEvent**](classendstone_1_1PlayerArmSwingEvent.md) _Called when a player swings their arm._     
+    * **class** [**PlayerArmorStandManipulateEvent**](classendstone_1_1PlayerArmorStandManipulateEvent.md) _Called when a player interacts with an armor stand and will either swap, retrieve or place an item._     
     * **class** [**PlayerBanEntry**](classendstone_1_1PlayerBanEntry.md) _Represents an entry for a banned player._     
     * **class** [**PlayerBanList**](classendstone_1_1PlayerBanList.md) _Represents a ban list, containing banned players._     
     * **class** [**PlayerBedEnterEvent**](classendstone_1_1PlayerBedEnterEvent.md) _Called when a player is almost about to enter the bed._     
     * **class** [**PlayerBedLeaveEvent**](classendstone_1_1PlayerBedLeaveEvent.md) _Called when a player is leaving a bed._     
+    * **class** [**PlayerBucketActorEvent**](classendstone_1_1PlayerBucketActorEvent.md) _Represents an event that is called when a player captures an actor in a bucket._     
     * **class** [**PlayerChatEvent**](classendstone_1_1PlayerChatEvent.md) _Called when a player sends a chat message._     
     * **class** [**PlayerCommandEvent**](classendstone_1_1PlayerCommandEvent.md) _Called whenever a player runs a command._     
+    * **class** [**PlayerCraftItemEvent**](classendstone_1_1PlayerCraftItemEvent.md) _Called when a player crafts an item._     
     * **class** [**PlayerDeathEvent**](classendstone_1_1PlayerDeathEvent.md) _Called when a_ [_**Player**_](classendstone_1_1Player.md) _dies._    
     * **class** [**PlayerDimensionChangeEvent**](classendstone_1_1PlayerDimensionChangeEvent.md) _Called when a player switches to another dimension._     
     * **class** [**PlayerDropItemEvent**](classendstone_1_1PlayerDropItemEvent.md) _Called when a player drops an item from their inventory._     
     * **class** [**PlayerEmoteEvent**](classendstone_1_1PlayerEmoteEvent.md) _Called when a player uses an emote._     
     * **class** [**PlayerEvent**](classendstone_1_1PlayerEvent.md) _Represents a player related event._     
+    * **class** [**PlayerExpChangeEvent**](classendstone_1_1PlayerExpChangeEvent.md) _Called when a player's experience changes._     
     * **class** [**PlayerGameModeChangeEvent**](classendstone_1_1PlayerGameModeChangeEvent.md) _Called when the GameMode of the player is changed._     
-    * **class** [**PlayerInteractActorEvent**](classendstone_1_1PlayerInteractActorEvent.md) _Represents an event that is called when a player right-clicks an actor._     
-    * **class** [**PlayerInteractEvent**](classendstone_1_1PlayerInteractEvent.md) _Represents an event that is called when a player interacts with an object or air._     
+    * **class** [**PlayerInputEvent**](classendstone_1_1PlayerInputEvent.md) _Called when a player sends updated input to the server._     
+    * **class** [**PlayerInteractActorEvent**](classendstone_1_1PlayerInteractActorEvent.md) _Called when a player right-clicks an actor._     
+    * **class** [**PlayerInteractEvent**](classendstone_1_1PlayerInteractEvent.md) _Called when a player interacts with an object or air._     
     * **class** [**PlayerInventory**](classendstone_1_1PlayerInventory.md) _Interface to the inventory of a_ [_**Player**_](classendstone_1_1Player.md) _, including the four armor slots and any extra slots._    
     * **class** [**PlayerItemConsumeEvent**](classendstone_1_1PlayerItemConsumeEvent.md) _Called when a player is finishing consuming an item (food, potion, milk bucket)._     
     * **class** [**PlayerItemHeldEvent**](classendstone_1_1PlayerItemHeldEvent.md) _Called when a player changes their currently held item._     
     * **class** [**PlayerJoinEvent**](classendstone_1_1PlayerJoinEvent.md) _Called when a player joins a server._     
     * **class** [**PlayerJumpEvent**](classendstone_1_1PlayerJumpEvent.md) _Called when a player jumps._     
     * **class** [**PlayerKickEvent**](classendstone_1_1PlayerKickEvent.md) _Called when a player gets kicked from the server._     
-    * **class** [**PlayerLevelChangeEvent**](classendstone_1_1PlayerLevelChangeEvent.md) _Represents an event that is called when a player's level changes._     
+    * **class** [**PlayerLevelChangeEvent**](classendstone_1_1PlayerLevelChangeEvent.md) _Called when a player's level changes._     
     * **class** [**PlayerLoginEvent**](classendstone_1_1PlayerLoginEvent.md) _Called when a player attempts to login in._     
     * **class** [**PlayerMoveEvent**](classendstone_1_1PlayerMoveEvent.md) _Called when a player moves._     
-    * **class** [**PlayerPickupArrowEvent**](classendstone_1_1PlayerPickupArrowEvent.md) _Represents an event that is called when a player picks up an arrow from the ground._     
+    * **class** [**PlayerPickupArrowEvent**](classendstone_1_1PlayerPickupArrowEvent.md) _Called when a player picks up an arrow or a thrown trident from the ground._     
+    * **class** [**PlayerPickupExperienceEvent**](classendstone_1_1PlayerPickupExperienceEvent.md) _Called when a player picks up an experience orb._     
     * **class** [**PlayerPickupItemEvent**](classendstone_1_1PlayerPickupItemEvent.md) _Called when a player picks an item up from the ground._     
     * **class** [**PlayerPortalEvent**](classendstone_1_1PlayerPortalEvent.md) _Called when a player is about to teleport because it is in contact with a portal._     
     * **class** [**PlayerQuitEvent**](classendstone_1_1PlayerQuitEvent.md) _Called when a player leaves a server._     
+    * **class** [**PlayerRecipeBookSettingsChangeEvent**](classendstone_1_1PlayerRecipeBookSettingsChangeEvent.md) _Called when a player changes recipe book settings._     
     * **class** [**PlayerRespawnEvent**](classendstone_1_1PlayerRespawnEvent.md) _Called when a player respawns._     
+    * **class** [**PlayerRiptideEvent**](classendstone_1_1PlayerRiptideEvent.md) _Called when a player activates the riptide enchantment, using their trident to propel them through the air._     
+    * **class** [**PlayerShearActorEvent**](classendstone_1_1PlayerShearActorEvent.md) _Called when a player shears an_ [_**Actor**_](classendstone_1_1Actor.md) _._    
     * **class** [**PlayerSkinChangeEvent**](classendstone_1_1PlayerSkinChangeEvent.md) _Called when a player changes their skin._     
     * **class** [**PlayerTeleportEvent**](classendstone_1_1PlayerTeleportEvent.md) _Called when a player is teleported from one location to another._     
+    * **class** [**PlayerToggleCrawlEvent**](classendstone_1_1PlayerToggleCrawlEvent.md) _Called when a player toggles their crawling state._     
+    * **class** [**PlayerToggleFlightEvent**](classendstone_1_1PlayerToggleFlightEvent.md) _Called when a player toggles their flying state._     
     * **class** [**PlayerToggleSneakEvent**](classendstone_1_1PlayerToggleSneakEvent.md) _Called when a player toggles their sneaking state._     
     * **class** [**PlayerToggleSprintEvent**](classendstone_1_1PlayerToggleSprintEvent.md) _Called when a player toggles their sprinting state._     
     * **class** [**Plugin**](classendstone_1_1Plugin.md) _Represents a_ [_**Plugin**_](classendstone_1_1Plugin.md) _._    

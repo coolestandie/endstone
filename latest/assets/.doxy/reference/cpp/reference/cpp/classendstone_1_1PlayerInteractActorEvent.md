@@ -8,7 +8,7 @@
 
 
 
-_Represents an event that is called when a player right-clicks an actor._ 
+_Called when a player right-clicks an actor._ 
 
 * `#include <endstone/event/player/player_interact_actor_event.h>`
 
@@ -17,6 +17,7 @@ _Represents an event that is called when a player right-clicks an actor._
 Inherits the following classes: [endstone::Cancellable](classendstone_1_1Cancellable.md)
 
 
+Inherited by the following classes: [endstone::PlayerArmorStandManipulateEvent](classendstone_1_1PlayerArmorStandManipulateEvent.md)
 
 
 
