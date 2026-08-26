@@ -103,6 +103,7 @@ add_library(bedrock STATIC
         world/item/alchemy/potion.cpp
         world/item/crafting/recipes.cpp
         world/item/enchanting/enchant.cpp
+        world/item/enchanting/enchant_utils.cpp
         world/item/registry/creative_group_info.cpp
         world/item/registry/creative_item_entry.cpp
         world/item/registry/creative_item_registry.cpp

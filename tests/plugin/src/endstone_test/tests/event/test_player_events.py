@@ -371,8 +371,23 @@ def test_not_cancellable(event_name: str) -> None:
 @pytest.mark.parametrize(
     "event_name",
     [
+        "EnchantItemEvent",
+        "PrepareItemEnchantEvent",
+    ],
+)
+def test_enchanting_events_are_inventory_events(event_name: str) -> None:
+    """Verify the enchanting table events report the inventory they act on."""
+    from endstone import event as event_module
+
+    assert issubclass(getattr(event_module, event_name), event_module.InventoryEvent)
+
+
+@pytest.mark.parametrize(
+    "event_name",
+    [
         "PlayerArmSwingEvent",
         "EnchantItemEvent",
+        "PrepareItemEnchantEvent",
         "PlayerArmorStandManipulateEvent",
         "PlayerBucketActorEvent",
         "PlayerPickupArrowEvent",
