@@ -33,6 +33,9 @@
 #include <pybind11/pybind11.h>
 #include <toml++/toml.h>
 
+#include "bedrock/deps/nethernet/http_signaling_server.h"
+#include "bedrock/deps/nethernet/simple_network_interface_impl.h"
+#include "bedrock/network/nethernet_connector.h"
 #include "bedrock/network/server_network_handler.h"
 #include "bedrock/platform/threading/assigned_thread.h"
 #include "bedrock/server/dedicated_server.h"
@@ -140,9 +143,13 @@ EndstoneServer::EndstoneServer() : logger_(LoggerFactory::getLogger(""))
     crash_handler_ = std::make_unique<CrashHandler>();
     signal_handler_ = std::make_unique<SignalHandler>();
     player_ban_list_ = std::make_unique<EndstonePlayerBanList>("banned-players.json");
-    player_ban_list_->load();
+    if (auto result = player_ban_list_->load(); !result) {
+        EndstoneServer::getLogger().error(result.error());
+    }
     ip_ban_list_ = std::make_unique<EndstoneIpBanList>("banned-ips.json");
-    ip_ban_list_->load();
+    if (auto result = ip_ban_list_->load(); !result) {
+        EndstoneServer::getLogger().error(result.error());
+    }
     language_ = std::make_unique<EndstoneLanguage>();
     plugin_manager_ = std::make_unique<EndstonePluginManager>(*this);
     service_manager_ = std::make_unique<EndstoneServiceManager>();
@@ -252,10 +259,11 @@ void EndstoneServer::setLevel(::Level &level)
                               [&](const MapItemSavedData &map_data) {
                                   // The map origin isn't initialized yet at this point.
                                   // Defer the event to the next tick to ensure all data is fully set.
-                                  auto &map = map_data.getMapView();
-                                  getEndstoneScheduler().runTask([&]() {
-                                      MapInitializeEvent e{map};
-                                      getPluginManager().callEvent(e);
+                                  getEndstoneScheduler().runTask([this, id = map_data.getMapId().raw_id]() {
+                                      if (auto *map = getMap(id)) {
+                                          MapInitializeEvent e{*map};
+                                          getPluginManager().callEvent(e);
+                                      }
                                   });
                               },
                               Bedrock::PubSub::ConnectPosition::AtBack, nullptr);
@@ -543,12 +551,20 @@ Player *EndstoneServer::getPlayer(std::string name) const
 
 int EndstoneServer::getPort() const
 {
-    return getRemoteConnector().getIPv4Port();
+    if (isUsingNetherNet()) {
+        return getSignalingPort();
+    }
+    const auto port = getRemoteConnector().getIPv4Port();
+    return port == 0xffff ? 0 : port;
 }
 
 int EndstoneServer::getPortV6() const
 {
-    return getRemoteConnector().getIPv6Port();
+    if (isUsingNetherNet()) {
+        return getSignalingPort();
+    }
+    const auto port = getRemoteConnector().getIPv6Port();
+    return port == 0xffff ? 0 : port;
 }
 
 bool EndstoneServer::getOnlineMode() const
@@ -854,6 +870,23 @@ RemoteConnector &EndstoneServer::getRemoteConnector() const
 RakNetConnector &EndstoneServer::getRakNetConnector() const
 {
     return static_cast<RakNetConnector &>(getRemoteConnector());
+}
+
+bool EndstoneServer::isUsingNetherNet() const
+{
+    return getServer().getMinecraft()->getServerNetworkHandler()->network_._isUsingNetherNetTransportLayer();
+}
+
+std::uint16_t EndstoneServer::getSignalingPort() const
+{
+    const auto &connector = static_cast<const NetherNetConnector &>(getRemoteConnector());
+    const auto &transport = static_cast<const NetherNet::SimpleNetworkInterfaceImpl &>(*connector.transport_);
+    const auto *signaling = transport.signaling_interface_.get();
+    if (!signaling) {
+        return 0;
+    }
+    const NetherNet::HttpServer &server = static_cast<const NetherNet::HttpSignalingServer &>(*signaling);
+    return server.port_;
 }
 
 EndstoneServer &EndstoneServer::getInstance()

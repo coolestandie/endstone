@@ -14,16 +14,13 @@
 
 #include "bedrock/network/batched_network_peer.h"
 
-#include <optional>
+#include <cstdint>
 #include <string>
-#include <string_view>
 
-#include "bedrock/core/sem_ver/sem_version.h"
 #include "bedrock/network/packet.h"
 #include "bedrock/network/packet/clientbound_map_item_data_packet.h"
 #include "bedrock/network/packet/resource_pack_stack_packet.h"
 #include "bedrock/network/packet/resource_packs_info_packet.h"
-#include "bedrock/network/packet/set_score_packet.h"
 #include "bedrock/network/packet/start_game_packet.h"
 #include "bedrock/network/raknet_connector.h"
 #include "bedrock/network/server_network_system.h"
@@ -115,98 +112,6 @@ void patchPacket(const ClientboundMapItemDataPacket &packet, endstone::core::End
     }
 }
 
-// #blameMojang - 1.26.44 writes a fixed `true` ahead of RemoveScore's objective name but left the
-// protocol version at 2168, so a 1.26.40-43 client negotiates the same version and mis-parses every
-// scoreboard removal.
-// TODO(1.26.50): drop once the protocol version moves past 2168.
-std::optional<std::string> downgradeSetScorePayload(std::string_view payload)
-{
-    ReadOnlyBinaryStream in{payload, false};
-    auto count = in.getUnsignedVarInt().discardError();
-    if (!count) {
-        return std::nullopt;
-    }
-
-    BinaryStream out;
-    out.writeUnsignedVarInt(count.value(), "Score Info", nullptr);
-
-    for (unsigned int i = 0; i < count.value(); ++i) {
-        auto action = in.getUnsignedVarInt().discardError();
-        if (!action) {
-            return std::nullopt;
-        }
-        const auto entry_action = static_cast<ScorePacketEntryAction>(action.value());
-        if (entry_action > ScorePacketEntryAction::ChangeFakePlayer) {
-            return std::nullopt;
-        }
-        out.writeUnsignedVarInt(action.value(), "Action", nullptr);
-
-        auto action_name = in.getString(32).discardError();
-        if (!action_name) {
-            return std::nullopt;
-        }
-        out.writeString(action_name.value(), "Action", nullptr);
-
-        auto scoreboard_id = in.getVarInt64().discardError();
-        if (!scoreboard_id) {
-            return std::nullopt;
-        }
-        out.writeVarInt64(scoreboard_id.value(), "Scoreboard Id", nullptr);
-
-        if (entry_action == ScorePacketEntryAction::Remove) {
-            auto keyed_marker = in.getBool().discardError();
-            if (!keyed_marker) {
-                return std::nullopt;
-            }
-            auto has_objective_name = in.getBool().discardError();
-            if (!has_objective_name) {
-                return std::nullopt;
-            }
-            out.writeBool(has_objective_name.value(), "Objective Name", nullptr);
-            if (has_objective_name.value()) {
-                auto objective_name = in.getString(in.getUnreadLength()).discardError();
-                if (!objective_name) {
-                    return std::nullopt;
-                }
-                out.writeString(objective_name.value(), "Objective Name", nullptr);
-            }
-            continue;
-        }
-
-        auto objective_name = in.getString(in.getUnreadLength()).discardError();
-        if (!objective_name) {
-            return std::nullopt;
-        }
-        out.writeString(objective_name.value(), "Objective Name", nullptr);
-
-        auto score_value = in.getSignedInt().discardError();
-        if (!score_value) {
-            return std::nullopt;
-        }
-        out.writeSignedInt(score_value.value(), "Score Value", nullptr);
-
-        if (entry_action == ScorePacketEntryAction::ChangeFakePlayer) {
-            auto fake_player_name = in.getString(in.getUnreadLength()).discardError();
-            if (!fake_player_name) {
-                return std::nullopt;
-            }
-            out.writeString(fake_player_name.value(), "Fake Player Name", nullptr);
-        }
-        else {
-            auto unique_id = in.getVarInt64().discardError();
-            if (!unique_id) {
-                return std::nullopt;
-            }
-            out.writeVarInt64(unique_id.value(), "Player Unique Id", nullptr);
-        }
-    }
-
-    if (in.getUnreadLength() != 0) {
-        return std::nullopt;
-    }
-    return out.getBuffer();
-}
-
 void patchPacket(Packet &packet, endstone::Player *player)
 {
     switch (packet.getId()) {
@@ -256,8 +161,9 @@ void BatchedNetworkPeer::sendPacket(const std::string &data, Reliability reliabi
 
     // Create packet send event
     auto payload = stream.getView().substr(stream.getReadPointer());
-    endstone::PacketSendEvent e{player, static_cast<int>(header.getPacketId()), payload,
-                                endstone::core::EndstoneSocketAddress::fromNetworkIdentifier(id),
+    const auto address =
+        player ? player->getAddress() : endstone::core::EndstoneSocketAddress::fromNetworkIdentifier(id);
+    endstone::PacketSendEvent e{player, static_cast<int>(header.getPacketId()), payload, address,
                                 static_cast<int>(header.getSenderSubId())};
 
     // Patch specific outbound packets (deserialize -> modify -> re-serialize)
@@ -286,21 +192,6 @@ void BatchedNetworkPeer::sendPacket(const std::string &data, Reliability reliabi
         packet->writeWithSerializationMode(out, network.getPacketReflectionCtx(),
                                            network.getPacketOverrides().getOverrideModeForPacket(packet->getId()));
         e.setPayload(out.getBuffer());
-        break;
-    }
-    case MinecraftPacketIds::SetScore: {
-        // TODO(1.26.50): drop with downgradeSetScorePayload once the protocol version moves past 2168.
-        if (player != nullptr) {
-            SemVersion client_version;
-            auto result =
-                SemVersion::fromString(player->getGameVersion(), client_version, SemVersion::ParseOption::NoWildcards);
-            if (result != SemVersion::MatchType::None && client_version >= SemVersion{1, 26, 40} &&
-                client_version < SemVersion{1, 26, 44}) {
-                if (auto downgraded = downgradeSetScorePayload(payload)) {
-                    e.setPayload(*downgraded);
-                }
-            }
-        }
         break;
     }
     default:
@@ -344,6 +235,7 @@ NetworkPeer::DataStatus BatchedNetworkPeer::_receivePacket(std::string &out_data
         }
 
         const auto header = PacketHeader::fromRaw(result.value());
+
         const auto &id = getId();
         endstone::core::EndstonePlayer *player = nullptr;
         if (const auto *p = network_handler->getServerPlayer(id, header.getRecipientSubId())) {
@@ -351,8 +243,9 @@ NetworkPeer::DataStatus BatchedNetworkPeer::_receivePacket(std::string &out_data
         }
 
         const auto payload = stream.getView().substr(stream.getReadPointer());
-        endstone::PacketReceiveEvent e{player, static_cast<int>(header.getPacketId()), payload,
-                                       endstone::core::EndstoneSocketAddress::fromNetworkIdentifier(id),
+        const auto address =
+            player ? player->getAddress() : endstone::core::EndstoneSocketAddress::fromNetworkIdentifier(id);
+        endstone::PacketReceiveEvent e{player, static_cast<int>(header.getPacketId()), payload, address,
                                        static_cast<int>(header.getRecipientSubId())};
         server.getPluginManager().callEvent(e);
         if (e.isCancelled()) {

@@ -24,6 +24,7 @@
 
 #include "bedrock/entity/components/user_entity_identifier_component.h"
 #include "bedrock/network/packet.h"
+#include "bedrock/network/packet/boss_event_packet.h"
 #include "bedrock/network/packet/clientbound_map_item_data_packet.h"
 #include "bedrock/network/packet/correct_player_move_prediction_packet.h"
 #include "bedrock/network/packet/emote_packet.h"
@@ -47,6 +48,7 @@
 #include "endstone/block/block.h"
 #include "endstone/color_format.h"
 #include "endstone/core/base64.h"
+#include "endstone/core/boss/boss_bar.h"
 #include "endstone/core/entity/components/flag_components.h"
 #include "endstone/core/form/form_codec.h"
 #include "endstone/core/game_mode.h"
@@ -524,7 +526,7 @@ std::chrono::milliseconds EndstonePlayer::getPing() const
     if (!peer) {
         return {};
     }
-    return peer->getNetworkStatus().average_ping;
+    return peer->getNetworkStatus().current_ping;
 }
 
 std::string EndstonePlayer::getLocale() const
@@ -643,22 +645,22 @@ void EndstonePlayer::sendPacket(int packet_id, std::string_view payload) const
 
 void EndstonePlayer::sendMap(MapView &map)
 {
-    auto &view = static_cast<EndstoneMapView &>(map);
+    auto &handle = static_cast<EndstoneMapView &>(map).getHandle();
     auto packet = MinecraftPackets::createPacket(MinecraftPacketIds::MapData);
     auto &pk = static_cast<ClientboundMapItemDataPacket &>(*packet);
-    pk.payload.map_id = view.map_.getMapId();
-    pk.payload.scale = view.map_.getScale();
+    pk.payload.map_id = handle.getMapId();
+    pk.payload.scale = handle.getScale();
     pk.payload.start_x = 0;
     pk.payload.start_y = 0;
-    pk.payload.map_origin = view.map_.getOrigin();
-    pk.payload.dimension = view.map_.getDimensionId().value;
+    pk.payload.map_origin = handle.getOrigin();
+    pk.payload.dimension = handle.getDimensionId().value;
     pk.payload.width = MapConstants::MAP_SIZE;
     pk.payload.height = MapConstants::MAP_SIZE;
     pk.payload.type =
         ClientboundMapItemDataPacket::Type::TextureUpdate | ClientboundMapItemDataPacket::Type::DecorationUpdate;
-    pk.payload.locked = view.map_.isLocked();
+    pk.payload.locked = handle.isLocked();
 
-    for (const auto &[unique_id, decoration] : view.map_.getDecorations()) {
+    for (const auto &[unique_id, decoration] : handle.getDecorations()) {
         pk.payload.unique_ids.emplace_back(unique_id);
         pk.payload.decorations.emplace_back(decoration);
     }
@@ -733,6 +735,14 @@ bool EndstonePlayer::handlePacket(Packet &packet)
     }
     case MinecraftPacketIds::SetLocalPlayerAsInit: {
         doFirstSpawn();
+        return true;
+    }
+    case MinecraftPacketIds::BossEvent: {
+        const auto &pk = static_cast<BossEventPacket &>(packet);
+        if (pk.payload.event_type == BossEventUpdateType::Query &&
+            pk.payload.boss_id == getHandle().getOrCreateUniqueID()) {
+            EndstoneBossBar::resend(*this);
+        }
         return true;
     }
     case MinecraftPacketIds::Emote: {
