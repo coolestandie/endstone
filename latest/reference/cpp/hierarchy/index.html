@@ -2643,9 +2643,23 @@ For latest updates join the chat on
 <h1 id="class-hierarchy">Class Hierarchy<a class="headerlink" href="#class-hierarchy" title="Permanent link">&para;</a></h1>
 <p>This inheritance list is sorted roughly, but not completely, alphabetically:</p>
 <ul>
+<li><strong>class</strong> <a href="../classendstone_1_1Registry_1_1Type/"><strong>endstone::Registry::Type</strong></a> <em>CRTP base for registry-backed types identified by an</em> <a href="../classendstone_1_1Identifier/"><em><strong>Identifier</strong></em></a> <em>.</em>    <ul>
+<li><strong>class</strong> <a href="../classendstone_1_1Ability/"><strong>endstone::Ability</strong></a> <em>All player abilities.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1ActorType/"><strong>endstone::ActorType</strong></a> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1Biome/"><strong>endstone::Biome</strong></a> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1BlockType/"><strong>endstone::BlockType</strong></a> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1EffectType/"><strong>endstone::EffectType</strong></a> <em>Represents an effect type.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1Enchantment/"><strong>endstone::Enchantment</strong></a> <em>Represents an enchantment that may be added to armor, weapons, tools or other items.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1GameRule/"><strong>endstone::GameRule</strong></a> <em>Represents a game rule.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1ItemType/"><strong>endstone::ItemType</strong></a> <em>Represents an item type.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1PotionType/"><strong>endstone::PotionType</strong></a> <em>Represents a potion type.</em> </li>
+</ul>
+</li>
+<li><strong>class</strong> <a href="../classendstone_1_1Identifier/"><strong>endstone::Identifier</strong></a> <em>Represents a identifier consisting of two components: a namespace and a key.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1Form/"><strong>endstone::Form</strong></a> <em>Represents a generic form.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1Object/"><strong>endstone::Object</strong></a> <em>Base class providing runtime type identification and safe casting.</em>     <ul>
 <li><strong>class</strong> <a href="../classendstone_1_1BlockState/"><strong>endstone::BlockState</strong></a> <em>Represents a captured state of a block, which will not update automatically.</em>     <ul>
+<li><strong>class</strong> <a href="../classendstone_1_1BlockActorState/"><strong>endstone::BlockActorState</strong></a> <em>Represents a captured state of a block entity.</em>     <ul>
 <li><strong>class</strong> <a href="../classendstone_1_1Campfire/"><strong>endstone::Campfire</strong></a> <em>Represents a captured state of a campfire.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1Container/"><strong>endstone::Container</strong></a> <em>Represents a captured state of a container block, such as a chest.</em>     <ul>
 <li><strong>class</strong> <a href="../classendstone_1_1Furnace/"><strong>endstone::Furnace</strong></a> <em>Represents a captured state of a furnace.</em> </li>
@@ -2655,6 +2669,8 @@ For latest updates join the chat on
 <li><strong>class</strong> <a href="../classendstone_1_1CreatureSpawner/"><strong>endstone::CreatureSpawner</strong></a> <em>Represents a captured state of a creature spawner.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1ItemFrame/"><strong>endstone::ItemFrame</strong></a> <em>Represents a captured state of an item frame.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1Sign/"><strong>endstone::Sign</strong></a> <em>Represents a captured state of a sign.</em> </li>
+</ul>
+</li>
 </ul>
 </li>
 <li><strong>class</strong> <a href="../classendstone_1_1Command/"><strong>endstone::Command</strong></a> <em>Represents a</em> <a href="../classendstone_1_1Command/"><em><strong>Command</strong></em></a> <em>, which executes various tasks upon user input.</em>    <ul>
@@ -2684,13 +2700,41 @@ For latest updates join the chat on
 <li><strong>class</strong> <a href="../classendstone_1_1BlockCommandSender/"><strong>endstone::BlockCommandSender</strong></a> <em>Represents a block command sender.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1CommandSenderWrapper/"><strong>endstone::CommandSenderWrapper</strong></a> <em>Represents a wrapper that forwards commands to the wrapped</em> <a href="../classendstone_1_1CommandSender/"><em><strong>CommandSender</strong></em></a> <em>and captures its output.</em></li>
 <li><strong>class</strong> <a href="../classendstone_1_1ConsoleCommandSender/"><strong>endstone::ConsoleCommandSender</strong></a> <em>Represents a console command sender.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1ProxiedCommandSender/"><strong>endstone::ProxiedCommandSender</strong></a> <em>Represents a command sender that is running a command on behalf of another one, as</em> <code>/execute</code> <em>does.</em></li>
 </ul>
 </li>
+</ul>
+</li>
+<li><strong>class</strong> <a href="../classendstone_1_1Recipe/"><strong>endstone::Recipe</strong></a> <em>Represents some type of crafting recipe.</em>     <ul>
+<li><strong>class</strong> <a href="../classendstone_1_1ComplexRecipe/"><strong>endstone::ComplexRecipe</strong></a> <em>Represents a complex recipe which has imperative server-defined behavior, eg armor dyeing.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1CookingRecipe/"><strong>endstone::CookingRecipe</strong></a> <em>Represents a cooking recipe.</em>     <ul>
+<li><strong>class</strong> <a href="../classendstone_1_1BlastingRecipe/"><strong>endstone::BlastingRecipe</strong></a> <em>Represents a blasting recipe.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1CampfireRecipe/"><strong>endstone::CampfireRecipe</strong></a> <em>Represents a campfire recipe.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1FurnaceRecipe/"><strong>endstone::FurnaceRecipe</strong></a> <em>Represents a furnace recipe.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1SmokingRecipe/"><strong>endstone::SmokingRecipe</strong></a> <em>Represents a smoking recipe.</em> </li>
+</ul>
+</li>
+<li><strong>class</strong> <a href="../classendstone_1_1ShapedRecipe/"><strong>endstone::ShapedRecipe</strong></a> <em>Represents a shaped (ie normal) crafting recipe.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1ShapelessRecipe/"><strong>endstone::ShapelessRecipe</strong></a> <em>Represents a shapeless recipe, where the arrangement of the ingredients on the crafting grid does not matter.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1SmithingRecipe/"><strong>endstone::SmithingRecipe</strong></a> <em>Represents a smithing recipe.</em>     <ul>
+<li><strong>class</strong> <a href="../classendstone_1_1SmithingTransformRecipe/"><strong>endstone::SmithingTransformRecipe</strong></a> <em>Represents a smithing transform recipe.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1SmithingTrimRecipe/"><strong>endstone::SmithingTrimRecipe</strong></a> <em>Represents a smithing trim recipe.</em> </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>class</strong> <a href="../classendstone_1_1RecipeIngredient/"><strong>endstone::RecipeIngredient</strong></a> <em>Represents a potential item match within a recipe.</em>     <ul>
+<li><strong>class</strong> <a href="../classendstone_1_1ComplexAliasIngredient/"><strong>endstone::ComplexAliasIngredient</strong></a> <em>Represents an ingredient that matches any item an id stands for.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1ExactIngredient/"><strong>endstone::ExactIngredient</strong></a> <em>Represents an ingredient that matches one item with one exact data value.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1ItemTagIngredient/"><strong>endstone::ItemTagIngredient</strong></a> <em>Represents an ingredient that matches any item carrying a tag.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1ItemTypeIngredient/"><strong>endstone::ItemTypeIngredient</strong></a> <em>Represents an ingredient that matches an item type, whatever its data value.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1MolangIngredient/"><strong>endstone::MolangIngredient</strong></a> <em>Represents an ingredient that matches the items a Molang expression selects.</em> </li>
 </ul>
 </li>
 </ul>
 </li>
 <li><strong>class</strong> <a href="../classendstone_1_1ICancellable/"><strong>endstone::ICancellable</strong></a> <em>Interface for events that may be cancelled by a plugin or the server.</em>     <ul>
+<li><strong>class</strong> <a href="../classendstone_1_1Cancellable/"><strong>endstone::Cancellable</strong></a> <em>A type characterizing events that may be cancelled by a plugin or the server.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1Cancellable/"><strong>endstone::Cancellable</strong></a> <em>A type characterizing events that may be cancelled by a plugin or the server.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1Cancellable/"><strong>endstone::Cancellable</strong></a> <em>A type characterizing events that may be cancelled by a plugin or the server.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1Cancellable/"><strong>endstone::Cancellable</strong></a> <em>A type characterizing events that may be cancelled by a plugin or the server.</em> </li>
@@ -2710,6 +2754,11 @@ For latest updates join the chat on
 <li><strong>class</strong> <a href="../classendstone_1_1Cancellable/"><strong>endstone::Cancellable</strong></a> <em>A type characterizing events that may be cancelled by a plugin or the server.</em> </li>
 </ul>
 </li>
+<li><strong>class</strong> <a href="../classendstone_1_1InventoryEvent/"><strong>endstone::InventoryEvent</strong></a> <em>Represents a player related inventory event.</em>     <ul>
+<li><strong>class</strong> <a href="../classendstone_1_1Cancellable/"><strong>endstone::Cancellable</strong></a> <em>A type characterizing events that may be cancelled by a plugin or the server.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1InventoryCloseEvent/"><strong>endstone::InventoryCloseEvent</strong></a> <em>Called when a player closes an inventory.</em> </li>
+</ul>
+</li>
 <li><strong>class</strong> <a href="../classendstone_1_1LevelEvent/"><strong>endstone::LevelEvent</strong></a> <em>Represents events within a level.</em>     <ul>
 <li><strong>class</strong> <a href="../classendstone_1_1DimensionEvent/"><strong>endstone::DimensionEvent</strong></a> <em>Represents events within a dimension.</em>     <ul>
 <li><strong>class</strong> <a href="../classendstone_1_1ChunkEvent/"><strong>endstone::ChunkEvent</strong></a> <em>Represents a</em> <a href="../classendstone_1_1Chunk/"><em><strong>Chunk</strong></em></a> <em>related event.</em>    <ul>
@@ -2717,16 +2766,17 @@ For latest updates join the chat on
 <li><strong>class</strong> <a href="../classendstone_1_1ChunkUnloadEvent/"><strong>endstone::ChunkUnloadEvent</strong></a> <em>Called when a chunk is unloaded.</em> </li>
 </ul>
 </li>
+<li><strong>class</strong> <a href="../classendstone_1_1DimensionLoadEvent/"><strong>endstone::DimensionLoadEvent</strong></a> <em>Called when a dimension is loaded.</em> </li>
 </ul>
 </li>
 </ul>
 </li>
 <li><strong>class</strong> <a href="../classendstone_1_1PlayerEvent/"><strong>endstone::PlayerEvent</strong></a> <em>Represents a player related event.</em>     <ul>
 <li><strong>class</strong> <a href="../classendstone_1_1Cancellable/"><strong>endstone::Cancellable</strong></a> <em>A type characterizing events that may be cancelled by a plugin or the server.</em> </li>
-<li><strong>class</strong> <a href="../classendstone_1_1PlayerArmSwingEvent/"><strong>endstone::PlayerArmSwingEvent</strong></a> <em>Called when a player swings their arm.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1PlayerBedLeaveEvent/"><strong>endstone::PlayerBedLeaveEvent</strong></a> <em>Called when a player is leaving a bed.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1PlayerDimensionChangeEvent/"><strong>endstone::PlayerDimensionChangeEvent</strong></a> <em>Called when a player switches to another dimension.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1PlayerExpChangeEvent/"><strong>endstone::PlayerExpChangeEvent</strong></a> <em>Called when a player's experience changes.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1PlayerHideActorEvent/"><strong>endstone::PlayerHideActorEvent</strong></a> <em>Called when a visible actor is hidden from a player.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1PlayerInputEvent/"><strong>endstone::PlayerInputEvent</strong></a> <em>Called when a player sends updated input to the server.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1PlayerJoinEvent/"><strong>endstone::PlayerJoinEvent</strong></a> <em>Called when a player joins a server.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1PlayerLevelChangeEvent/"><strong>endstone::PlayerLevelChangeEvent</strong></a> <em>Called when a player's level changes.</em> </li>
@@ -2734,6 +2784,7 @@ For latest updates join the chat on
 <li><strong>class</strong> <a href="../classendstone_1_1PlayerRecipeBookSettingsChangeEvent/"><strong>endstone::PlayerRecipeBookSettingsChangeEvent</strong></a> <em>Called when a player changes recipe book settings.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1PlayerRespawnEvent/"><strong>endstone::PlayerRespawnEvent</strong></a> <em>Called when a player respawns.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1PlayerRiptideEvent/"><strong>endstone::PlayerRiptideEvent</strong></a> <em>Called when a player activates the riptide enchantment, using their trident to propel them through the air.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1PlayerShowActorEvent/"><strong>endstone::PlayerShowActorEvent</strong></a> <em>Called when a hidden actor is shown to a player.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1PlayerToggleCrawlEvent/"><strong>endstone::PlayerToggleCrawlEvent</strong></a> <em>Called when a player toggles their crawling state.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1PlayerToggleFlightEvent/"><strong>endstone::PlayerToggleFlightEvent</strong></a> <em>Called when a player toggles their flying state.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1PlayerToggleSneakEvent/"><strong>endstone::PlayerToggleSneakEvent</strong></a> <em>Called when a player toggles their sneaking state.</em> </li>
@@ -2748,21 +2799,21 @@ For latest updates join the chat on
 <li><strong>class</strong> <a href="../classendstone_1_1ServerLoadEvent/"><strong>endstone::ServerLoadEvent</strong></a> <em>Called when either the server startup or reload has completed.</em> </li>
 </ul>
 </li>
+<li><strong>class</strong> <a href="../classendstone_1_1UnknownCommandEvent/"><strong>endstone::UnknownCommandEvent</strong></a> <em>Called when a command sender executes a command that is not defined.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1WeatherEvent/"><strong>endstone::WeatherEvent</strong></a> <em>Represents a Weather-related event.</em>     <ul>
 <li><strong>class</strong> <a href="../classendstone_1_1Cancellable/"><strong>endstone::Cancellable</strong></a> <em>A type characterizing events that may be cancelled by a plugin or the server.</em> </li>
 </ul>
 </li>
 </ul>
 </li>
-<li><strong>class</strong> <a href="../classendstone_1_1Registry_1_1Type/"><strong>endstone::Registry::Type</strong></a> <em>CRTP base for registry-backed types identified by an</em> <a href="../classendstone_1_1Identifier/"><em><strong>Identifier</strong></em></a> <em>.</em>    <ul>
-<li><strong>class</strong> <a href="../classendstone_1_1ActorType/"><strong>endstone::ActorType</strong></a> </li>
-<li><strong>class</strong> <a href="../classendstone_1_1Biome/"><strong>endstone::Biome</strong></a> </li>
-<li><strong>class</strong> <a href="../classendstone_1_1BlockType/"><strong>endstone::BlockType</strong></a> </li>
-<li><strong>class</strong> <a href="../classendstone_1_1EffectType/"><strong>endstone::EffectType</strong></a> <em>Represents an effect type.</em> </li>
-<li><strong>class</strong> <a href="../classendstone_1_1Enchantment/"><strong>endstone::Enchantment</strong></a> <em>Represents an enchantment that may be added to armor, weapons, tools or other items.</em> </li>
-<li><strong>class</strong> <a href="../classendstone_1_1GameRule/"><strong>endstone::GameRule</strong></a> <em>Represents a game rule.</em> </li>
-<li><strong>class</strong> <a href="../classendstone_1_1ItemType/"><strong>endstone::ItemType</strong></a> <em>Represents an item type.</em> </li>
-<li><strong>class</strong> <a href="../classendstone_1_1PotionType/"><strong>endstone::PotionType</strong></a> <em>Represents a potion type.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1CustomChart/"><strong>endstone::CustomChart</strong></a> <em>Represents a custom chart.</em>     <ul>
+<li><strong>class</strong> <a href="../classendstone_1_1AdvancedBarChart/"><strong>endstone::AdvancedBarChart</strong></a> <em>A bStats bar chart with several bars per category.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1AdvancedPie/"><strong>endstone::AdvancedPie</strong></a> <em>A bStats pie chart with named values.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1DrilldownPie/"><strong>endstone::DrilldownPie</strong></a> <em>A bStats pie chart with grouped named values.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1MultiLineChart/"><strong>endstone::MultiLineChart</strong></a> <em>A bStats line chart with a line per named value.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1SimpleBarChart/"><strong>endstone::SimpleBarChart</strong></a> <em>A bStats bar chart with a single bar per category.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1SimplePie/"><strong>endstone::SimplePie</strong></a> <em>A bStats pie chart with a single value.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1SingleLineChart/"><strong>endstone::SingleLineChart</strong></a> <em>A bStats line chart with a single line.</em> </li>
 </ul>
 </li>
 <li><strong>class</strong> <a href="../classendstone_1_1Attribute/"><strong>endstone::Attribute</strong></a> <em>All attribute types.</em> </li>
@@ -2779,6 +2830,7 @@ For latest updates join the chat on
 <li><strong>class</strong> <a href="../classendstone_1_1BossBar/"><strong>endstone::BossBar</strong></a> <em>Represents a boss bar that is displayed to players.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1Button/"><strong>endstone::Button</strong></a> <em>Represents a button with text and an optional icon.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1Chunk/"><strong>endstone::Chunk</strong></a> <em>Represents a chunk of blocks.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1ClassInfo/"><strong>endstone::ClassInfo</strong></a> <em>A type identity that stays comparable across shared library boundaries.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1Color/"><strong>endstone::Color</strong></a> <em>Represents a color with red, green, blue, and alpha components.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1Colors/"><strong>endstone::Colors</strong></a> <em>Provides a collection of predefined colors.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1CommandExecutor/"><strong>endstone::CommandExecutor</strong></a> <em>Represents a class which contains a single method for executing commands.</em>     <ul>
@@ -2803,8 +2855,8 @@ For latest updates join the chat on
 </ul>
 </li>
 <li><strong>class</strong> <a href="../classendstone_1_1Effect/"><strong>endstone::Effect</strong></a> <em>Represents an effect that can be added to a</em> <a href="../classendstone_1_1Mob/"><em><strong>Mob</strong></em></a> <em>.</em></li>
+<li><strong>class</strong> <a href="../classendstone_1_1EnchantmentOffer/"><strong>endstone::EnchantmentOffer</strong></a> <em>Represents an offer made by an enchanting table.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1EventHandler/"><strong>endstone::EventHandler</strong></a> <em>Represents a registered</em> <a href="../classendstone_1_1EventHandler/"><em><strong>EventHandler</strong></em></a> <em>which associates with a</em><a href="../classendstone_1_1Plugin/"><em><strong>Plugin</strong></em></a> <em>.</em></li>
-<li><strong>class</strong> <a href="../classendstone_1_1Identifier/"><strong>endstone::Identifier</strong></a> <em>Represents a identifier consisting of two components: a namespace and a key.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1HandlerList/"><strong>endstone::HandlerList</strong></a> <em>A list of event handlers.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1Header/"><strong>endstone::Header</strong></a> <em>Represents a header with a label.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1IRegistry/"><strong>endstone::IRegistry</strong></a> <em>Type-erased base interface for registries.</em>     <ul>
@@ -2828,6 +2880,8 @@ For latest updates join the chat on
 <li><strong>class</strong> <a href="../classendstone_1_1MapCursor/"><strong>endstone::MapCursor</strong></a> <em>Represents a cursor on a map.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1MapRenderer/"><strong>endstone::MapRenderer</strong></a> <em>Represents a renderer for a map.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1MapView/"><strong>endstone::MapView</strong></a> <em>Represents a map item.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1Metrics/"><strong>endstone::Metrics</strong></a> <em>Collects and submits anonymous usage statistics for a plugin to bStats.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1MetricsBase/"><strong>endstone::MetricsBase</strong></a> <em>Collects and submits the data behind a</em> <a href="../classendstone_1_1Metrics/"><em><strong>Metrics</strong></em></a> <em>instance.</em></li>
 <li><strong>class</strong> <a href="../classendstone_1_1NotNull/"><strong>endstone::NotNull</strong></a> <em>A wrapper around a std::shared_ptr that documents that it is never null.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1Nullable/"><strong>endstone::Nullable</strong></a> <em>A wrapper around a std::shared_ptr that may be null.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1Objective/"><strong>endstone::Objective</strong></a> <em>Represents an objective on a scoreboard that can show scores specific to entries.</em> </li>
@@ -2837,7 +2891,6 @@ For latest updates join the chat on
 <li><strong>class</strong> <a href="../classendstone_1_1PluginLoader/"><strong>endstone::PluginLoader</strong></a> <em>Represents a plugin loader, which handles direct access to specific types of plugins.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1PluginManager/"><strong>endstone::PluginManager</strong></a> <em>Represents a plugin manager that handles all plugins from the</em> <a href="../classendstone_1_1Server/"><em><strong>Server</strong></em></a> <em>.</em></li>
 <li><strong>class</strong> <a href="../classendstone_1_1Preconditions/"><strong>endstone::Preconditions</strong></a> <em>Static helpers for validating method arguments and object state.</em> </li>
-<li><strong>class</strong> <a href="../classendstone_1_1Recipe/"><strong>endstone::Recipe</strong></a> <em>Represents some type of crafting recipe.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1Scheduler/"><strong>endstone::Scheduler</strong></a> <em>Represents a scheduler that executes various tasks.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1Score/"><strong>endstone::Score</strong></a> <em>Represents a score for an objective on a scoreboard.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1Scoreboard/"><strong>endstone::Scoreboard</strong></a> <em>Represents a scoreboard.</em> </li>
@@ -2862,6 +2915,7 @@ For latest updates join the chat on
 <li><strong>struct</strong> <a href="../structendstone_1_1detail_1_1JoinView/"><strong>endstone::detail::JoinView</strong></a> <em>A lightweight, formattable view over a range that renders its elements separated by a delimiter.</em> </li>
 <li><strong>struct</strong> <a href="../structendstone_1_1detail_1_1PluginDescriptionBuilder/"><strong>endstone::detail::PluginDescriptionBuilder</strong></a> </li>
 <li><strong>struct</strong> <a href="../structendstone_1_1nbt_1_1escape__view/"><strong>endstone::nbt::escape_view</strong></a> </li>
+<li><strong>struct</strong> <a href="../structstd_1_1hash_3_01endstone_1_1ClassInfo_01_4/"><strong>std::hash&lt; endstone::ClassInfo &gt;</strong></a> </li>
 <li><strong>struct</strong> <a href="../structstd_1_1hash_3_01endstone_1_1Identifier_3_01T_01_4_01_4/"><strong>std::hash&lt; endstone::Identifier&lt; T &gt; &gt;</strong></a> </li>
 <li><strong>struct</strong> <a href="../structstd_1_1hash_3_01endstone_1_1NotNull_3_01T_01_4_01_4/"><strong>std::hash&lt; endstone::NotNull&lt; T &gt; &gt;</strong></a> </li>
 <li><strong>struct</strong> <a href="../structstd_1_1hash_3_01endstone_1_1Nullable_3_01T_01_4_01_4/"><strong>std::hash&lt; endstone::Nullable&lt; T &gt; &gt;</strong></a> </li>
@@ -2881,6 +2935,7 @@ For latest updates join the chat on
 <li><strong>class</strong> <a href="../classendstone_1_1BlockCommandSender/"><strong>endstone::BlockCommandSender</strong></a> <em>Represents a block command sender.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1CommandSenderWrapper/"><strong>endstone::CommandSenderWrapper</strong></a> <em>Represents a wrapper that forwards commands to the wrapped</em> <a href="../classendstone_1_1CommandSender/"><em><strong>CommandSender</strong></em></a> <em>and captures its output.</em></li>
 <li><strong>class</strong> <a href="../classendstone_1_1ConsoleCommandSender/"><strong>endstone::ConsoleCommandSender</strong></a> <em>Represents a console command sender.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1ProxiedCommandSender/"><strong>endstone::ProxiedCommandSender</strong></a> <em>Represents a command sender that is running a command on behalf of another one, as</em> <code>/execute</code> <em>does.</em></li>
 </ul>
 </li>
 </ul>
@@ -2898,6 +2953,7 @@ For latest updates join the chat on
 <li><strong>class</strong> <a href="../classendstone_1_1BlockCommandSender/"><strong>endstone::BlockCommandSender</strong></a> <em>Represents a block command sender.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1CommandSenderWrapper/"><strong>endstone::CommandSenderWrapper</strong></a> <em>Represents a wrapper that forwards commands to the wrapped</em> <a href="../classendstone_1_1CommandSender/"><em><strong>CommandSender</strong></em></a> <em>and captures its output.</em></li>
 <li><strong>class</strong> <a href="../classendstone_1_1ConsoleCommandSender/"><strong>endstone::ConsoleCommandSender</strong></a> <em>Represents a console command sender.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1ProxiedCommandSender/"><strong>endstone::ProxiedCommandSender</strong></a> <em>Represents a command sender that is running a command on behalf of another one, as</em> <code>/execute</code> <em>does.</em></li>
 </ul>
 </li>
 </ul>
@@ -2915,6 +2971,7 @@ For latest updates join the chat on
 <li><strong>class</strong> <a href="../classendstone_1_1BlockCommandSender/"><strong>endstone::BlockCommandSender</strong></a> <em>Represents a block command sender.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1CommandSenderWrapper/"><strong>endstone::CommandSenderWrapper</strong></a> <em>Represents a wrapper that forwards commands to the wrapped</em> <a href="../classendstone_1_1CommandSender/"><em><strong>CommandSender</strong></em></a> <em>and captures its output.</em></li>
 <li><strong>class</strong> <a href="../classendstone_1_1ConsoleCommandSender/"><strong>endstone::ConsoleCommandSender</strong></a> <em>Represents a console command sender.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1ProxiedCommandSender/"><strong>endstone::ProxiedCommandSender</strong></a> <em>Represents a command sender that is running a command on behalf of another one, as</em> <code>/execute</code> <em>does.</em></li>
 </ul>
 </li>
 </ul>
@@ -2932,6 +2989,7 @@ For latest updates join the chat on
 <li><strong>class</strong> <a href="../classendstone_1_1BlockCommandSender/"><strong>endstone::BlockCommandSender</strong></a> <em>Represents a block command sender.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1CommandSenderWrapper/"><strong>endstone::CommandSenderWrapper</strong></a> <em>Represents a wrapper that forwards commands to the wrapped</em> <a href="../classendstone_1_1CommandSender/"><em><strong>CommandSender</strong></em></a> <em>and captures its output.</em></li>
 <li><strong>class</strong> <a href="../classendstone_1_1ConsoleCommandSender/"><strong>endstone::ConsoleCommandSender</strong></a> <em>Represents a console command sender.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1ProxiedCommandSender/"><strong>endstone::ProxiedCommandSender</strong></a> <em>Represents a command sender that is running a command on behalf of another one, as</em> <code>/execute</code> <em>does.</em></li>
 </ul>
 </li>
 </ul>
@@ -2949,6 +3007,7 @@ For latest updates join the chat on
 <li><strong>class</strong> <a href="../classendstone_1_1BlockCommandSender/"><strong>endstone::BlockCommandSender</strong></a> <em>Represents a block command sender.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1CommandSenderWrapper/"><strong>endstone::CommandSenderWrapper</strong></a> <em>Represents a wrapper that forwards commands to the wrapped</em> <a href="../classendstone_1_1CommandSender/"><em><strong>CommandSender</strong></em></a> <em>and captures its output.</em></li>
 <li><strong>class</strong> <a href="../classendstone_1_1ConsoleCommandSender/"><strong>endstone::ConsoleCommandSender</strong></a> <em>Represents a console command sender.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1ProxiedCommandSender/"><strong>endstone::ProxiedCommandSender</strong></a> <em>Represents a command sender that is running a command on behalf of another one, as</em> <code>/execute</code> <em>does.</em></li>
 </ul>
 </li>
 </ul>
@@ -2966,6 +3025,7 @@ For latest updates join the chat on
 <li><strong>class</strong> <a href="../classendstone_1_1BlockCommandSender/"><strong>endstone::BlockCommandSender</strong></a> <em>Represents a block command sender.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1CommandSenderWrapper/"><strong>endstone::CommandSenderWrapper</strong></a> <em>Represents a wrapper that forwards commands to the wrapped</em> <a href="../classendstone_1_1CommandSender/"><em><strong>CommandSender</strong></em></a> <em>and captures its output.</em></li>
 <li><strong>class</strong> <a href="../classendstone_1_1ConsoleCommandSender/"><strong>endstone::ConsoleCommandSender</strong></a> <em>Represents a console command sender.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1ProxiedCommandSender/"><strong>endstone::ProxiedCommandSender</strong></a> <em>Represents a command sender that is running a command on behalf of another one, as</em> <code>/execute</code> <em>does.</em></li>
 </ul>
 </li>
 </ul>
@@ -2983,6 +3043,7 @@ For latest updates join the chat on
 <li><strong>class</strong> <a href="../classendstone_1_1BlockCommandSender/"><strong>endstone::BlockCommandSender</strong></a> <em>Represents a block command sender.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1CommandSenderWrapper/"><strong>endstone::CommandSenderWrapper</strong></a> <em>Represents a wrapper that forwards commands to the wrapped</em> <a href="../classendstone_1_1CommandSender/"><em><strong>CommandSender</strong></em></a> <em>and captures its output.</em></li>
 <li><strong>class</strong> <a href="../classendstone_1_1ConsoleCommandSender/"><strong>endstone::ConsoleCommandSender</strong></a> <em>Represents a console command sender.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1ProxiedCommandSender/"><strong>endstone::ProxiedCommandSender</strong></a> <em>Represents a command sender that is running a command on behalf of another one, as</em> <code>/execute</code> <em>does.</em></li>
 </ul>
 </li>
 </ul>
@@ -3000,6 +3061,7 @@ For latest updates join the chat on
 <li><strong>class</strong> <a href="../classendstone_1_1BlockCommandSender/"><strong>endstone::BlockCommandSender</strong></a> <em>Represents a block command sender.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1CommandSenderWrapper/"><strong>endstone::CommandSenderWrapper</strong></a> <em>Represents a wrapper that forwards commands to the wrapped</em> <a href="../classendstone_1_1CommandSender/"><em><strong>CommandSender</strong></em></a> <em>and captures its output.</em></li>
 <li><strong>class</strong> <a href="../classendstone_1_1ConsoleCommandSender/"><strong>endstone::ConsoleCommandSender</strong></a> <em>Represents a console command sender.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1ProxiedCommandSender/"><strong>endstone::ProxiedCommandSender</strong></a> <em>Represents a command sender that is running a command on behalf of another one, as</em> <code>/execute</code> <em>does.</em></li>
 </ul>
 </li>
 </ul>
@@ -3017,6 +3079,25 @@ For latest updates join the chat on
 <li><strong>class</strong> <a href="../classendstone_1_1BlockCommandSender/"><strong>endstone::BlockCommandSender</strong></a> <em>Represents a block command sender.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1CommandSenderWrapper/"><strong>endstone::CommandSenderWrapper</strong></a> <em>Represents a wrapper that forwards commands to the wrapped</em> <a href="../classendstone_1_1CommandSender/"><em><strong>CommandSender</strong></em></a> <em>and captures its output.</em></li>
 <li><strong>class</strong> <a href="../classendstone_1_1ConsoleCommandSender/"><strong>endstone::ConsoleCommandSender</strong></a> <em>Represents a console command sender.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1ProxiedCommandSender/"><strong>endstone::ProxiedCommandSender</strong></a> <em>Represents a command sender that is running a command on behalf of another one, as</em> <code>/execute</code> <em>does.</em></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>class</strong> <a href="../classendstone_1_1Permissible/"><strong>endstone::Permissible</strong></a> <em>Represents an object that may become a server operator and can be assigned permissions.</em>     <ul>
+<li><strong>class</strong> <a href="../classendstone_1_1CommandSender/"><strong>endstone::CommandSender</strong></a> <em>Represents a command sender.</em>     <ul>
+<li><strong>class</strong> <a href="../classendstone_1_1Actor/"><strong>endstone::Actor</strong></a> <em>Represents a base actor in the level.</em>     <ul>
+<li><strong>class</strong> <a href="../classendstone_1_1Item/"><strong>endstone::Item</strong></a> <em>Represents a dropped item that can be picked up by players.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1Mob/"><strong>endstone::Mob</strong></a> <em>Represents a mobile entity (i.e.</em>     <ul>
+<li><strong>class</strong> <a href="../classendstone_1_1Player/"><strong>endstone::Player</strong></a> <em>Represents a player.</em> </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>class</strong> <a href="../classendstone_1_1BlockCommandSender/"><strong>endstone::BlockCommandSender</strong></a> <em>Represents a block command sender.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1CommandSenderWrapper/"><strong>endstone::CommandSenderWrapper</strong></a> <em>Represents a wrapper that forwards commands to the wrapped</em> <a href="../classendstone_1_1CommandSender/"><em><strong>CommandSender</strong></em></a> <em>and captures its output.</em></li>
+<li><strong>class</strong> <a href="../classendstone_1_1ConsoleCommandSender/"><strong>endstone::ConsoleCommandSender</strong></a> <em>Represents a console command sender.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1ProxiedCommandSender/"><strong>endstone::ProxiedCommandSender</strong></a> <em>Represents a command sender that is running a command on behalf of another one, as</em> <code>/execute</code> <em>does.</em></li>
 </ul>
 </li>
 </ul>
@@ -3024,6 +3105,18 @@ For latest updates join the chat on
 </ul>
 </li>
 <li><strong>class</strong> <strong>EventType</strong>    <ul>
+<li><strong>class</strong> <a href="../classendstone_1_1Cancellable/"><strong>endstone::Cancellable</strong></a> <em>A type characterizing events that may be cancelled by a plugin or the server.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1Cancellable/"><strong>endstone::Cancellable</strong></a> <em>A type characterizing events that may be cancelled by a plugin or the server.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1Cancellable/"><strong>endstone::Cancellable</strong></a> <em>A type characterizing events that may be cancelled by a plugin or the server.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1Cancellable/"><strong>endstone::Cancellable</strong></a> <em>A type characterizing events that may be cancelled by a plugin or the server.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1Cancellable/"><strong>endstone::Cancellable</strong></a> <em>A type characterizing events that may be cancelled by a plugin or the server.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1Cancellable/"><strong>endstone::Cancellable</strong></a> <em>A type characterizing events that may be cancelled by a plugin or the server.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1Cancellable/"><strong>endstone::Cancellable</strong></a> <em>A type characterizing events that may be cancelled by a plugin or the server.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1Cancellable/"><strong>endstone::Cancellable</strong></a> <em>A type characterizing events that may be cancelled by a plugin or the server.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1Cancellable/"><strong>endstone::Cancellable</strong></a> <em>A type characterizing events that may be cancelled by a plugin or the server.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1Cancellable/"><strong>endstone::Cancellable</strong></a> <em>A type characterizing events that may be cancelled by a plugin or the server.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1Cancellable/"><strong>endstone::Cancellable</strong></a> <em>A type characterizing events that may be cancelled by a plugin or the server.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1Cancellable/"><strong>endstone::Cancellable</strong></a> <em>A type characterizing events that may be cancelled by a plugin or the server.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1Cancellable/"><strong>endstone::Cancellable</strong></a> <em>A type characterizing events that may be cancelled by a plugin or the server.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1Cancellable/"><strong>endstone::Cancellable</strong></a> <em>A type characterizing events that may be cancelled by a plugin or the server.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1Cancellable/"><strong>endstone::Cancellable</strong></a> <em>A type characterizing events that may be cancelled by a plugin or the server.</em> </li>

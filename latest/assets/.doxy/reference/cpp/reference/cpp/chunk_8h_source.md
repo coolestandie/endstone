@@ -25,10 +25,14 @@
 #pragma once
 
 #include <format>
+#include <vector>
 
 #include "endstone/actor/actor.h"
 
 namespace endstone {
+
+class BlockState;
+class Plugin;
 
 class Chunk {
 public:
@@ -41,6 +45,22 @@ public:
     [[nodiscard]] virtual Level &getLevel() const = 0;
 
     [[nodiscard]] virtual NotNull<Dimension> getDimension() const = 0;
+
+    [[nodiscard]] virtual bool isLoaded() const = 0;
+
+    virtual bool load() = 0;
+
+    virtual bool load(bool generate) = 0;
+
+    virtual bool unload() = 0;
+
+    virtual bool addPluginChunkTicket(Plugin &plugin) = 0;
+
+    virtual bool removePluginChunkTicket(Plugin &plugin) = 0;
+
+    [[nodiscard]] virtual std::vector<NotNull<BlockState>> getBlockActors() const = 0;
+
+    [[nodiscard]] virtual std::vector<Plugin *> getPluginChunkTickets() const = 0;
 };
 
 }  // namespace endstone

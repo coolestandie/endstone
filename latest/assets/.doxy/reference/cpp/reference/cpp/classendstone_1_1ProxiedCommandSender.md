@@ -1,0 +1,332 @@
+
+
+# Class endstone::ProxiedCommandSender
+
+
+
+[**ClassList**](annotated.md) **>** [**endstone**](namespaceendstone.md) **>** [**ProxiedCommandSender**](classendstone_1_1ProxiedCommandSender.md)
+
+
+
+_Represents a command sender that is running a command on behalf of another one, as_ `/execute` _does._[More...](#detailed-description)
+
+* `#include <endstone/command/proxied_command_sender.h>`
+
+
+
+Inherits the following classes: [endstone::CommandSender](classendstone_1_1CommandSender.md)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Public Functions
+
+| Type | Name |
+| ---: | :--- |
+| virtual [**NotNull**](classendstone_1_1NotNull.md)&lt; [**CommandSender**](classendstone_1_1CommandSender.md) &gt; | [**getCallee**](#function-getcallee) () const = 0<br>_Returns the_ [_**CommandSender**_](classendstone_1_1CommandSender.md) _which is being used to call the command._ |
+| virtual [**NotNull**](classendstone_1_1NotNull.md)&lt; [**CommandSender**](classendstone_1_1CommandSender.md) &gt; | [**getCaller**](#function-getcaller) () const = 0<br>_Returns the_ [_**CommandSender**_](classendstone_1_1CommandSender.md) _which triggered this proxied command._ |
+
+
+## Public Functions inherited from endstone::CommandSender
+
+See [endstone::CommandSender](classendstone_1_1CommandSender.md)
+
+| Type | Name |
+| ---: | :--- |
+| virtual std::string | [**getName**](classendstone_1_1CommandSender.md#function-getname) () const = 0<br>_Gets the name of this command sender._  |
+| virtual [**Server**](classendstone_1_1Server.md) & | [**getServer**](classendstone_1_1CommandSender.md#function-getserver) () const = 0<br>_Returns the server instance that this command is running on._  |
+| virtual [**void**](classendstone_1_1Identifier.md) | [**sendErrorMessage**](classendstone_1_1CommandSender.md#function-senderrormessage-12) ([**const**](classendstone_1_1Identifier.md) [**Message**](namespaceendstone.md#typedef-message) & message) const = 0<br>_Sends this sender a error message._  |
+|  [**void**](classendstone_1_1Identifier.md) | [**sendErrorMessage**](classendstone_1_1CommandSender.md#function-senderrormessage-22) ([**const**](classendstone_1_1Identifier.md) std::format\_string&lt; Args... &gt; format, [**Args**](classendstone_1_1Identifier.md) &&... args) const<br> |
+| virtual [**void**](classendstone_1_1Identifier.md) | [**sendMessage**](classendstone_1_1CommandSender.md#function-sendmessage-12) ([**const**](classendstone_1_1Identifier.md) [**Message**](namespaceendstone.md#typedef-message) & message) const = 0<br>_Sends this sender a message._  |
+|  [**void**](classendstone_1_1Identifier.md) | [**sendMessage**](classendstone_1_1CommandSender.md#function-sendmessage-22) ([**const**](classendstone_1_1Identifier.md) std::format\_string&lt; Args... &gt; format, [**Args**](classendstone_1_1Identifier.md) &&... args) const<br> |
+
+
+## Public Functions inherited from endstone::Permissible
+
+See [endstone::Permissible](classendstone_1_1Permissible.md)
+
+| Type | Name |
+| ---: | :--- |
+| virtual [**NotNull**](classendstone_1_1NotNull.md)&lt; [**PermissionAttachment**](classendstone_1_1PermissionAttachment.md) &gt; | [**addAttachment**](classendstone_1_1Permissible.md#function-addattachment-12) ([**Plugin**](classendstone_1_1Plugin.md) & plugin, [**const**](classendstone_1_1Identifier.md) std::string & name, [**bool**](classendstone_1_1Identifier.md) value) = 0<br>_Adds a new_ [_**PermissionAttachment**_](classendstone_1_1PermissionAttachment.md) _with a single permission by name and value._ |
+| virtual [**NotNull**](classendstone_1_1NotNull.md)&lt; [**PermissionAttachment**](classendstone_1_1PermissionAttachment.md) &gt; | [**addAttachment**](classendstone_1_1Permissible.md#function-addattachment-22) ([**Plugin**](classendstone_1_1Plugin.md) & plugin) = 0<br>_Adds a new empty_ [_**PermissionAttachment**_](classendstone_1_1PermissionAttachment.md) _to this object._ |
+| virtual std::unordered\_set&lt; [**NotNull**](classendstone_1_1NotNull.md)&lt; [**PermissionAttachmentInfo**](classendstone_1_1PermissionAttachmentInfo.md) &gt; &gt; | [**getEffectivePermissions**](classendstone_1_1Permissible.md#function-geteffectivepermissions) () const = 0<br>_Gets a set containing all the permissions currently in effect by this object._  |
+| virtual [**PermissionLevel**](namespaceendstone.md#enum-permissionlevel) | [**getPermissionLevel**](classendstone_1_1Permissible.md#function-getpermissionlevel) () const = 0<br>_Gets the permission level of this object._  |
+| virtual [**bool**](classendstone_1_1Identifier.md) | [**hasPermission**](classendstone_1_1Permissible.md#function-haspermission-12) (std::string name) const = 0<br>_Gets the value of the specified permission, if set._  |
+| virtual [**bool**](classendstone_1_1Identifier.md) | [**hasPermission**](classendstone_1_1Permissible.md#function-haspermission-22) ([**const**](classendstone_1_1Identifier.md) [**NotNull**](classendstone_1_1NotNull.md)&lt; [**Permission**](classendstone_1_1Permission.md) &gt; & perm) const = 0<br>_Gets the value of the specified permission, if set._  |
+| virtual [**bool**](classendstone_1_1Identifier.md) | [**isPermissionSet**](classendstone_1_1Permissible.md#function-ispermissionset-12) (std::string name) const = 0<br>_Checks if this object contains an override for the specified permission, by fully qualified name._  |
+| virtual [**bool**](classendstone_1_1Identifier.md) | [**isPermissionSet**](classendstone_1_1Permissible.md#function-ispermissionset-22) ([**const**](classendstone_1_1Identifier.md) [**NotNull**](classendstone_1_1NotNull.md)&lt; [**Permission**](classendstone_1_1Permission.md) &gt; & perm) const = 0<br>_Checks if this object contains an override for the specified_ [_**Permission**_](classendstone_1_1Permission.md) _._ |
+| virtual [**void**](classendstone_1_1Identifier.md) | [**recalculatePermissions**](classendstone_1_1Permissible.md#function-recalculatepermissions) () = 0<br>_Recalculates the permissions for this object, if the attachments have changed values._  |
+| virtual [**bool**](classendstone_1_1Identifier.md) | [**removeAttachment**](classendstone_1_1Permissible.md#function-removeattachment) ([**const**](classendstone_1_1Identifier.md) [**NotNull**](classendstone_1_1NotNull.md)&lt; [**PermissionAttachment**](classendstone_1_1PermissionAttachment.md) &gt; & attachment) = 0<br>_Removes the given_ [_**PermissionAttachment**_](classendstone_1_1PermissionAttachment.md) _from this object._ |
+
+
+## Public Functions inherited from endstone::Object
+
+See [endstone::Object](classendstone_1_1Object.md)
+
+| Type | Name |
+| ---: | :--- |
+|  [**T**](classendstone_1_1Identifier.md) \* | [**as**](classendstone_1_1Object.md#function-as-12) () <br>_Attempts to cast this object to the given type T._  |
+|  [**const**](classendstone_1_1Identifier.md) [**T**](classendstone_1_1Identifier.md) \* | [**as**](classendstone_1_1Object.md#function-as-22) () const<br>_Attempts to cast this object to the given type T._  |
+| virtual [**ClassInfo**](classendstone_1_1ClassInfo.md) | [**getClassInfo**](classendstone_1_1Object.md#function-getclassinfo) () const = 0<br> |
+|  [**bool**](classendstone_1_1Identifier.md) | [**is**](classendstone_1_1Object.md#function-is) () const<br>_Checks if this object is an instance of the given type T (or a subclass of T)._  |
+| virtual [**bool**](classendstone_1_1Identifier.md) | [**isInstanceOf**](classendstone_1_1Object.md#function-isinstanceof) ([**ClassInfo**](classendstone_1_1ClassInfo.md) target) const = 0<br> |
+| virtual  | [**~Object**](classendstone_1_1Object.md#function-object) () = default<br> |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Detailed Description
+
+
+Output and permissions belong to the caller, while the name and the execution context belong to the callee. 
+
+
+    
+## Public Functions Documentation
+
+
+
+
+### function getCallee 
+
+_Returns the_ [_**CommandSender**_](classendstone_1_1CommandSender.md) _which is being used to call the command._
+```C++
+virtual NotNull < CommandSender > endstone::ProxiedCommandSender::getCallee () const = 0
+```
+
+
+
+
+
+**Returns:**
+
+The sender which the command is being run as 
+
+
+
+
+
+        
+
+<hr>
+
+
+
+### function getCaller 
+
+_Returns the_ [_**CommandSender**_](classendstone_1_1CommandSender.md) _which triggered this proxied command._
+```C++
+virtual NotNull < CommandSender > endstone::ProxiedCommandSender::getCaller () const = 0
+```
+
+
+
+
+
+**Returns:**
+
+The caller which triggered the command 
+
+
+
+
+
+        
+
+<hr>
+
+------------------------------
+The documentation for this class was generated from the following file `include/endstone/command/proxied_command_sender.h`
+

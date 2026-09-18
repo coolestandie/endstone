@@ -17,7 +17,7 @@ _Represents a captured state of a block, which will not update automatically._ [
 Inherits the following classes: [endstone::Object](classendstone_1_1Object.md)
 
 
-Inherited by the following classes: [endstone::Campfire](classendstone_1_1Campfire.md),  [endstone::Container](classendstone_1_1Container.md),  [endstone::CreatureSpawner](classendstone_1_1CreatureSpawner.md),  [endstone::ItemFrame](classendstone_1_1ItemFrame.md),  [endstone::Sign](classendstone_1_1Sign.md)
+Inherited by the following classes: [endstone::BlockActorState](classendstone_1_1BlockActorState.md)
 
 
 
@@ -98,9 +98,9 @@ See [endstone::Object](classendstone_1_1Object.md)
 | ---: | :--- |
 |  [**T**](classendstone_1_1Identifier.md) \* | [**as**](classendstone_1_1Object.md#function-as-12) () <br>_Attempts to cast this object to the given type T._  |
 |  [**const**](classendstone_1_1Identifier.md) [**T**](classendstone_1_1Identifier.md) \* | [**as**](classendstone_1_1Object.md#function-as-22) () const<br>_Attempts to cast this object to the given type T._  |
-| virtual [**const**](classendstone_1_1Identifier.md) std::type\_info & | [**getClassTypeId**](classendstone_1_1Object.md#function-getclasstypeid) () const = 0<br> |
+| virtual [**ClassInfo**](classendstone_1_1ClassInfo.md) | [**getClassInfo**](classendstone_1_1Object.md#function-getclassinfo) () const = 0<br> |
 |  [**bool**](classendstone_1_1Identifier.md) | [**is**](classendstone_1_1Object.md#function-is) () const<br>_Checks if this object is an instance of the given type T (or a subclass of T)._  |
-| virtual [**bool**](classendstone_1_1Identifier.md) | [**isInstanceOf**](classendstone_1_1Object.md#function-isinstanceof) ([**const**](classendstone_1_1Identifier.md) std::type\_info & target) const = 0<br> |
+| virtual [**bool**](classendstone_1_1Identifier.md) | [**isInstanceOf**](classendstone_1_1Object.md#function-isinstanceof) ([**ClassInfo**](classendstone_1_1ClassInfo.md) target) const = 0<br> |
 | virtual  | [**~Object**](classendstone_1_1Object.md#function-object) () = default<br> |
 
 

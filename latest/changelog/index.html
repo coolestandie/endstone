@@ -2619,6 +2619,56 @@ For latest updates join the chat on
             
                 
             
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#01111-2026-09-16" class="md-nav__link">
+      <span class="md-ellipsis">
+        0.11.11 - 2026-09-16
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="0.11.11 - 2026-09-16">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#01110-2026-08-28" class="md-nav__link">
+      <span class="md-ellipsis">
+        0.11.10 - 2026-08-28
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="0.11.10 - 2026-08-28">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+                
+            
         </ul>
     </nav>
     
@@ -4078,6 +4128,56 @@ For latest updates join the chat on
             
                 
             
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#01111-2026-09-16" class="md-nav__link">
+      <span class="md-ellipsis">
+        0.11.11 - 2026-09-16
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="0.11.11 - 2026-09-16">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#01110-2026-08-28" class="md-nav__link">
+      <span class="md-ellipsis">
+        0.11.10 - 2026-08-28
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="0.11.10 - 2026-08-28">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+                
+            
         </ul>
     </nav>
     
@@ -5522,270 +5622,364 @@ For latest updates join the chat on
 <p>All notable changes to this project will be documented in this file.</p>
 <p>The format is based on <a href="https://keepachangelog.com/en/1.1.0/">Keep a Changelog</a>
 and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning</a>.</p>
-<h2 id="unreleased"><a href="https://github.com/EndstoneMC/endstone/compare/v0.11.9...HEAD">Unreleased</a><a class="headerlink" href="#unreleased" title="Permanent link">&para;</a></h2>
+<h2 id="unreleased"><a href="https://github.com/EndstoneMC/endstone/compare/v0.11.11...HEAD">Unreleased</a><a class="headerlink" href="#unreleased" title="Permanent link">&para;</a></h2>
 <h3 id="added">Added<a class="headerlink" href="#added" title="Permanent link">&para;</a></h3>
+<h4 id="events">Events<a class="headerlink" href="#events" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Added <code>ActorExplodeEvent::setBlockList()</code> and <code>BlockExplodeEvent::setBlockList()</code>, and made their <code>BlockList</code> alias public, so the blown-up block list can be replaced wholesale from C++ as it already could from Python.</li>
-<li>Added <code>Player.send_action_bar()</code> for sending a message above the player's hotbar.</li>
-<li>Added <code>/restart</code> command (console-only) that gracefully restarts the server without manually relaunching.</li>
-<li>Added support for custom Python events with optional cancellation.</li>
-<li>Added <code>ActorType</code> to the registry API, along with the missing <code>ActorType.SULFUR_CUBE</code> constant.</li>
-<li>Added an attribute API: <code>Mob.get_attribute()</code>, <code>Mob.has_attribute()</code> and <code>Mob.attributes</code> expose a living entity's attributes (health, movement speed, attack damage, etc.). Each <code>AttributeInstance</code> reports its current, base, minimum and maximum value, and takes <code>AttributeModifier</code>s at runtime.</li>
-<li>Added <code>endstone.Identifier</code> for namespaced ids, so <code>dim.id.namespace</code> and <code>dim.id.key</code> are separable and a type checker can tell <code>Identifier[Dimension]</code> apart from <code>Identifier[ActorType]</code>. Plain strings are still accepted wherever an <code>Identifier</code> is required.</li>
-<li>Added <code>BlockData.translation_key</code> for retrieving the translation key of a block.</li>
-<li>Added <code>Dimension.mobs</code> and <code>Dimension.players</code>, mirroring Bukkit's <code>World#getLivingEntities()</code> and <code>World#getPlayers()</code>. Both narrow <code>Dimension.actors</code>, which lists everything in the dimension.</li>
-<li>Added <code>Level.create_dimension()</code> for creating custom dimensions at runtime, which registers and returns an empty (void) dimension built from -64 to 320. A dimension's terrain and actors survive a restart but the registration does not, so call it again on every startup to get the same dimension back.</li>
-<li>Added <code>WritableBookMeta</code>, <code>BookMeta</code> and <code>CrossbowMeta</code> item meta types.</li>
-<li>Added <code>PotionMeta</code> for potions, splash potions and lingering potions, giving the <code>PotionType</code> identifiers a consumer: <code>meta.base_potion_type</code> reads and writes the potion a bottle holds. Bedrock derives a potion's effects and its colour from the base potion type, so there is no <code>custom_effects</code> or <code>color</code> as in Bukkit's <code>PotionMeta</code>.</li>
-<li>Added binary NBT serialization (<code>dump</code>/<code>load</code>) with support for multiple formats.</li>
-<li>Added a unified <code>Object.as&lt;T&gt;()</code>/<code>is&lt;T&gt;()</code> casting API, replacing the per-type <code>asPlayer()</code>, <code>asMob()</code>, etc. <code>NotNull&lt;T&gt;</code> and <code>Nullable&lt;T&gt;</code> carry the same pair, so a handle can be narrowed without unwrapping it: <code>event.getActor().as&lt;Player&gt;()</code> returns a <code>Nullable&lt;Player&gt;</code> that shares ownership with the original, or a null one if the actor is not a player.</li>
-<li>Added a healthcheck to the Docker image so <code>docker ps</code> and Docker Compose report whether the server is actually online.</li>
-<li>Added <code>PUID</code>/<code>PGID</code> environment variables to the Docker image to keep server files owned by your host user.</li>
-<li>Added a <code>docker-compose.yml</code> for running the server with Docker Compose.</li>
-<li>Added graceful shutdown on Linux, so stopping the server (e.g. via <code>docker stop</code>) lets the Bedrock server save the world before it exits.</li>
-<li>Added <code>PlayerRespawnEvent.respawn_reason</code> (<code>RespawnReason.DEATH</code> / <code>RespawnReason.END_PORTAL</code>) so plugins can tell a normal death respawn apart from a player returning through the End exit portal.</li>
-<li>Added <code>PlayerLevelChangeEvent</code>, called when a player's experience level changes, reporting <code>old_level</code> and <code>new_level</code>.</li>
-<li>Added <code>PlayerExpChangeEvent</code>, called when a player gains experience, reporting the <code>amount</code> gained. It is not called when experience is reset on death.</li>
-<li>Added <code>PlayerPickupArrowEvent</code>, called when a player picks up an arrow or a thrown trident from the ground. Cancelling it leaves the projectile on the ground.</li>
-<li>Added <code>PlayerRecipeBookSettingsChangeEvent</code>, called when a player opens, closes or filters their recipe book, reporting <code>recipe_book_type</code>, <code>is_open</code> and <code>is_filtering</code>.</li>
-<li>Added <code>PlayerInputEvent</code>, called when a player's movement input changes, and the <code>Input</code> type it carries: <code>is_forward</code>, <code>is_backward</code>, <code>is_left</code>, <code>is_right</code>, <code>is_jump</code>, <code>is_sneak</code> and <code>is_sprint</code>. Like Bukkit's event, it fires only when the input differs from the last one the player sent, not every tick.</li>
-<li>Added <code>PlayerArmSwingEvent</code>, called when a player swings their arm, reporting the <code>item</code> in their hand. It follows the server's own swing handling, so it also covers swings the server drives itself, such as dropping an item.</li>
-<li>Added <code>PlayerRiptideEvent</code>, called when a player activates the riptide enchantment and is propelled by their trident, reporting the <code>item</code> used. It fires only once the server has accepted the riptide, so a trident that is merely thrown does not trigger it.</li>
-<li>Added <code>PlayerArmorStandManipulateEvent</code>, called when a player swaps, retrieves or places an item on an armor stand, reporting <code>armor_stand_item</code>, <code>player_item</code> and the affected <code>slot</code>. Cancelling it leaves the armor stand untouched.</li>
-<li>Added <code>PlayerBucketActorEvent</code>, called when a player captures an actor in a bucket, reporting the <code>actor</code> being captured, the <code>original_bucket</code> used and the <code>hand</code> it was held in. Cancelling it leaves the actor in the world and the bucket unfilled. Bedrock only builds the filled bucket after the capture is committed, so there is no <code>entity_bucket</code> as in Bukkit's <code>PlayerBucketEntityEvent</code>.</li>
-<li>Added <code>PlayerShearActorEvent</code>, called when a player shears an actor, reporting the <code>actor</code> being sheared, the <code>item</code> used and the <code>hand</code> it was held in. Cancelling it leaves the actor unsheared. This is Bukkit's <code>PlayerShearEntityEvent</code>, spelled with <code>Actor</code> as everywhere else in Endstone; Bedrock rolls the shear loot table only after the interaction is committed, so there is no <code>drops</code> list to read or replace.</li>
-<li>Added <code>ActorCollideWithActorEvent</code>, called when two actors collide with each other, reporting both in <code>actors</code>. This is Paper's <code>EntityCollideWithEntityEvent</code>, spelled with <code>Actor</code> as everywhere else in Endstone. Cancelling it stops the two from being pushed apart; because the server boards riders on the same code path, it also stops boats and minecarts from being boarded by walking into them. Like Paper's event, it is called before the server decides whether the collision leads to a push, so it also fires for pairs that are never pushed, and more than once per tick while a pair keeps overlapping. It is skipped entirely when no plugin is listening.</li>
-<li>Added <code>ActorEffectEvent</code>, called before an effect is applied to a living entity, reporting the <code>action</code> taken (currently only <code>Action.ADDED</code>) and the <code>effect</code> involved. Cancelling it stops the effect being applied, and assigning to <code>effect</code> replaces it with a different one.</li>
-<li>Added <code>ActorPickupItemEvent</code>, called when a non-player entity picks an item up from the ground, reporting the <code>item</code> and the <code>amount</code> taken. Cancelling it leaves the item on the ground. Players are covered by <code>PlayerPickupItemEvent</code>.</li>
-<li>Added <code>ActorDismountEvent</code>, called when an entity stops riding another entity, reporting the <code>vehicle</code> being left. Cancelling it keeps the rider aboard.</li>
-<li>Added <code>ActorChangeBlockEvent</code>, called when a mob changes a block through its own behaviour, such as a creeper exploding, an enderman picking a block up, a ravager trampling crops or a zombie breaking a door. Cancelling it leaves the block alone. Unlike Bukkit's event of the same name, it is not called for falling blocks landing or for sheep eating grass, and the resulting block state is not available.</li>
-<li>Added <code>PlayerPickupExperienceEvent</code>, called when a player picks up an experience orb, reporting the <code>amount</code> the orb is worth. Cancelling it leaves the orb in the world.</li>
-<li>Added <code>PlayerCraftItemEvent</code>, called when a player crafts an item from a crafting grid or the recipe book, reporting the crafted <code>item</code>, the <code>recipe_id</code> and the <code>amount</code> of crafts. Cancelling it stops the craft and leaves the ingredients untouched.</li>
-<li>Added a <code>Container</code> block state for reading and modifying container blocks such as chests, barrels, hoppers, dispensers, droppers, shulker boxes and furnaces, exposing their items via <code>container.inventory</code>.</li>
-<li>Added a <code>CreatureSpawner</code> block state for monster spawners: <code>spawned_type</code>, <code>delay</code>, <code>min_spawn_delay</code>, <code>max_spawn_delay</code>, <code>spawn_count</code>, <code>max_nearby_entities</code>, <code>required_player_range</code> and <code>spawn_range</code>, all matching their Bukkit counterparts.</li>
-<li>Added a <code>Campfire</code> block state for the four cooking slots of a campfire, with <code>get_item()</code>/<code>set_item()</code> and <code>get_cook_time()</code>/<code>set_cook_time()</code>.</li>
-<li>Added a <code>Lectern</code> block state exposing the displayed <code>page</code>. It extends <code>Container</code>, so <code>lectern.inventory</code> gives the book it holds.</li>
-<li>Added a <code>Furnace</code> block state for furnaces, blast furnaces and smokers. It extends <code>Container</code>, so <code>furnace.inventory</code> gives the ingredient, fuel and result slots. Bedrock derives the total cook time from the recipe rather than storing it, so there is no <code>cook_time_total</code>.</li>
-<li>Added a <code>Sign</code> block state for signs and hanging signs, with <code>sign.get_side(Sign.Side.FRONT)</code> giving that side's <code>lines</code>, <code>glowing_text</code> and <code>color</code>, and <code>sign.waxed</code> controlling whether players can still edit it. Bedrock stores a sign's text colour as a colour rather than a dye, so <code>color</code> is a <code>Color</code> where Bukkit has a <code>DyeColor</code>.</li>
-<li>Added an <code>ItemFrame</code> block state for item frames and glow item frames, exposing <code>item</code>, <code>rotation</code> (a <code>Rotation</code>, in 45 degree steps) and <code>item_drop_chance</code>. The names match Bukkit's <code>ItemFrame</code>, except that item frames are blocks on Bedrock rather than entities.</li>
-<li>Added a <code>Biome</code> type and <code>Block.biome</code> for reading the biome at a block. Biomes can be looked up with <code>Biome.get("minecraft:plains")</code> and enumerated via <code>server.get_registry(Biome)</code>.</li>
-<li>Added an effect API: <code>Mob.add_effect()</code>, <code>Mob.remove_effect()</code>, <code>Mob.has_effect()</code>, <code>Mob.get_effect()</code> and <code>Mob.active_effects</code> apply, remove and query a living entity's status effects. Effects are described by the new <code>Effect</code> type, carrying an effect type, duration in ticks, amplifier, and ambient/particles/icon display flags.</li>
-<li>Added <code>EffectType</code> and <code>PotionType</code> to the registry API, so both can be looked up by name and enumerated with <code>server.get_registry()</code>, reporting what the server actually supports. Each entry carries a <code>translation_key</code>, and the existing constants are unchanged.</li>
-<li>Added a chunk loading API: <code>Dimension.load_chunk()</code>, <code>Dimension.unload_chunk()</code> and <code>Dimension.is_chunk_loaded()</code>. <code>load_chunk()</code> queues the load and pins the chunk as soon as it returns, so <code>is_chunk_loaded()</code> may still report <code>False</code> on the same tick; <code>unload_chunk()</code> releases it again so it can unload once nothing else is keeping it loaded.</li>
-<li>Added <code>PlayerToggleSneakEvent</code> and <code>PlayerToggleSprintEvent</code>, fired when a player starts or stops sneaking or sprinting, with the new state in <code>is_sneaking</code>/<code>is_sprinting</code>. Both carry their Bukkit names, so a plugin ported from Spigot or Paper listens for them unchanged.</li>
-<li>Added <code>ActorToggleSwimEvent</code> and <code>ActorToggleGlideEvent</code>, fired when an actor starts or stops swimming, or starts or stops gliding with an elytra, with the new state in <code>is_swimming</code>/<code>is_gliding</code>. These are Bukkit's <code>EntityToggleSwimEvent</code> and <code>EntityToggleGlideEvent</code>, spelled with <code>Actor</code> as everywhere else in Endstone.</li>
-<li>Added <code>Mob.is_swimming</code>, mirroring Bukkit's <code>LivingEntity#isSwimming()</code>, alongside the existing <code>Mob.is_gliding</code>.</li>
-<li>Added <code>Player.is_crawling</code>. Bukkit has no equivalent because crawling is a pose there, while on Bedrock it is a state the server tracks in its own right, and <code>PlayerToggleCrawlEvent</code> already reports it.</li>
-<li>Added <code>PlayerToggleFlightEvent</code>, fired when a player starts or stops flying, with the new state in <code>is_flying</code>. Like Bukkit's event, it fires only for a player who is allowed to fly.</li>
-<li>Added <code>PlayerToggleCrawlEvent</code>, fired when a player starts or stops crawling, with the new state in <code>is_crawling</code>. Bukkit has no equivalent because crawling is only a pose there, while on Bedrock it is a state the server tracks in its own right.</li>
-<li>Added <code>Server.command_map</code> (<code>Server::getCommandMap()</code>), mirroring Paper's <code>Server#getCommandMap()</code>, which Bukkit leaves off the interface so plugins there resort to reflection. <code>CommandMap</code> is now available from Python with <code>register_command()</code>, <code>dispatch()</code>, <code>clear_commands()</code> and <code>get_command()</code>, so a plugin can register a command at runtime rather than declaring it up front.</li>
-<li><code>Command</code> can now be subclassed in Python to override <code>execute()</code>, the way Paper plugins subclass <code>Command</code>. Previously a Python subclass could be written but its <code>execute()</code> was never called.</li>
+<li><code>BlockFormEvent</code> now fires, for lava solidifying against a neighbouring liquid: obsidian from a lava source, cobblestone from flowing lava, and basalt where lava sits between blue ice and soul soil. It reports the lava <code>block</code> and the <code>new_state</code> it will take, and is fired before the world changes, so cancelling leaves the lava as it is and plays no extinguishing effect. Snow, ice and concrete do not fire it yet, and neither does lava that solidifies while a chunk is still streaming in.</li>
+<li><code>PlayerHideActorEvent</code> and <code>PlayerShowActorEvent</code>, reporting the <code>actor</code> whose visibility changed. Neither fires when the actor was already hidden from, or already visible to, that player.</li>
+<li><code>EnchantItemEvent</code> for enchanting an item at an enchanting table, reporting the enchanting <code>inventory</code>, the <code>enchanter</code>, the <code>enchant_block</code>, the <code>item</code>, the <code>exp_level_cost</code>, the <code>enchants_to_add</code> and the <code>which_button</code> selected. The item, cost and enchantments are writable; cancelling leaves the item, the player's experience levels and the lapis lazuli untouched. It does not fire for an offer the player cannot pay for, and no enchantment hint is reported.</li>
+<li><code>PrepareItemEnchantEvent</code> for inspecting, replacing or hiding the three offers prepared by an enchanting table. It reports the enchanting <code>inventory</code>, the <code>enchanter</code>, the <code>enchant_block</code>, the <code>item</code>, the nearby-bookshelf <code>enchantment_bonus</code>, and the complete enchantment set and cost for each offer. Offer costs must be between 1 and 255, the range the client accepts. Cancelling removes every offer, and neither a cancellation nor an edited offer is preceded by the vanilla offers reaching the client.</li>
+<li><code>PlayerLevelChangeEvent</code> (<code>old_level</code>, <code>new_level</code>), <code>PlayerExpChangeEvent</code> (<code>amount</code> gained) and <code>PlayerPickupExperienceEvent</code> (<code>amount</code> the orb is worth).</li>
+<li><code>PlayerPickupArrowEvent</code> for picking up an arrow or thrown trident.</li>
+<li><code>PlayerArmSwingEvent</code> and <code>PlayerRiptideEvent</code>, both reporting the <code>item</code> in hand. Cancelling an arm swing stops the server acting on it at all, so it is neither recorded nor shown to the other players. The swinging player still sees their own arm move, because their client plays the animation without waiting for the server.</li>
+<li><code>PlayerInputEvent</code> for movement input changes, carrying the new <code>Input</code> type (<code>is_forward</code>, <code>is_backward</code>, <code>is_left</code>, <code>is_right</code>, <code>is_jump</code>, <code>is_sneak</code>, <code>is_sprint</code>).</li>
+<li><code>PlayerArmorStandManipulateEvent</code>, reporting <code>armor_stand_item</code>, <code>player_item</code> and <code>slot</code>.</li>
+<li><code>PlayerBucketActorEvent</code> and <code>PlayerShearActorEvent</code>, reporting the <code>actor</code>, the <code>original_bucket</code> or <code>item</code> used and the <code>hand</code>.</li>
+<li><code>PlayerBucketFillEvent</code> and <code>PlayerBucketEmptyEvent</code>, with their shared base <code>PlayerBucketEvent</code>, reporting the <code>block</code> filled from or emptied into, the <code>block_clicked</code>, the <code>block_face</code>, the <code>bucket</code> used, the <code>hand</code> and a writable <code>item_stack</code>. Cancelling either leaves the world and the player's inventory untouched. <code>hand</code> is always <code>HAND</code>. Filling from or emptying into a cauldron reports the hotbar item. Milking a cow, a goat or a mooshroom is reported as a fill on the actor's own block with a <code>block_face</code> of <code>SELF</code>. Buckets filled or emptied by a dispenser are not reported.</li>
+<li><code>PlayerRecipeBookSettingsChangeEvent</code>, reporting <code>recipe_book_type</code>, <code>is_open</code> and <code>is_filtering</code>.</li>
+<li><code>PlayerCraftItemEvent</code> for crafting in a crafting grid or straight from the recipe book, reporting the <code>recipe</code> being crafted and the <code>ingredients</code> a craft consumes plus writable <code>results</code> and <code>repetitions</code>. Ingredients are the items in the crafting grid, or the recipe's own when crafting from the recipe book, which never fills the grid. Setting <code>results</code> changes what the craft produces; cancelling blocks the craft and leaves the ingredients untouched.</li>
+<li><code>PlayerEditBookEvent</code> for editing a page of a book and quill or signing it, reporting the book metadata before and after the edit, the inventory <code>slot</code>, and whether the book is being signed. <code>new_book_meta</code> and <code>is_signing</code> are writable; both metadata properties hand back a copy, so assign to <code>new_book_meta</code> rather than editing what you read from it. A title, an author and a generation only survive when the book is being signed, because a book and quill holds none of them. Cancelling leaves the book untouched and sends the slot back to the client, so it stops showing the edit it had already drawn.</li>
+<li><code>PlayerSetSpawnEvent</code> for a player's respawn point being set, reporting the <code>cause</code> (<code>BED</code>, <code>RESPAWN_ANCHOR</code>, <code>COMMAND</code>, <code>PLUGIN</code> or <code>UNKNOWN</code>) and a writable <code>location</code>. Cancelling leaves the respawn point untouched, though <code>/spawnpoint</code> still reports success and a respawn anchor still plays its sound. It does not fire when Bedrock clears a respawn point, so <code>/clearspawnpoint</code> and breaking the bed are both silent.</li>
+<li><code>PlayerOpenSignEvent</code> for a player beginning to edit a sign's text, reporting the <code>sign</code>, the <code>side</code> being edited and the <code>cause</code> (<code>PLACE</code>, <code>INTERACT</code>, <code>PLUGIN</code> or <code>UNKNOWN</code>). Cancelling it stops the sign editor from opening.</li>
+<li><code>PlayerToggleSneakEvent</code>, <code>PlayerToggleSprintEvent</code>, <code>PlayerToggleFlightEvent</code> and <code>PlayerToggleCrawlEvent</code>, carrying the new state in <code>is_sneaking</code>, <code>is_sprinting</code>, <code>is_flying</code> and <code>is_crawling</code>.</li>
+<li><code>ActorToggleSwimEvent</code> and <code>ActorToggleGlideEvent</code>, carrying the new state in <code>is_swimming</code> and <code>is_gliding</code>.</li>
+<li><code>ActorCollideWithActorEvent</code>, reporting both actors in <code>actors</code>. Cancelling it also stops boats and minecarts being boarded by walking into them.</li>
+<li><code>ActorEffectEvent</code>, reporting the <code>action</code> (currently only <code>Action.ADDED</code>) and the <code>effect</code>, which can be replaced by assignment.</li>
+<li><code>ActorPickupItemEvent</code>, reporting the <code>item</code> and <code>amount</code>. Players are covered by <code>PlayerPickupItemEvent</code>.</li>
+<li><code>ActorDismountEvent</code>, reporting the <code>vehicle</code> being left.</li>
+<li><code>ActorChangeBlockEvent</code> for blocks changed by mob behaviour, such as creeper explosions, endermen, ravagers and door-breaking zombies.</li>
+<li><code>CauldronLevelChangeEvent</code> for a cauldron's level or contents changing, reporting the <code>actor</code> responsible, the <code>reason</code> for the change and the <code>new_state</code> the cauldron will take, which can be modified in place. Cancelling it leaves the cauldron as it is. A player interacting with the cauldron is reported as <code>BUCKET_FILL</code>, <code>BUCKET_EMPTY</code>, <code>BOTTLE_FILL</code>, <code>BOTTLE_EMPTY</code>, <code>BANNER_WASH</code>, <code>ARMOR_WASH</code> or <code>SHULKER_WASH</code>. Every other change, rain, dripstone and an actor being extinguished among them, reports no <code>actor</code> and a <code>reason</code> of <code>UNKNOWN</code>, so <code>EXTINGUISH</code>, <code>NATURAL_FILL</code> and <code>EVAPORATE</code> never appear. Neither an old nor a new fill level is reported.</li>
+<li><code>PlayerRespawnEvent.respawn_reason</code> (<code>RespawnReason.DEATH</code> / <code>RespawnReason.END_PORTAL</code>).</li>
+<li><code>ActorExplodeEvent::setBlockList()</code> and <code>BlockExplodeEvent::setBlockList()</code>, with the <code>BlockList</code> alias made public.</li>
+<li><code>InventoryEvent</code>, a base class for inventory-related events, reporting the primary <code>inventory</code> involved, and the cancellable <code>InventoryInteractEvent</code> under it, which adds the <code>who_clicked</code> player.</li>
+<li><code>InventoryOpenEvent</code> and <code>InventoryCloseEvent</code>, both reporting the <code>inventory</code> and the <code>player</code>. Cancelling an open stops the container screen from appearing at all. These cover block containers such as chests, barrels, furnaces and brewing stands; a container carried by an entity, like a chest minecart or a horse, does not fire them yet.</li>
+<li><code>DimensionLoadEvent</code> for a dimension being loaded.</li>
+<li><code>BlockCookEvent.recipe</code>, the <code>CookingRecipe</code> the cook is running, or <code>None</code> when there is no matching recipe.</li>
+<li>Support for custom Python events with optional cancellation.</li>
+</ul>
+<h4 id="actors-and-players">Actors and players<a class="headerlink" href="#actors-and-players" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Visibility API: <code>Player.hide_actor()</code>, <code>Player.show_actor()</code> and <code>Player.can_see()</code>. Hiding is tracked per plugin: an actor stays hidden until every plugin that hid it has shown it again, and a plugin that is disabled keeps its hold. <code>can_see()</code> reports whether a plugin is hiding the actor; there is no per-actor visible-by-default flag.</li>
+<li><code>Player.send_block_change()</code> for showing one player a block that is not really there. The world itself is not changed.</li>
+<li>Ability API: <code>Player.get_ability()</code> and <code>Player.set_ability()</code>, keyed by an <code>Ability</code> constant that carries its own value type. <code>Ability.NO_CLIP</code> takes a bool, <code>Ability.FLY_SPEED</code> takes a float, and in C++ swapping the two is a compile error. All twenty Bedrock abilities are covered, including the eight member permissions the client shows in its pause menu — <code>BUILD</code>, <code>MINE</code>, <code>DOORS_AND_SWITCHES</code>, <code>OPEN_CONTAINERS</code>, <code>ATTACK_PLAYERS</code>, <code>ATTACK_MOBS</code>, <code>OPERATOR_COMMANDS</code> and <code>TELEPORT</code> — every one of which the server enforces. Abilities can also be looked up with <code>Ability.get()</code> and enumerated via <code>server.get_registry(Ability)</code>. Reading an ability gives the value in effect, which spectator mode and the editor can override; writing sets the player's own value. Bedrock does not save abilities for a player whose permissions the server manages, so set them again when the player rejoins.</li>
+<li>Attribute API: <code>Mob.get_attribute()</code>, <code>Mob.has_attribute()</code> and <code>Mob.attributes</code>. Each <code>AttributeInstance</code> reports its current, base, minimum and maximum value and takes <code>AttributeModifier</code>s at runtime.</li>
+<li>Effect API: <code>Mob.add_effect()</code>, <code>Mob.remove_effect()</code>, <code>Mob.has_effect()</code>, <code>Mob.get_effect()</code> and <code>Mob.active_effects</code>, with the new <code>Effect</code> type carrying effect type, duration, amplifier and the ambient/particles/icon flags.</li>
+<li><code>Mob.is_swimming</code> and <code>Player.is_crawling</code>.</li>
+<li><code>Player.send_action_bar()</code> for sending a message above the hotbar.</li>
+<li><code>Player.respawn_location</code> for reading and writing where a player will respawn, or <code>None</code> when they have no valid respawn point. Bedrock does not persist yaw/pitch for a respawn point, so only the block coordinates and the dimension are kept.</li>
+<li><code>Player.send_block_update()</code> for showing a block entity state to one player at a location, without changing the world for anybody else.</li>
+<li><code>Player.open_sign()</code> and <code>Player.open_virtual_sign()</code> for opening a sign editor on a player's client. <code>open_sign()</code> takes a sign placed in the player's own dimension, reopens one the player is already editing, and fires <code>PlayerOpenSignEvent</code>; <code>open_virtual_sign()</code> opens the editor at any block position, with no sign required in the dimension, and fires nothing.</li>
+</ul>
+<h4 id="blocks">Blocks<a class="headerlink" href="#blocks" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>BlockActorState</code> block state, the common base of <code>Container</code>, <code>Campfire</code>, <code>CreatureSpawner</code>, <code>ItemFrame</code> and <code>Sign</code>, with <code>is_snapshot</code> telling whether the state holds its own copy of the block entity or the one in the world. <code>Block.capture_state()</code> picks between them: the default gives a snapshot, <code>capture_state(use_snapshot=False)</code> gives a state that writes straight through. A persistent data container is not available on it yet.</li>
+<li><code>Container</code> block state for chests, barrels, hoppers, dispensers, droppers, shulker boxes and furnaces, exposing <code>container.inventory</code>.</li>
+<li><code>Furnace</code> block state for furnaces, blast furnaces and smokers, extending <code>Container</code>.</li>
+<li><code>Lectern</code> block state with the displayed <code>page</code>, extending <code>Container</code>.</li>
+<li><code>CreatureSpawner</code> block state with <code>spawned_type</code>, <code>delay</code>, <code>min_spawn_delay</code>, <code>max_spawn_delay</code>, <code>spawn_count</code>, <code>max_nearby_entities</code>, <code>required_player_range</code> and <code>spawn_range</code>.</li>
+<li><code>Campfire</code> block state with <code>get_item()</code>/<code>set_item()</code> and <code>get_cook_time()</code>/<code>set_cook_time()</code>.</li>
+<li><code>Sign</code> block state with <code>sign.get_side(Sign.Side.FRONT)</code> giving <code>lines</code>, <code>glowing_text</code> and <code>color</code>, plus <code>sign.waxed</code>.</li>
+<li><code>ItemFrame</code> block state with <code>item</code>, <code>rotation</code> and <code>item_drop_chance</code>.</li>
+<li><code>Biome</code> type and <code>Block.biome</code>, with lookup via <code>Biome.get()</code> and enumeration via <code>server.get_registry(Biome)</code>.</li>
+<li><code>BlockData.translation_key</code>.</li>
+<li><code>BlockFace.SELF</code>, for interactions that have no direction.</li>
+</ul>
+<h4 id="items">Items<a class="headerlink" href="#items" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>Level.recipes</code>, a snapshot of the recipes the server has loaded, also reachable as <code>Server.recipes</code>. Each entry is a <code>ShapedRecipe</code>, <code>ShapelessRecipe</code>, <code>SmithingTransformRecipe</code>, <code>SmithingTrimRecipe</code>, <code>ComplexRecipe</code> or a <code>CookingRecipe</code>, and reports its <code>id</code>, station <code>tag</code>, <code>result</code> and <code>ingredients</code>. Shaped recipes add <code>width</code> and <code>height</code>; smithing recipes add <code>template</code>, <code>base</code> and <code>addition</code>; cooking recipes add <code>input_choice</code>.</li>
+<li><code>CookingRecipe</code>, with <code>FurnaceRecipe</code>, <code>BlastingRecipe</code>, <code>SmokingRecipe</code> and <code>CampfireRecipe</code> under it for the <code>furnace</code>, <code>blast_furnace</code>, <code>smoker</code> and <code>campfire</code>/<code>soul_campfire</code> stations. Neither an experience reward nor a cooking time is reported.</li>
+<li><code>RecipeIngredient</code>, describing what one ingredient slot accepts, with <code>test()</code> to check an item against it and a Bedrock-specific <code>count</code>. An ingredient is an <code>ExactIngredient</code> (one item and one data value), an <code>ItemTypeIngredient</code> (an item type, any data value), an <code>ItemTagIngredient</code> (anything carrying a tag), a <code>MolangIngredient</code> (whatever a Molang expression selects), an <code>ComplexAliasIngredient</code> (anything an id that predates the item flattening stands for, such as <code>minecraft:planks</code>). A slot the recipe leaves empty is <code>None</code>.</li>
+<li><code>WritableBookMeta</code>, <code>BookMeta</code> and <code>CrossbowMeta</code> item meta types.</li>
+<li><code>PotionMeta</code> for potions, splash potions and lingering potions, with <code>meta.base_potion_type</code>.</li>
+<li><code>ItemStack.item_meta</code> is now writable, so <code>item.item_meta = meta</code> applies the metadata. Where <code>set_item_meta()</code> reports failure by returning <code>False</code>, assigning raises if the metadata does not apply to the item type.</li>
+</ul>
+<h4 id="level-and-dimensions">Level and dimensions<a class="headerlink" href="#level-and-dimensions" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>Level.create_dimension()</code> for registering an empty (void) dimension from -64 to 320 at runtime. The registration does not survive a restart, so call it again on every startup.</li>
+<li><code>Dimension.mobs</code> and <code>Dimension.players</code>, both narrowing <code>Dimension.actors</code>.</li>
+<li>Chunk loading API: <code>Dimension.load_chunk()</code>, <code>Dimension.unload_chunk()</code>, <code>Dimension.unload_chunk_request()</code>, <code>Dimension.is_chunk_loaded()</code> and <code>Dimension.is_chunk_generated()</code>, plus <code>Chunk.load()</code>, <code>Chunk.unload()</code> and <code>Chunk.is_loaded()</code>. Bedrock has no synchronous chunk load, so <code>load_chunk()</code> keeps the chunk resident from a later tick onwards and does not make it tick. <code>unload_chunk()</code> reports whether the chunk actually went away, while <code>unload_chunk_request()</code> only releases the hold.</li>
+<li>Plugin chunk tickets: <code>Dimension.add_plugin_chunk_ticket()</code>, <code>remove_plugin_chunk_ticket()</code>, <code>remove_plugin_chunk_tickets()</code>, <code>get_plugin_chunk_tickets()</code> and <code>plugin_chunk_tickets</code>, with the same methods on <code>Chunk</code>. A ticket keeps a chunk loaded until it is removed or the owning plugin is disabled, and <code>unload_chunk()</code> leaves it alone.</li>
+<li><code>Chunk.block_actors</code>, the state of every block actor in a chunk — chests, signs, furnaces, spawners and the rest — mirroring Paper's <code>Chunk#getTileEntities()</code>. Reading it on a chunk that is not loaded gives an empty list rather than loading it.</li>
+</ul>
+<h4 id="commands-and-permissions">Commands and permissions<a class="headerlink" href="#commands-and-permissions" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>UnknownCommandEvent</code> for undefined commands, reporting the <code>sender</code>, <code>command_line</code> and mutable <code>message</code>. Setting <code>message</code> to <code>None</code> suppresses the unknown-command response.</li>
+<li><code>Server.command_map</code>, exposing <code>CommandMap</code> to Python with <code>register_command()</code>, <code>dispatch()</code>, <code>clear_commands()</code> and <code>get_command()</code>.</li>
+<li><code>Command</code> can now be subclassed in Python to override <code>execute()</code>.</li>
+<li><code>/restart</code> command (console-only) for gracefully restarting the server.</li>
+<li><code>ProxiedCommandSender</code>, the sender a command receives when run through <code>/execute</code>. Its <code>caller</code> typed the command and receives its output, its <code>callee</code> supplies the name and execution context, and permission checks resolve against the caller.</li>
+</ul>
+<h4 id="api-and-types">API and types<a class="headerlink" href="#api-and-types" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>endstone::Metrics</code> for C++ plugins, mirroring bStats' <code>Metrics(plugin, service_id)</code> and carrying all seven chart types plus <code>CustomChart</code>. The server owns what it creates and retires it on reload, so a plugin can add its charts in <code>onEnable</code> and forget the handle. One service id gets one Metrics, however many times it is asked for.</li>
+<li><code>endstone.metrics</code> chart classes are now the C++ ones, so a chart behaves identically whichever language declares it. Python plugins keep the same <code>SimplePie("id", callback)</code> usage and can still subclass <code>CustomChart</code>, whose <code>get_chart_data()</code> returns JSON.</li>
+<li>nlohmann/json is part of the public C++ API, with <code>endstone::JsonValue</code>, <code>JsonObject</code> and <code>JsonArray</code> naming the three shapes (and <code>endstone.JsonValue</code> / <code>JsonObject</code> / <code>JsonArray</code> in Python). <code>endstone_add_plugin()</code> links it for you.</li>
+<li>Unified <code>Object.as&lt;T&gt;()</code>/<code>is&lt;T&gt;()</code> casting API. <code>NotNull&lt;T&gt;</code> and <code>Nullable&lt;T&gt;</code> carry the same pair, so <code>event.getActor().as&lt;Player&gt;()</code> returns a <code>Nullable&lt;Player&gt;</code> sharing ownership with the original.</li>
+<li><code>endstone.Identifier</code> for namespaced ids, splitting <code>dim.id.namespace</code> from <code>dim.id.key</code> and distinguishing <code>Identifier[Dimension]</code> from <code>Identifier[ActorType]</code>. Plain strings are still accepted, and so is the registry entry itself, so <code>ItemStack(item_type)</code> works alongside <code>ItemStack("minecraft:beef")</code>.</li>
+<li><code>ActorType</code>, <code>EffectType</code> and <code>PotionType</code> in the registry API, each entry carrying a <code>translation_key</code>, plus the missing <code>ActorType.SULFUR_CUBE</code> constant.</li>
+<li>Binary NBT serialization (<code>dump</code>/<code>load</code>) with support for multiple formats.</li>
+<li>The logger handles ANSI escape codes alongside <code>§</code> colour codes, so a plugin can log text that is already coloured. Colour sequences reach the console as written, and every escape sequence is stripped from the log file, which previously kept them verbatim.</li>
+</ul>
+<h4 id="server-and-docker">Server and Docker<a class="headerlink" href="#server-and-docker" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Graceful shutdown on Linux, so <code>docker stop</code> lets the server save the world before exiting.</li>
+<li>Healthcheck in the Docker image, so <code>docker ps</code> and Docker Compose report whether the server is online.</li>
+<li><code>PUID</code>/<code>PGID</code> environment variables in the Docker image.</li>
+<li>A <code>docker-compose.yml</code> for running the server with Docker Compose.</li>
 </ul>
 <h3 id="changed">Changed<a class="headerlink" href="#changed" title="Permanent link">&para;</a></h3>
+<h4 id="networking">Networking<a class="headerlink" href="#networking" title="Permanent link">&para;</a></h4>
 <ul>
-<li><strong>BREAKING</strong>: Permission attachments and permissions are handed out as smart handles. <code>Permissible.add_attachment()</code> returns one, <code>Permissible.effective_permissions</code> is a set of them, and <code>PluginManager.get_permission()</code>, <code>get_default_permissions()</code> and <code>permissions</code> hand back permissions the same way. An attachment you keep no longer stops being safe to touch when whatever it was attached to goes away: it stays readable, its <code>permissible</code> reads <code>None</code>, and <code>remove()</code> reports <code>False</code>. Python call sites are unchanged; C++ plugins use <code>-&gt;</code> where they used <code>.</code>, and pass <code>std::make_shared&lt;Permission&gt;(...)</code> to <code>addPermission()</code> where they passed a <code>std::unique_ptr</code>.</li>
-<li><strong>BREAKING</strong>: <code>Permissible.add_attachment()</code> raises <code>ValueError</code> when the permission name is empty or the plugin is disabled, instead of logging an error and handing back <code>None</code> while its signature promised an attachment. Bukkit rejects both the same way. <code>Permission.add_parent()</code> likewise raises when the permission it is called on was never registered, where it used to do nothing at all.</li>
-<li><strong>BREAKING</strong>: The permission subscription lists hold their subscribers weakly. A player who has disconnected drops out of them on their own once nothing else refers to them, so a plugin that holds on to one no longer has to unsubscribe it by hand. <code>PluginManager.get_permission_subscriptions()</code>, <code>get_default_perm_subscriptions()</code> and <code>Permission.permissibles</code> hand back sets of handles; holding one of those sets keeps everything in it alive, so read it and let it go.</li>
-<li><strong>BREAKING</strong>: <code>BroadcastMessageEvent.recipients</code> is a set of handles, so a listener can keep the set past the event.</li>
-<li><strong>BREAKING</strong>: <code>ActorExplodeEvent.block_list</code> and <code>BlockExplodeEvent.block_list</code> now hand back a live <code>BlockList</code> instead of a copied <code>list</code>, so <code>block_list.remove(block)</code>, <code>.append()</code>, <code>.pop()</code> and <code>del block_list[i]</code> change what actually explodes, as they do in Bukkit. Assigning a plain list still works. Note that <code>remove()</code> matches on handle identity, so pass a block taken from the list itself rather than one looked up separately.</li>
-<li><strong>BREAKING</strong>: Every API that handed back a raw <code>std::unique_ptr</code> now returns a smart handle whose type states whether it can be absent, matching the nullability its Bukkit counterpart documents. Six of them can be <code>None</code> and never said so before: <code>ItemStack.item_meta</code>, <code>ItemFactory.get_item_meta()</code> and <code>ItemFactory.as_meta_for()</code> (all <code>None</code> for air), <code>Scoreboard.get_objective()</code> (both overloads), <code>Mob.get_attribute()</code>, and <code>PlayerInteractEvent.block</code> (absent when the player clicked air). A type checker now flags the unchecked <code>None</code> in each. The rest - the block, block data, chunk, objective, score, boss bar and item meta accessors on <code>Block</code>, <code>BlockState</code>, <code>BlockType</code>, <code>Dimension</code>, <code>Location</code>, <code>BlockCommandSender</code>, <code>Objective</code>, <code>Scoreboard</code>, <code>ItemMeta</code> and <code>Server</code> - are <code>NotNull</code>, as are the block and damage-source accessors on the block and actor events. C++ plugins use <code>-&gt;</code> where they used <code>.</code>; Python call sites are unchanged.</li>
-<li><strong>BREAKING</strong>: Removed <code>Block::clone()</code>. It only existed because <code>std::unique_ptr&lt;Block&gt;</code> could not be copied; now that blocks are handed out as shared handles, copying the handle does the same thing.</li>
-<li><strong>BREAKING</strong>: Block states are handed out as smart handles too. <code>Block::captureState()</code> returns <code>NotNull&lt;BlockState&gt;</code> instead of <code>std::unique_ptr&lt;BlockState&gt;</code>, and <code>BlockGrowEvent::getNewState()</code> / <code>BlockPlaceEvent::getBlockReplacedState()</code> return <code>const NotNull&lt;BlockState&gt; &amp;</code> instead of a raw reference, matching Bukkit's <code>@NotNull</code> on <code>Block#getState()</code> and <code>BlockPlaceEvent#getBlockReplacedState()</code>. A captured state can now outlive the call that made it. C++ plugins use <code>-&gt;</code> where they used <code>.</code>; Python is unchanged.</li>
-<li><strong>BREAKING</strong>: Actors and players are handed out as smart handles everywhere, including from events. <code>ActorEvent.actor</code>, <code>PlayerEvent.player</code>, <code>PlayerInteractActorEvent.actor</code>, <code>PlayerPickupItemEvent.item</code> and <code>BlockBreakEvent.player</code>/<code>BlockPlaceEvent.player</code> return <code>NotNull</code>; <code>ActorKnockbackEvent.source</code>, <code>PacketSendEvent.player</code> and <code>PacketReceiveEvent.player</code> return <code>Nullable</code>. <code>Server.online_players</code>, <code>Level.actors</code>, <code>Dimension.actors</code>, <code>BossBar.players</code> and <code>PlayerChatEvent.recipients</code> are lists of handles, and <code>Dimension.spawn_actor()</code> returns <code>Nullable</code>. Holding an actor past the event is now safe: touching one whose entity is gone raises instead of corrupting memory, so check <code>is_valid</code> first. C++ plugins use <code>-&gt;</code> where they used <code>.</code>.</li>
-<li><strong>BREAKING</strong>: The dimension accessors hand back a smart handle. <code>Actor::getDimension()</code>, <code>Block::getDimension()</code>, <code>BlockState::getDimension()</code> and <code>Chunk::getDimension()</code> return <code>NotNull&lt;Dimension&gt;</code>; <code>Level::getDimension()</code>, <code>Level::createDimension()</code> and <code>MapView::getDimension()</code> return <code>Nullable&lt;Dimension&gt;</code>; <code>Level::getDimensions()</code> returns <code>std::vector&lt;NotNull&lt;Dimension&gt;&gt;</code>. In Python these are typed <code>Dimension | None</code>, so a type checker flags the unchecked <code>None</code> that was previously hidden.</li>
-<li><strong>BREAKING</strong>: <code>Player::getScoreboard()</code> returns <code>NotNull&lt;Scoreboard&gt;</code> and <code>Player::setScoreboard()</code> takes one, while <code>ServiceManager::registerService()</code> takes <code>NotNull&lt;Service&gt;</code> and <code>get()</code>/<code>load()</code> return <code>Nullable&lt;Service&gt;</code>. In Python, <code>ServiceManager.load()</code> is typed <code>Service | None</code>, so a missing provider is visible to a type checker.</li>
-<li><strong>BREAKING</strong>: The command API takes the sender as a smart handle: <code>Command::execute()</code>, <code>CommandExecutor::onCommand()</code>, <code>PluginCommand::execute()</code>, <code>CommandMap::dispatch()</code>, <code>Server::dispatchCommand()</code> and <code>Command::testPermission()</code>/<code>testPermissionSilently()</code> take <code>NotNull&lt;CommandSender&gt;</code>, and <code>Server::getCommandSender()</code> returns <code>NotNull&lt;ConsoleCommandSender&gt;</code>. A C++ plugin must update the first parameter of its <code>onCommand</code> override or it will quietly stop overriding anything. Python plugins are unaffected.</li>
-<li><strong>BREAKING</strong>: The remaining raw-reference accessors use handles too: <code>Actor::teleport()</code>, <code>BossBar::addPlayer()</code>/<code>removePlayer()</code>, <code>MapRenderer::render()</code>, <code>ServiceManager::unregister()</code>, <code>Server::createMap()</code>, <code>MapView::setDimension()</code>, <code>Objective::getScoreboard()</code>, <code>Score::getScoreboard()</code>, <code>Dimension::dropItem()</code>, and the dimension and sender members of <code>DimensionEvent</code>, <code>PlayerDimensionChangeEvent</code>, <code>ScriptMessageEvent</code> and <code>ServerCommandEvent</code>. <code>Player::getAddress()</code> returns a reference rather than a fresh copy each call. Python call sites are unchanged.</li>
-<li><strong>BREAKING</strong>: The last <code>shared_ptr</code>-backed types are handles as well. <code>Scheduler::runTask()</code> and its five variants return <code>Nullable&lt;Task&gt;</code>; <code>CommandMap::registerCommand()</code> takes <code>NotNull&lt;Command&gt;</code> and <code>getCommand()</code> returns <code>Nullable&lt;Command&gt;</code>; <code>PluginCommand::setExecutor()</code> takes <code>Nullable&lt;CommandExecutor&gt;</code>, where a null handle still falls back to the owning plugin; and <code>MapView</code>'s renderer methods use <code>NotNull&lt;MapRenderer&gt;</code>. In Python, <code>Scheduler.run_task()</code> is typed <code>Task | None</code>.</li>
-<li><strong>BREAKING</strong>: <code>Location.dimension</code> holds the dimension by a weak reference, mirroring Bukkit's <code>Location.getWorld()</code>. It gives <code>None</code> when no dimension is set, the dimension when it is loaded, and raises once it has been unloaded; the new <code>Location.is_dimension_loaded</code> and <code>Dimension.is_valid</code> let you check first.</li>
-<li><strong>BREAKING</strong>: <code>Server.level</code> returns a <code>Level</code> and raises if the level has not been loaded yet, instead of returning <code>None</code>. Access it only once the level is available.</li>
-<li><strong>BREAKING</strong>: Moved <code>EffectType</code> from <code>endstone.effect</code> to <code>endstone.potion</code>, mirroring Bukkit; the <code>endstone.effect</code> module is gone. In C++ the header moved to <code>endstone/potion/effect_type.h</code>.</li>
-<li><strong>BREAKING</strong>: Replaced the <code>Dimension::Type</code> enum with <code>DimensionId</code>, a namespaced identifier that supports custom dimensions. Use the <code>Dimension.OVERWORLD</code>, <code>Dimension.NETHER</code> and <code>Dimension.THE_END</code> constants or look up by identifier; <code>Dimension.name</code> is now <code>Dimension.id</code>.</li>
+<li>Packet compression now uses libdeflate instead of zlib, which should improve performance on busy servers.</li>
+</ul>
+<h4 id="json-payloads">JSON payloads<a class="headerlink" href="#json-payloads" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>BREAKING</strong>: <code>ModalForm</code>'s submit callback receives the parsed response instead of a JSON string: a <code>JsonArray</code> in C++, a <code>JsonArray</code> (<code>list</code>) in Python. A Python handler doing <code>json.loads(data)</code> must drop the call, and a C++ one must stop parsing the string itself.</li>
+<li><strong>BREAKING</strong>: <code>Player.spawn_particle()</code> takes the molang variables as a <code>JsonObject</code> (a <code>dict</code> in Python), and the parameter is renamed <code>molang_variables_json</code> -&gt; <code>molang_variables</code>. Both the rename and the type change make an old call fail rather than send the wrong payload.</li>
+</ul>
+<h4 id="smart-handles">Smart handles<a class="headerlink" href="#smart-handles" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>BREAKING</strong>: Every API that returned a raw <code>std::unique_ptr</code> now returns a smart handle stating whether it can be absent. <code>ItemStack.item_meta</code>, <code>ItemFactory.get_item_meta()</code>, <code>ItemFactory.as_meta_for()</code>, <code>Scoreboard.get_objective()</code>, <code>Mob.get_attribute()</code> and <code>PlayerInteractEvent.block</code> are <code>Nullable</code>; the rest are <code>NotNull</code>. C++ plugins use <code>-&gt;</code> where they used <code>.</code>; Python call sites are unchanged.</li>
+<li><strong>BREAKING</strong>: Actors and players are handed out as handles everywhere, including from events. <code>ActorEvent.actor</code>, <code>PlayerEvent.player</code>, <code>PlayerInteractActorEvent.actor</code>, <code>PlayerPickupItemEvent.item</code> and <code>BlockBreakEvent.player</code>/<code>BlockPlaceEvent.player</code> are <code>NotNull</code>; <code>ActorKnockbackEvent.source</code>, <code>PacketSendEvent.player</code> and <code>PacketReceiveEvent.player</code> are <code>Nullable</code>. <code>Server.online_players</code>, <code>Level.actors</code>, <code>Dimension.actors</code>, <code>BossBar.players</code> and <code>PlayerChatEvent.recipients</code> are lists of handles, and <code>Dimension.spawn_actor()</code> is <code>Nullable</code>. Touching an actor whose entity is gone raises instead of corrupting memory, so check <code>is_valid</code> first.</li>
+<li><strong>BREAKING</strong>: Block states are handles. <code>Block::captureState()</code> returns <code>NotNull&lt;BlockState&gt;</code>, and <code>BlockGrowEvent::getNewState()</code> / <code>BlockPlaceEvent::getBlockReplacedState()</code> return <code>const NotNull&lt;BlockState&gt; &amp;</code>.</li>
+<li><strong>BREAKING</strong>: Dimension accessors are handles. <code>Actor::getDimension()</code>, <code>Block::getDimension()</code>, <code>BlockState::getDimension()</code> and <code>Chunk::getDimension()</code> return <code>NotNull&lt;Dimension&gt;</code>; <code>Level::getDimension()</code>, <code>Level::createDimension()</code> and <code>MapView::getDimension()</code> return <code>Nullable&lt;Dimension&gt;</code>; <code>Level::getDimensions()</code> returns <code>std::vector&lt;NotNull&lt;Dimension&gt;&gt;</code>.</li>
+<li><strong>BREAKING</strong>: The command API takes the sender as a handle: <code>Command::execute()</code>, <code>CommandExecutor::onCommand()</code>, <code>PluginCommand::execute()</code>, <code>CommandMap::dispatch()</code>, <code>Server::dispatchCommand()</code> and <code>Command::testPermission()</code>/<code>testPermissionSilently()</code> take <code>NotNull&lt;CommandSender&gt;</code>, and <code>Server::getCommandSender()</code> returns <code>NotNull&lt;ConsoleCommandSender&gt;</code>. A C++ plugin must update the first parameter of its <code>onCommand</code> override or it will quietly stop overriding anything.</li>
+<li><strong>BREAKING</strong>: <code>Scheduler::runTask()</code> and its five variants return <code>Nullable&lt;Task&gt;</code>; <code>CommandMap::registerCommand()</code> takes <code>NotNull&lt;Command&gt;</code> and <code>getCommand()</code> returns <code>Nullable&lt;Command&gt;</code>; <code>PluginCommand::setExecutor()</code> takes <code>Nullable&lt;CommandExecutor&gt;</code>; <code>MapView</code>'s renderer methods use <code>NotNull&lt;MapRenderer&gt;</code>.</li>
+<li><strong>BREAKING</strong>: <code>Player::getScoreboard()</code> returns <code>NotNull&lt;Scoreboard&gt;</code> and <code>Player::setScoreboard()</code> takes one; <code>ServiceManager::registerService()</code> takes <code>NotNull&lt;Service&gt;</code> and <code>get()</code>/<code>load()</code> return <code>Nullable&lt;Service&gt;</code>.</li>
+<li><strong>BREAKING</strong>: The remaining raw-reference accessors use handles: <code>Actor::teleport()</code>, <code>BossBar::addPlayer()</code>/<code>removePlayer()</code>, <code>MapRenderer::render()</code>, <code>ServiceManager::unregister()</code>, <code>Server::createMap()</code>, <code>MapView::setDimension()</code>, <code>Objective::getScoreboard()</code>, <code>Score::getScoreboard()</code>, <code>Dimension::dropItem()</code>, and the dimension and sender members of <code>DimensionEvent</code>, <code>PlayerDimensionChangeEvent</code>, <code>ScriptMessageEvent</code> and <code>ServerCommandEvent</code>. <code>Player::getAddress()</code> returns a reference rather than a copy.</li>
+<li><strong>BREAKING</strong>: Removed <code>Block::clone()</code>; copy the handle instead.</li>
+<li><strong>BREAKING</strong>: <code>Location.dimension</code> holds the dimension weakly. It gives <code>None</code> when unset, the dimension when loaded, and raises once unloaded; check with the new <code>Location.is_dimension_loaded</code> and <code>Dimension.is_valid</code>.</li>
+<li><strong>BREAKING</strong>: <code>Server.level</code> returns a <code>Level</code> and raises if the level has not been loaded yet, instead of returning <code>None</code>.</li>
+</ul>
+<h4 id="permissions">Permissions<a class="headerlink" href="#permissions" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>BREAKING</strong>: Permission attachments and permissions are handed out as handles from <code>Permissible.add_attachment()</code>, <code>Permissible.effective_permissions</code>, <code>PluginManager.get_permission()</code>, <code>get_default_permissions()</code> and <code>permissions</code>. An attachment stays readable after its permissible goes away, with <code>permissible</code> reading <code>None</code> and <code>remove()</code> reporting <code>False</code>. C++ plugins use <code>-&gt;</code> where they used <code>.</code>, and pass <code>std::make_shared&lt;Permission&gt;(...)</code> to <code>addPermission()</code>.</li>
+<li><strong>BREAKING</strong>: Permission subscription lists hold their subscribers weakly, so a disconnected player drops out on their own. <code>PluginManager.get_permission_subscriptions()</code>, <code>get_default_perm_subscriptions()</code> and <code>Permission.permissibles</code> hand back sets of handles.</li>
+<li><strong>BREAKING</strong>: <code>Permissible.add_attachment()</code> raises <code>ValueError</code> for an empty permission name or a disabled plugin instead of returning <code>None</code>, and <code>Permission.add_parent()</code> raises when the permission was never registered.</li>
+</ul>
+<h4 id="api-changes">API changes<a class="headerlink" href="#api-changes" title="Permanent link">&para;</a></h4>
+<ul>
 <li><strong>BREAKING</strong>: Replaced <code>asPlayer()</code>, <code>asMob()</code>, <code>asConsole()</code>, <code>asPluginCommand()</code> and friends with <code>as&lt;T&gt;()</code>/<code>is&lt;T&gt;()</code> on all <code>CommandSender</code>, <code>Actor</code> and <code>Command</code> subtypes. In Python, use <code>isinstance()</code> as before.</li>
+<li><strong>BREAKING</strong>: Replaced the <code>Dimension::Type</code> enum with <code>DimensionId</code>, a namespaced identifier supporting custom dimensions. Use <code>Dimension.OVERWORLD</code>, <code>Dimension.NETHER</code> and <code>Dimension.THE_END</code>; <code>Dimension.name</code> is now <code>Dimension.id</code>.</li>
+<li><strong>BREAKING</strong>: Moved <code>EffectType</code> from <code>endstone.effect</code> to <code>endstone.potion</code>; the <code>endstone.effect</code> module is gone. In C++ the header moved to <code>endstone/potion/effect_type.h</code>.</li>
 <li><strong>BREAKING</strong>: <code>Player</code> no longer inherits from <code>OfflinePlayer</code>.</li>
-<li><strong>BREAKING</strong>: <code>BlockPlaceEvent.block</code> returns the placed block instead of the replaced block, and <code>block_placed_state</code>/<code>block_replaced</code> are renamed to <code>block_placed</code>/<code>block_replaced_state</code> to match Bukkit.</li>
-<li><strong>BREAKING</strong>: The Docker image stores server data in <code>/data</code> instead of <code>/home/endstone/bedrock_server</code>. Update your volume mount accordingly (e.g. <code>-v ./data:/data</code>).</li>
-<li><strong>BREAKING</strong>: <code>Block.type</code>, <code>BlockState.type</code> and <code>BlockData.type</code> return a <code>BlockType</code> instead of a string, matching <code>ItemStack.type</code>. It still compares equal to its <code>"namespace:key"</code> string and stringifies to it, but is no longer a <code>str</code>.</li>
+<li><strong>BREAKING</strong>: <code>Block.type</code>, <code>BlockState.type</code> and <code>BlockData.type</code> return a <code>BlockType</code> instead of a string. It still compares equal to its <code>"namespace:key"</code> string and stringifies to it, but is no longer a <code>str</code>.</li>
+<li><strong>BREAKING</strong>: <code>BlockPlaceEvent.block</code> returns the placed block instead of the replaced block, and <code>block_placed_state</code>/<code>block_replaced</code> are renamed to <code>block_placed</code>/<code>block_replaced_state</code>.</li>
+<li><strong>BREAKING</strong>: <code>Block.capture_state()</code> now captures a snapshot, matching Bukkit. Edits to the state are kept in the snapshot and only reach the world when <code>update()</code> is called. Code that sets a sign's lines and never calls <code>update()</code> still compiles and now does nothing; add the <code>update()</code> call, or capture with <code>capture_state(use_snapshot=False)</code> to keep writing straight through to the block entity.</li>
+<li><strong>BREAKING</strong>: <code>ActorExplodeEvent.block_list</code> and <code>BlockExplodeEvent.block_list</code> hand back a live <code>BlockList</code> instead of a copy, so <code>remove()</code>, <code>append()</code>, <code>pop()</code> and <code>del</code> change what actually explodes. <code>remove()</code> matches on handle identity.</li>
+<li><strong>BREAKING</strong>: <code>BroadcastMessageEvent.recipients</code> is a set of handles.</li>
+<li><strong>BREAKING</strong>: <code>ActorDeathEvent</code> is now called for player deaths as well as every other mob. A listener that assumed it only saw non-player mobs should check <code>actor.type</code> or listen for <code>PlayerDeathEvent</code>.</li>
+<li><code>Block.set_type</code>, <code>BlockState.type</code>, <code>Server.create_block_data</code> and <code>Inventory.contains</code>/<code>contains_at_least</code>/<code>all</code>/<code>first</code>/<code>remove</code> take an <code>Identifier</code> (e.g. <code>BlockType.AIR</code>). Plain <code>"namespace:key"</code> strings are still accepted.</li>
 <li><code>str()</code> on <code>BlockType</code>, <code>Enchantment</code> and <code>ItemType</code> returns a plain <code>"namespace:key"</code> string instead of the underlying <code>Identifier</code> repr.</li>
-<li><code>Block.set_type</code>, <code>BlockState.type</code>, <code>Server.create_block_data</code> and <code>Inventory.contains</code>/<code>contains_at_least</code>/<code>all</code>/<code>first</code>/<code>remove</code> take an <code>Identifier</code> (e.g. <code>BlockType.AIR</code>) instead of a plain string, matching <code>ItemStack.type</code> and <code>Dimension.spawn_actor</code>. Plain <code>"namespace:key"</code> strings are still accepted.</li>
-<li><strong>BREAKING</strong>: <code>ActorDeathEvent</code> is now called when a player dies, as well as for every other mob. It previously skipped players, even though <code>PlayerDeathEvent</code> derives from it, so a listener on <code>ActorDeathEvent</code> never saw them. Bukkit's <code>EntityDeathEvent</code> receives player deaths, and this now matches. A listener that assumed it only ever saw non-player mobs should check <code>actor.type</code> or listen for <code>PlayerDeathEvent</code> instead.</li>
+<li><strong>BREAKING</strong>: <code>Server::createBossBar()</code> is no longer <code>const</code>, since the server now keeps track of the boss bars it hands out. C++ plugins holding a <code>const Server &amp;</code> need a non-const one; Python call sites are unchanged.</li>
+</ul>
+<h4 id="platform">Platform<a class="headerlink" href="#platform" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>BREAKING</strong>: The Docker image stores server data in <code>/data</code> instead of <code>/home/endstone/bedrock_server</code>. Update your volume mount accordingly (e.g. <code>-v ./data:/data</code>).</li>
+<li>The console prompt now appears as soon as the server starts, right after the version banner, instead of only once the world has finished loading. Commands typed while the server is still starting are queued and run once it is ready, as they already were. Endstone no longer redirects the server's stdin during startup, so anything else reading it sees the real terminal throughout.</li>
 <li>Dropped Python 3.10 support (end-of-life). Minimum version is now Python 3.11.</li>
 </ul>
-<h3 id="fixed">Fixed<a class="headerlink" href="#fixed" title="Permanent link">&para;</a></h3>
+<h3 id="removed">Removed<a class="headerlink" href="#removed" title="Permanent link">&para;</a></h3>
+<h4 id="networking_1">Networking<a class="headerlink" href="#networking_1" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Fixed the server reading freed memory when a <code>Permissible</code> was destroyed while still subscribed to a permission, such as a player who disconnected while a plugin still held on to them. The next broadcast or permission recalculation could read from an object that was already gone.</li>
-<li>Fixed the default permission lists holding on to a permission that <code>PluginManager.remove_permission()</code> had already freed. As in Bukkit, removing a permission does not take it out of those lists, but it is now kept alive rather than left dangling.</li>
-<li>Fixed <code>Permission.add_parent()</code> and <code>Permission.permissibles</code> reading an uninitialised field on a permission that was never registered with a plugin manager, which could return nothing or crash depending on the build.</li>
-<li>Fixed type annotations for <code>Plugin</code> and <code>event_handler</code>.</li>
-<li>Fixed the type stubs so a type checker no longer reports errors on them. <code>__eq__</code>/<code>__ne__</code> now take <code>object</code> as the data model requires, in-place operators such as <code>Vector.__iadd__</code> accept everything their binary counterpart does and return <code>Self</code>, an optional callback is typed <code>Callable[...] | None</code>, a skin image is a <code>numpy.typing.NDArray</code>, and <code>Plugin.config</code> is a <code>dict[str, Any]</code>.</li>
-<li>Fixed the NBT bindings hiding what their containers hold: <code>ByteArrayTag(iterable)</code> and <code>IntArrayTag(iterable)</code> take an <code>Iterable[int]</code>, <code>ListTag(iterable)</code> an <code>Iterable[Tag]</code>, <code>CompoundTag(mapping)</code> a <code>dict[str, Tag]</code>, and <code>to_list()</code>/<code>to_dict()</code> return <code>list[Any]</code>/<code>dict[str, Any]</code>.</li>
-<li>Fixed <code>Plugin.default_permission</code> rejecting a string or a bool (<code>"operator"</code>, <code>"not op"</code>, <code>True</code>), which the <code>default</code> of an individual entry in <code>Plugin.permissions</code> already accepted. Only <code>PermissionDefault</code> worked; anything else raised <code>TypeError</code>.</li>
-<li>Fixed <code>ServerLoadEvent</code> missing its <code>ServerEvent</code> base in Python, so <code>isinstance(event, ServerEvent)</code> was <code>False</code>, and <code>LoadType.RELOAD</code> never being exposed even though the server fires it on <code>/reload</code>.</li>
-<li>Fixed every vanilla command failing when dispatched through a <code>CommandSenderWrapper</code>. The wrapper did not report its own type, so the command origin could not be resolved from it and the command was refused as an unsupported sender before it ran.</li>
-<li>Fixed <code>Enchantment.FORTUNE</code> missing from Python. The constant existed in C++ but was never bound.</li>
-<li>Fixed <code>Mob.has_attribute()</code> raising for a name that is not an attribute, instead of answering <code>False</code>.</li>
-<li>Fixed <code>Dimension.actors</code> and <code>Level.actors</code> leaving out connected players. Bedrock keeps players in a separate list from other entities and only the latter was read, so a player was never among the actors of the dimension they were standing in.</li>
-<li>Fixed <code>str()</code> on a <code>Translatable</code> giving <code>&lt;endstone._python.lang.Translatable object at 0x...&gt;</code> instead of its text. Command output captured through a <code>CommandSenderWrapper</code> arrives as <code>Translatable</code>, so it was unreadable without reaching for <code>.text</code> by hand.</li>
-<li>Fixed the server crashing on a broadcast once a player had left and rejoined. A plugin that holds on to a <code>Player</code> after they disconnect kept them subscribed to broadcasts, and the next chat or quit message aimed at them took the server down. A player's permissions are now cleared when they leave, as the Java edition does, and sending a message to a player who is no longer on the server is a no-op rather than an error.</li>
+<li><strong>BREAKING</strong>: <code>Server.port_v6</code> and <code>ServerListPingEvent.local_port_v6</code>. A server advertises one game port; the separate IPv6 port was rarely set and has no counterpart under NetherNet, which shares a single port across both families. Use <code>Server.port</code> and <code>ServerListPingEvent.local_port</code>. The IPv6 port field in the LAN advertisement is now passed through untouched rather than being rewritten from the event.</li>
 </ul>
-<h2 id="0119-2026-08-17"><a href="https://github.com/EndstoneMC/endstone/compare/v0.11.8...v0.11.9">0.11.9</a> - 2026-08-17<a class="headerlink" href="#0119-2026-08-17" title="Permanent link">&para;</a></h2>
+<h3 id="fixed">Fixed<a class="headerlink" href="#fixed" title="Permanent link">&para;</a></h3>
+<h4 id="crashes-and-memory">Crashes and memory<a class="headerlink" href="#crashes-and-memory" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Fixed the server reading freed memory when a <code>Permissible</code> was destroyed while still subscribed to a permission, such as a player who disconnected while a plugin held on to them.</li>
+<li>Fixed the server crashing on a broadcast once a player had left and rejoined. A player's permissions are now cleared when they leave, and messaging a player who is no longer on the server is a no-op.</li>
+<li>Fixed the default permission lists holding on to a permission that <code>PluginManager.remove_permission()</code> had already freed.</li>
+<li>Fixed <code>Permission.add_parent()</code> and <code>Permission.permissibles</code> reading an uninitialised field on a permission that was never registered with a plugin manager.</li>
+</ul>
+<h4 id="api-behaviour">API behaviour<a class="headerlink" href="#api-behaviour" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Fixed <code>Dimension.actors</code> and <code>Level.actors</code> leaving out connected players.</li>
+<li>Fixed <code>PlayerBedLeaveEvent</code> only being called when a player pressed the leave button. It now also fires when morning comes, when the bed is broken or obstructed, and when the player is woken by anything else, and the <code>bed</code> block it reports is the bed being slept in rather than the respawn point.</li>
+<li>Fixed every vanilla command failing when dispatched through a <code>CommandSenderWrapper</code>, which did not report its own type.</li>
+<li>Fixed <code>str()</code> on a <code>Translatable</code> giving an object repr instead of its text.</li>
+<li>Fixed <code>Mob.has_attribute()</code> raising for a name that is not an attribute instead of answering <code>False</code>.</li>
+<li>Fixed writing book metadata wiping the photo attached to a page and the filtered text the server keeps beside it. Pages you did not change now keep both.</li>
+<li>Fixed <code>Enchantment.FORTUNE</code> missing from Python.</li>
+<li>Fixed <code>ServerLoadEvent</code> missing its <code>ServerEvent</code> base in Python, and <code>LoadType.RELOAD</code> never being exposed.</li>
+<li>Fixed a boss bar vanishing for a player who travelled to another dimension. The Bedrock client drops every boss bar it is showing once it rebuilds the world, and now gets the bars a player is in sent again as soon as it asks for them.</li>
+<li>Fixed <code>BossBar.remove_player</code> hiding the bar from a player who was never added to it, and <code>BossBar.add_player</code> re-sending the bar to a player who was already in it.</li>
+<li>Fixed <code>Plugin.default_permission</code> rejecting a string or a bool (<code>"operator"</code>, <code>"not op"</code>, <code>True</code>), which individual entries in <code>Plugin.permissions</code> already accepted.</li>
+<li>Fixed <code>Block.biome</code> reading the wrong part of a chunk, so it reported a biome that has nothing to do with the block, and could crash the server. Introduced in 0.11.7 along with BDS 1.26.40 support.</li>
+<li>Fixed <code>Player.get_address()</code> returning an empty address for players connected over NetherNet, so IP bans, <code>PacketSendEvent</code> and <code>PacketReceiveEvent</code> now see the real remote address from the first packet onwards.</li>
+<li>Fixed teleporting an actor or a player to a location in another dimension, which BDS ignored. Introduced in 0.11.11 along with BDS 1.26.51 support.</li>
+<li>Fixed the location a player is moved to when they travel through a portal, and the locations <code>PlayerPortalEvent</code> reports. Introduced in 0.11.11 along with BDS 1.26.51 support.</li>
+</ul>
+<h4 id="type-annotations">Type annotations<a class="headerlink" href="#type-annotations" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Fixed type annotations for <code>Plugin</code> and <code>event_handler</code>.</li>
+<li>Fixed the type stubs so a type checker no longer reports errors on them: <code>__eq__</code>/<code>__ne__</code> take <code>object</code>, in-place operators such as <code>Vector.__iadd__</code> accept everything their binary counterpart does and return <code>Self</code>, an optional callback is typed <code>Callable[...] | None</code>, a skin image is a <code>numpy.typing.NDArray</code>, and <code>Plugin.config</code> is a <code>dict[str, Any]</code>.</li>
+<li>Fixed the NBT bindings hiding what their containers hold: <code>ByteArrayTag(iterable)</code> and <code>IntArrayTag(iterable)</code> take an <code>Iterable[int]</code>, <code>ListTag(iterable)</code> an <code>Iterable[Tag]</code>, <code>CompoundTag(mapping)</code> a <code>dict[str, Tag]</code>, and <code>to_list()</code>/<code>to_dict()</code> return <code>list[Any]</code>/<code>dict[str, Any]</code>.</li>
+<li>Fixed the Python type stubs for <code>Plugin</code> leaving out the members it inherits, such as <code>logger</code>, <code>server</code>, <code>data_folder</code>, <code>get_command</code> and <code>on_enable</code>, so type checkers like mypy rejected plugins that use them. The stubs have been incomplete since 0.11.9.</li>
+</ul>
+<h2 id="01111-2026-09-16"><a href="https://github.com/EndstoneMC/endstone/compare/v0.11.10...v0.11.11">0.11.11</a> - 2026-09-16<a class="headerlink" href="#01111-2026-09-16" title="Permanent link">&para;</a></h2>
 <h3 id="added_1">Added<a class="headerlink" href="#added_1" title="Permanent link">&para;</a></h3>
 <ul>
-<li>
-<p>Added support for BDS version 1.26.44. The network protocol version is unchanged at 2168, so clients that could join a 1.26.40 server can still join.</p>
-</li>
-<li>
-<p><code>PlayerInteractEvent</code> is now fired with the <code>LEFT_CLICK_AIR</code> action when a player swings at neither a block nor an actor. The action existed since the event was introduced but was never fired. Cancelling the event suppresses the swing, including its attack sound (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/316" title="GitHub Issue: squidfunk/mkdocs-material #316">#316</a>).</p>
-</li>
-<li>
-<p><code>endstone.block.BlockType</code> is now importable from Python.</p>
-</li>
-</ul>
-<h3 id="changed_1">Changed<a class="headerlink" href="#changed_1" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>BREAKING</strong>: The concrete registry classes are no longer importable from <code>endstone</code> (Python). <code>EnchantmentRegistry</code> and <code>ItemRegistry</code> are gone; obtain a registry through <code>Server.get_registry()</code> and annotate it as <code>Registry[T]</code>.</li>
+<li>Added support for BDS version 1.26.51.</li>
+<li>On NetherNet, <code>server-udp-ports</code> now defaults to <code>server-port</code> when not set.</li>
+<li>On NetherNet, the server now refuses to start when <code>server-port</code> is already in use.</li>
 </ul>
 <h3 id="fixed_1">Fixed<a class="headerlink" href="#fixed_1" title="Permanent link">&para;</a></h3>
 <ul>
-<li>
-<p>Fixed services outliving the plugin that registered them. Disabling a plugin left its services in the service manager, so after a <code>/reload</code> another plugin could still look one up and call into a plugin that is no longer running. For C++ plugins the provider's library has been unloaded by that point, so the call would crash the server. A plugin's services are now unregistered when it is disabled, as the Java edition does.</p>
-</li>
-<li>
-<p>Fixed unreadable archives in <code>logs/</code>. Sessions that never logged anything are no longer archived, and archives are now written as a single clean gzip stream.</p>
-</li>
-<li>
-<p>Fixed the last lines of a session going missing from <code>logs/</code>. Roughly a quarter of archives ended mid-line, usually part-way through the plugin shutdown messages. Every message is now flushed as it is written.</p>
-</li>
-<li>
-<p>Fixed <code>Metrics</code> reporting the emulated architecture instead of the host's (Python), so a plugin running in an emulated container sent the wrong architecture to bStats.</p>
-</li>
-<li>
-<p>Fixed ARM servers being reported to bStats as <code>arm64</code> on Windows but <code>aarch64</code> on Linux, splitting the same hardware across two entries. Both now report <code>aarch64</code>.</p>
-</li>
-<li>
-<p>Fixed <code>from endstone import ItemRegistry</code> raising <code>AttributeError</code> (Python). The class bound by the server is <code>ItemTypeRegistry</code>.</p>
-</li>
-<li>
-<p>Fixed scoreboard score removals being misread by clients older than 1.26.44. Those clients negotiate the same network protocol version as 1.26.44 but expect the older form, which they are now sent.</p>
-</li>
-<li>
-<p>Fixed truncated or corrupt NBT being accepted as valid, and well-formed empty lists being rejected as corrupt.</p>
-</li>
-<li>
-<p>Fixed <code>server.properties</code> never gaining the entries a Bedrock Dedicated Server update adds, such as <code>transport</code>, unless you deleted the file and let the server write a fresh one. New entries are now appended along with the comments documenting them, and everything already in the file is left untouched.</p>
-</li>
-<li>
-<p>Fixed <code>Player.address</code> being unreadable once a player's connection has closed, so a handler that asked during disconnect got nothing back.</p>
-</li>
-<li>
-<p>Fixed the server list entry losing its last two fields, currently whether the world is an editor world and whether it is hardcore, whenever a plugin listened for <code>ServerListPingEvent</code>. Any field Endstone does not itself expose is now passed through untouched.</p>
-</li>
+<li>Fixed updating the server leaving out new commented-out <code>server.properties</code> entries and restoring entries you had commented out.</li>
+<li>Fixed <code>Player.get_address()</code> returning an empty address on NetherNet.</li>
+<li>Fixed <code>ServerListPingEvent</code> not firing on NetherNet.</li>
+<li>Fixed <code>Server.port</code> and <code>Server.port_v6</code> returning 0 on NetherNet.</li>
+<li>Fixed a crash in <code>MapView</code> after Bedrock recreated or reloaded a map.</li>
+<li>Fixed <code>Server.port_v6</code> returning 65535 on RakNet when IPv6 is disabled.</li>
+<li>Fixed the Python type stubs for <code>Plugin</code> missing inherited members such as <code>logger</code> and <code>server</code>.</li>
+<li>Fixed a malformed <code>banned-players.json</code> or <code>banned-ips.json</code> being ignored without a log message.</li>
+<li>Fixed <code>WritableBookMeta</code>, <code>BookMeta</code> and <code>CrossbowMeta</code> reaching Python as <code>ItemMeta</code>.</li>
+<li>Fixed two handles to the same scoreboard objective not comparing equal.</li>
+<li>Fixed a crash when a player used an empty item while a behavior pack listened to <code>world.beforeEvents.itemUse</code> (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/528" title="GitHub Issue: squidfunk/mkdocs-material #528">#528</a>).</li>
+<li>Fixed maps showing only the viewer's own marker (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/517" title="GitHub Issue: squidfunk/mkdocs-material #517">#517</a>).</li>
+<li>Fixed boss bars disappearing after a player changes dimension.</li>
+<li>Fixed <code>Player.ping</code> returning a stale average on NetherNet.</li>
+<li>Fixed <code>Location</code> not supporting <code>+</code> and <code>-</code> with a <code>Vector</code>, or <code>*</code> with a number.</li>
 </ul>
-<h2 id="0118-2026-08-07"><a href="https://github.com/EndstoneMC/endstone/compare/v0.11.7...v0.11.8">0.11.8</a> - 2026-08-07<a class="headerlink" href="#0118-2026-08-07" title="Permanent link">&para;</a></h2>
-<h3 id="fixed_2">Fixed<a class="headerlink" href="#fixed_2" title="Permanent link">&para;</a></h3>
+<h3 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h3>
 <ul>
-<li>
-<p>Fixed a crash on Windows when reading the item charged into a crossbow, for example through its item meta. The server called into an invalid address instead of the item's loader. Introduced in 0.11.7 along with BDS 1.26.40 support.</p>
-</li>
-<li>
-<p>Fixed clients timing out on the connection screen when the world's <code>LANBroadcast</code> flag is off. BDS then never publishes the server advertisement, so it answers the client's ping with an empty response, and recent clients refuse to start the connection handshake without a valid one. The advertisement is now restored on startup, using the <code>server-name</code> from <code>server.properties</code>. Note that a server in this state also starts using the LAN discovery ports (19132/19133) again, as it would have with the flag on. Servers hidden with <code>enable-lan-visibility=false</code> are advertised again as well (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/423" title="GitHub Issue: squidfunk/mkdocs-material #423">#423</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/465" title="GitHub Issue: squidfunk/mkdocs-material #465">#465</a>).</p>
-</li>
+<li>Rate-limited <code>NetworkStackLatencyPacket</code> in <code>packetlimitconfig.json</code>.</li>
 </ul>
-<h2 id="0117-2026-08-05"><a href="https://github.com/EndstoneMC/endstone/compare/v0.11.6...v0.11.7">0.11.7</a> - 2026-08-05<a class="headerlink" href="#0117-2026-08-05" title="Permanent link">&para;</a></h2>
+<h3 id="security_1">Security<a class="headerlink" href="#security_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Rate-limited the network ping packet (<code>NetworkStackLatencyPacket</code>, id 115). Bedrock accepts it from a connection that has not logged in yet, and the shipped <code>packetlimitconfig.json</code> left it unbounded, so a single connection could flood it to exhaust the server. On startup Endstone now adds a limit for it to <code>packetlimitconfig.json</code> when one is not already present, leaving any entry you have set yourself untouched.</li>
+</ul>
+<h2 id="01110-2026-08-28"><a href="https://github.com/EndstoneMC/endstone/compare/v0.11.9...v0.11.10">0.11.10</a> - 2026-08-28<a class="headerlink" href="#01110-2026-08-28" title="Permanent link">&para;</a></h2>
 <h3 id="added_2">Added<a class="headerlink" href="#added_2" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Added support for BDS version 1.26.40.</li>
-<li>Added equality comparison, hashing, and <code>std::format</code> support to <code>endstone::SocketAddress</code> (C++), so it can be used directly as a key in <code>std::unordered_map</code>/<code>std::unordered_set</code> and formatted as <code>hostname:port</code>.</li>
+<li>Added support for BDS version 1.26.45.</li>
+</ul>
+<h3 id="changed_1">Changed<a class="headerlink" href="#changed_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>BREAKING</strong>: The server no longer listens on IPv6 by default. Set <code>network.ipv6</code> to <code>true</code> in <code>endstone.toml</code> to enable it.</li>
+</ul>
+<h3 id="fixed_2">Fixed<a class="headerlink" href="#fixed_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fixed items vanishing when <code>PlayerDropItemEvent</code> is cancelled for a main-hand drop (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/375" title="GitHub Issue: squidfunk/mkdocs-material #375">#375</a>).</li>
+</ul>
+<h2 id="0119-2026-08-17"><a href="https://github.com/EndstoneMC/endstone/compare/v0.11.8...v0.11.9">0.11.9</a> - 2026-08-17<a class="headerlink" href="#0119-2026-08-17" title="Permanent link">&para;</a></h2>
+<h3 id="added_3">Added<a class="headerlink" href="#added_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Added support for BDS version 1.26.44.</li>
+<li><code>PlayerInteractEvent</code> now fires with the <code>LEFT_CLICK_AIR</code> action (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/316" title="GitHub Issue: squidfunk/mkdocs-material #316">#316</a>).</li>
+<li><code>endstone.block.BlockType</code> is now importable from Python.</li>
 </ul>
 <h3 id="changed_2">Changed<a class="headerlink" href="#changed_2" title="Permanent link">&para;</a></h3>
 <ul>
-<li><code>/reload</code> now waits up to 2.5 seconds for running async tasks to finish, then logs a warning naming the plugin ("Nag author(s) ...") and proceeds, matching CraftBukkit. Previously the reload tore plugins down immediately, so a still-running async task could crash the server.</li>
-<li>A shared library in <code>plugins/</code> without an entry point is now only reported as an error if its name starts with <code>endstone_</code>. <code>endstone_add_plugin</code> gives every plugin that prefix, so a prefixed file missing <code>ENDSTONE_PLUGIN</code> is still called out by name; anything else is treated as a library a plugin ships alongside itself and skipped quietly. Previously every such file produced a "Did you forget ENDSTONE_PLUGIN?" error, so plugins could not place their own libraries in the folder.</li>
-<li>Log files now show the thread name instead of a numeric thread id. Threads without a name still fall back to the id.</li>
-<li><code>endstone_add_plugin</code> now builds plugins with hidden symbol visibility on Linux, so a plugin exports only its <code>ENDSTONE_PLUGIN</code> entry point, as it already did on Windows. This stops a plugin's own symbols, and those of the libraries it bundles, from colliding with the server's copies inside the BDS process. A plugin that deliberately exports more can set <code>CXX_VISIBILITY_PRESET default</code> on its target.</li>
+<li><strong>BREAKING</strong>: <code>EnchantmentRegistry</code> and <code>ItemRegistry</code> are no longer importable from <code>endstone</code> (Python). Use <code>Server.get_registry()</code>.</li>
 </ul>
 <h3 id="fixed_3">Fixed<a class="headerlink" href="#fixed_3" title="Permanent link">&para;</a></h3>
 <ul>
-<li>
-<p>Fixed a resource pack being applied twice when it is both listed in <code>world_resource_packs.json</code> and present as an archive in <code>resource_packs/</code>. Archives that are already on the world's pack stack are now left alone.</p>
-</li>
-<li>
-<p>Fixed memory corruption on Linux whenever a soft enum was updated, which happens every time a command's dynamic choices change. The update packet was written at the wrong offsets and overran the end of the packet.</p>
-</li>
-<li>
-<p>Fixed clients being disconnected by a custom map render when the map tracks no entities. The map packet carries its decorations and their tracked actor ids as parallel lists, and the rendered cursors were replacing only the decorations, leaving the two lists at different lengths (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/459" title="GitHub Issue: squidfunk/mkdocs-material #459">#459</a>).</p>
-</li>
-<li>
-<p>Fixed events fired from a plugin's <code>on_load</code>, or from the <code>on_enable</code> of a plugin with <code>load: startup</code>, being rejected with "must be triggered synchronously from server thread". Both run before the server thread exists, so the main thread is now reported as the primary thread until it does, matching Spigot.</p>
-</li>
-<li>
-<p>Fixed every script log line being followed by a blank line in the console and log file. Script output arrives with a trailing line break, which is now stripped before the message is logged.</p>
-</li>
-<li>Fixed the <code>endstone</code> launcher exiting with <code>Aborted!</code> and code 1 when the server is stopped with Ctrl+C. The launcher now lets the server handle Ctrl+C, waits for it to shut down gracefully, and reports its actual exit code.</li>
-<li>Fixed <code>Scheduler.is_running()</code> returning the opposite of the truth for async tasks: <code>True</code> while the task was idle and <code>False</code> while it was actually executing.</li>
-<li>Fixed a class of scheduler crashes and leaks around async tasks: a task submitted to the thread pool could be destroyed while still queued, a task cancelled at the wrong moment could still run, and tasks scheduled from another thread or from inside a task callback could leak or fire one tick early (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/436" title="GitHub Issue: squidfunk/mkdocs-material #436">#436</a>).</li>
-<li>Fixed cancelled tasks holding on to their callbacks until their scheduled tick; they are now released on the next tick, and before plugin libraries are unloaded on <code>/reload</code>.</li>
-<li>Fixed <code>PluginLoader.disable_plugin</code> in Python enabling the plugin instead of disabling it.</li>
-<li>Fixed an access-violation crash when converting NBT data containing an empty byte array to a string, for example the item NBT of a firework star (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/443" title="GitHub Issue: squidfunk/mkdocs-material #443">#443</a>).</li>
-<li>Fixed death messages for entity and projectile kills always showing the generic "Player died" instead of the detailed vanilla message, such as "Player was slain by Zombie". Death message overrides set on the damage source are now honored as well (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/438" title="GitHub Issue: squidfunk/mkdocs-material #438">#438</a>).</li>
-<li>Fixed C++ plugins failing to compile against the public headers with libc++ 18, which rejected the <code>std::formatter</code> specializations due to their declared return type (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/437" title="GitHub Issue: squidfunk/mkdocs-material #437">#437</a>).</li>
-<li>Fixed C++ plugin builds on Linux silently compiling against libstdc++ when Endstone is consumed via CMake FetchContent. The <code>endstone::endstone</code> target now propagates <code>-stdlib=libc++</code> to every target that links against it, so plugin projects no longer need to pass the flag themselves.</li>
-<li>Fixed the public C++ headers pulling in <code>&lt;Windows.h&gt;</code>, which leaked macros such as <code>min</code>, <code>max</code> and <code>ERROR</code> into every plugin that includes an Endstone header. The headers now declare the two Win32 functions they need themselves, and the <code>endstone::endstone</code> target defines <code>NOMINMAX</code> and <code>WIN32_LEAN_AND_MEAN</code>, so a <code>&lt;Windows.h&gt;</code> the plugin includes itself stays out of the way too.</li>
+<li>Fixed a plugin's services not being unregistered when the plugin is disabled.</li>
+<li>Fixed unreadable archives in <code>logs/</code>.</li>
+<li>Fixed the last lines of a session missing from <code>logs/</code>.</li>
+<li>Fixed <code>Metrics</code> reporting the emulated architecture instead of the host's (Python).</li>
+<li>Fixed ARM servers reporting <code>arm64</code> to bStats on Windows instead of <code>aarch64</code>.</li>
+<li>Fixed <code>from endstone import ItemRegistry</code> raising <code>AttributeError</code> (Python).</li>
+<li>Fixed scoreboard score removals being misread by clients older than 1.26.44.</li>
+<li>Fixed truncated or corrupt NBT being accepted and empty lists being rejected.</li>
+<li>Fixed <code>server.properties</code> not gaining new entries after a BDS update.</li>
+<li>Fixed <code>Player.address</code> being unreadable after the player's connection has closed.</li>
+<li>Fixed the server list entry losing its editor world and hardcore fields when a plugin listened for <code>ServerListPingEvent</code>.</li>
 </ul>
-<h2 id="0116-2026-07-10"><a href="https://github.com/EndstoneMC/endstone/compare/v0.11.5...v0.11.6">0.11.6</a> - 2026-07-10<a class="headerlink" href="#0116-2026-07-10" title="Permanent link">&para;</a></h2>
-<h3 id="added_3">Added<a class="headerlink" href="#added_3" title="Permanent link">&para;</a></h3>
+<h2 id="0118-2026-08-07"><a href="https://github.com/EndstoneMC/endstone/compare/v0.11.7...v0.11.8">0.11.8</a> - 2026-08-07<a class="headerlink" href="#0118-2026-08-07" title="Permanent link">&para;</a></h2>
+<h3 id="fixed_4">Fixed<a class="headerlink" href="#fixed_4" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Added support for BDS version 1.26.33.</li>
+<li>Fixed a crash on Windows when reading the item charged into a crossbow.</li>
+<li>Fixed clients timing out on the connection screen when the world's <code>LANBroadcast</code> flag is off. Servers with <code>enable-lan-visibility=false</code> are advertised again as well (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/423" title="GitHub Issue: squidfunk/mkdocs-material #423">#423</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/465" title="GitHub Issue: squidfunk/mkdocs-material #465">#465</a>).</li>
+</ul>
+<h2 id="0117-2026-08-05"><a href="https://github.com/EndstoneMC/endstone/compare/v0.11.6...v0.11.7">0.11.7</a> - 2026-08-05<a class="headerlink" href="#0117-2026-08-05" title="Permanent link">&para;</a></h2>
+<h3 id="added_4">Added<a class="headerlink" href="#added_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Added support for BDS version 1.26.40.</li>
+<li>Added equality comparison, hashing and <code>std::format</code> support to <code>endstone::SocketAddress</code> (C++).</li>
 </ul>
 <h3 id="changed_3">Changed<a class="headerlink" href="#changed_3" title="Permanent link">&para;</a></h3>
 <ul>
-<li>The interactive console is now enabled by default on all platforms, including Linux (previously Windows-only). Pass <code>--no-interactive</code> to disable it, for example when running under a process manager that captures stdin.</li>
-</ul>
-<h3 id="fixed_4">Fixed<a class="headerlink" href="#fixed_4" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Fixed the Windows standalone bundle's <code>start.cmd</code> potentially launching the Microsoft Store Python stub. Both <code>start.cmd</code> and <code>start.sh</code> now provision a uv-managed Python (<code>--managed-python</code>, downloaded on demand) into a reusable <code>.venv</code> in the server folder instead of picking up whatever interpreter happens to be on <code>PATH</code>, which also makes subsequent startups faster.</li>
-<li>Fixed the interactive console (<code>-i</code>) not submitting commands under panels such as Pterodactyl. The console only accepted a line on carriage return, but web consoles send a line feed, so typed commands piled up without ever running. It now accepts either.</li>
-<li>Fixed the crash reporter failing to start with <code>error while loading shared libraries: libc++-*.so</code> on Linux (e.g. under the Pterodactyl egg). The crash handler is now loaded from its bundled location instead of being copied into the server folder, so it can find its vendored <code>libc++</code> (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/429" title="GitHub Issue: squidfunk/mkdocs-material #429">#429</a>).</li>
-<li>Fixed custom map renderers not being called when the map had no decorations, leaving the map blank instead of showing the rendered image (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/426" title="GitHub Issue: squidfunk/mkdocs-material #426">#426</a>).</li>
-<li>Fixed death messages no longer showing in chat. A new vanilla game rule shifted the internal game-rule indices, so Endstone was reading the wrong rule when deciding whether to broadcast death messages (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/424" title="GitHub Issue: squidfunk/mkdocs-material #424">#424</a>).</li>
-<li>Fixed an access-violation crash on server shutdown when plugins were loaded, caused by plugin loaders being destroyed in the wrong order (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/339" title="GitHub Issue: squidfunk/mkdocs-material #339">#339</a>).</li>
-</ul>
-<h2 id="0115-2026-07-05"><a href="https://github.com/EndstoneMC/endstone/compare/v0.11.4...v0.11.5">0.11.5</a> - 2026-07-05<a class="headerlink" href="#0115-2026-07-05" title="Permanent link">&para;</a></h2>
-<h3 id="added_4">Added<a class="headerlink" href="#added_4" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Added support for BDS version 1.26.32.</li>
-</ul>
-<h3 id="changed_4">Changed<a class="headerlink" href="#changed_4" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>BREAKING</strong>: Standalone bundles now ship for both Windows (<code>endstone-&lt;version&gt;-windows-x86_64.zip</code>) and Linux (<code>endstone-&lt;version&gt;-linux-x86_64.zip</code>), and use <a href="https://docs.astral.sh/uv/">uv</a> to provision Python on demand instead of shipping a Python interpreter. The included <code>start.cmd</code> / <code>start.sh</code> installs uv on first run if it isn't already on <code>PATH</code>, then launches the server via <code>uv run</code> against the bundled wheel. The old <code>bin/python/</code> directory is gone; the server folder (<code>./bedrock_server/</code>) is unchanged.</li>
-<li><strong>BREAKING</strong>: Removed <code>scripts/autoinstall.sh</code>. The Linux bundle's <code>start.sh</code> now provisions Python via uv on any distro without sudo, superseding the script's apt/dnf/pacman bootstrap.</li>
+<li><code>/reload</code> now waits up to 2.5 seconds for running async tasks to finish.</li>
+<li>A shared library in <code>plugins/</code> without an entry point is now only reported as an error if its name starts with <code>endstone_</code>.</li>
+<li>Log files now show the thread name instead of the thread id.</li>
+<li><code>endstone_add_plugin</code> now builds plugins with hidden symbol visibility on Linux.</li>
 </ul>
 <h3 id="fixed_5">Fixed<a class="headerlink" href="#fixed_5" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Fixed a crash on startup when a behavior pack registered a custom command whose name contained non-ASCII characters, such as Turkish letters (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/406" title="GitHub Issue: squidfunk/mkdocs-material #406">#406</a>).</li>
-<li>Fixed a crash (<code>resource deadlock would occur</code>) when reloading the server or cancelling tasks while an asynchronous task scheduled with <code>run_task_timer_async</code>/<code>run_task_later_async</code> was pending. The plugin no longer fails to re-enable after <code>/reload</code> (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/351" title="GitHub Issue: squidfunk/mkdocs-material #351">#351</a>).</li>
-<li>Fixed scheduled tasks ignoring their delay when registered during plugin enable or <code>ServerLoadEvent</code> on a world that has already been played for a while — they now correctly wait for the requested delay instead of running immediately on the first tick (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/317" title="GitHub Issue: squidfunk/mkdocs-material #317">#317</a>).</li>
-<li>Fixed a use-after-free crash, reliably reproducible after <code>/reload</code>, when a client was disconnected on a connection the server was already closing — the connection-closed teardown no longer runs twice over freed objects (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/395" title="GitHub Issue: squidfunk/mkdocs-material #395">#395</a>).</li>
-<li>Fixed a server crash on Linux when a campfire finished cooking an item.</li>
+<li>Fixed a resource pack being applied twice when it is both listed in <code>world_resource_packs.json</code> and present in <code>resource_packs/</code>.</li>
+<li>Fixed memory corruption on Linux when a soft enum was updated.</li>
+<li>Fixed clients being disconnected by a custom map render when the map tracks no entities (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/459" title="GitHub Issue: squidfunk/mkdocs-material #459">#459</a>).</li>
+<li>Fixed events fired from <code>on_load</code>, or from <code>on_enable</code> of a <code>load: startup</code> plugin, being rejected as asynchronous.</li>
+<li>Fixed every script log line being followed by a blank line.</li>
+<li>Fixed the <code>endstone</code> launcher exiting with <code>Aborted!</code> and code 1 on Ctrl+C.</li>
+<li>Fixed <code>Scheduler.is_running()</code> returning the opposite value for async tasks.</li>
+<li>Fixed crashes and leaks around async tasks (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/436" title="GitHub Issue: squidfunk/mkdocs-material #436">#436</a>).</li>
+<li>Fixed cancelled tasks holding on to their callbacks until their scheduled tick.</li>
+<li>Fixed <code>PluginLoader.disable_plugin</code> enabling the plugin instead of disabling it (Python).</li>
+<li>Fixed a crash when converting NBT containing an empty byte array to a string (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/443" title="GitHub Issue: squidfunk/mkdocs-material #443">#443</a>).</li>
+<li>Fixed death messages for entity and projectile kills showing the generic message (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/438" title="GitHub Issue: squidfunk/mkdocs-material #438">#438</a>).</li>
+<li>Fixed C++ plugins failing to compile with libc++ 18 (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/437" title="GitHub Issue: squidfunk/mkdocs-material #437">#437</a>).</li>
+<li>Fixed C++ plugins on Linux compiling against libstdc++ when Endstone is consumed via CMake FetchContent.</li>
+<li>Fixed the public C++ headers including <code>&lt;Windows.h&gt;</code>.</li>
+</ul>
+<h2 id="0116-2026-07-10"><a href="https://github.com/EndstoneMC/endstone/compare/v0.11.5...v0.11.6">0.11.6</a> - 2026-07-10<a class="headerlink" href="#0116-2026-07-10" title="Permanent link">&para;</a></h2>
+<h3 id="added_5">Added<a class="headerlink" href="#added_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Added support for BDS version 1.26.33.</li>
+</ul>
+<h3 id="changed_4">Changed<a class="headerlink" href="#changed_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The interactive console is now enabled by default on all platforms. Pass <code>--no-interactive</code> to disable it.</li>
+</ul>
+<h3 id="fixed_6">Fixed<a class="headerlink" href="#fixed_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fixed <code>start.cmd</code> possibly launching the Microsoft Store Python stub.</li>
+<li>Fixed the interactive console not submitting commands under panels such as Pterodactyl.</li>
+<li>Fixed the crash reporter failing to start on Linux with <code>error while loading shared libraries: libc++-*.so</code> (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/429" title="GitHub Issue: squidfunk/mkdocs-material #429">#429</a>).</li>
+<li>Fixed custom map renderers not being called when the map had no decorations (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/426" title="GitHub Issue: squidfunk/mkdocs-material #426">#426</a>).</li>
+<li>Fixed death messages not showing in chat (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/424" title="GitHub Issue: squidfunk/mkdocs-material #424">#424</a>).</li>
+<li>Fixed a crash on server shutdown when plugins were loaded (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/339" title="GitHub Issue: squidfunk/mkdocs-material #339">#339</a>).</li>
+</ul>
+<h2 id="0115-2026-07-05"><a href="https://github.com/EndstoneMC/endstone/compare/v0.11.4...v0.11.5">0.11.5</a> - 2026-07-05<a class="headerlink" href="#0115-2026-07-05" title="Permanent link">&para;</a></h2>
+<h3 id="added_6">Added<a class="headerlink" href="#added_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Added support for BDS version 1.26.32.</li>
+</ul>
+<h3 id="changed_5">Changed<a class="headerlink" href="#changed_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>BREAKING</strong>: Standalone bundles now ship for both Windows and Linux and provision Python with <a href="https://docs.astral.sh/uv/">uv</a> instead of bundling an interpreter. The <code>bin/python/</code> directory is gone.</li>
+<li><strong>BREAKING</strong>: Removed <code>scripts/autoinstall.sh</code>.</li>
+</ul>
+<h3 id="fixed_7">Fixed<a class="headerlink" href="#fixed_7" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fixed a crash on startup when a behavior pack registered a custom command with non-ASCII characters (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/406" title="GitHub Issue: squidfunk/mkdocs-material #406">#406</a>).</li>
+<li>Fixed a <code>resource deadlock would occur</code> crash when reloading or cancelling tasks while an async task was pending (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/351" title="GitHub Issue: squidfunk/mkdocs-material #351">#351</a>).</li>
+<li>Fixed scheduled tasks ignoring their delay when registered during plugin enable or <code>ServerLoadEvent</code> (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/317" title="GitHub Issue: squidfunk/mkdocs-material #317">#317</a>).</li>
+<li>Fixed a use-after-free crash when a client was disconnected on a connection that was already closing (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/395" title="GitHub Issue: squidfunk/mkdocs-material #395">#395</a>).</li>
+<li>Fixed a crash on Linux when a campfire finished cooking an item.</li>
 </ul>
 <h2 id="0114-2026-05-25"><a href="https://github.com/EndstoneMC/endstone/compare/v0.11.3...v0.11.4">0.11.4</a> - 2026-05-25<a class="headerlink" href="#0114-2026-05-25" title="Permanent link">&para;</a></h2>
-<h3 id="added_5">Added<a class="headerlink" href="#added_5" title="Permanent link">&para;</a></h3>
+<h3 id="added_7">Added<a class="headerlink" href="#added_7" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Added support for BDS version 1.26.20.</li>
 </ul>
-<h3 id="fixed_6">Fixed<a class="headerlink" href="#fixed_6" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_8">Fixed<a class="headerlink" href="#fixed_8" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Fixed optional <code>message</code>-type command parameters being received as <code>['']</code> instead of <code>[]</code> when the argument was omitted.</li>
 <li>Fixed <code>Player.send_message</code> silently sending malformed packets when given an empty message. Empty messages are now rejected with an error.</li>
 </ul>
 <h2 id="0113-2026-04-02"><a href="https://github.com/EndstoneMC/endstone/compare/v0.11.2...v0.11.3">0.11.3</a> - 2026-04-02<a class="headerlink" href="#0113-2026-04-02" title="Permanent link">&para;</a></h2>
-<h3 id="added_6">Added<a class="headerlink" href="#added_6" title="Permanent link">&para;</a></h3>
+<h3 id="added_8">Added<a class="headerlink" href="#added_8" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Added support for BDS version 1.26.12.</li>
 <li>Added <code>BlockType</code> to the registry API.</li>
 <li>Added <code>Lunge</code> enchantment type for spears.</li>
 </ul>
-<h3 id="fixed_7">Fixed<a class="headerlink" href="#fixed_7" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_9">Fixed<a class="headerlink" href="#fixed_9" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Fixed <code>PacketReceiveEvent</code> error messages to include the packet ID for easier debugging.</li>
 <li>Fixed <code>TextPacket</code> and <code>InventorySlotPacket</code> serialization causing bad packet disconnections.</li>
@@ -5793,20 +5987,20 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>Fixed several issues in the metrics module.</li>
 </ul>
 <h2 id="0112-2026-03-02"><a href="https://github.com/EndstoneMC/endstone/compare/v0.11.1...v0.11.2">0.11.2</a> - 2026-03-02<a class="headerlink" href="#0112-2026-03-02" title="Permanent link">&para;</a></h2>
-<h3 id="added_7">Added<a class="headerlink" href="#added_7" title="Permanent link">&para;</a></h3>
+<h3 id="added_9">Added<a class="headerlink" href="#added_9" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Added support for BDS version 1.26.3.1.</li>
 <li>Added <code>BlockExplodeEvent</code> for non-actor explosions (e.g., bed in the Nether, respawn anchor in the Overworld).</li>
 <li>Added <code>Player.send_map()</code> method for sending full map data to players, enabling custom map renderers to push updates
   on demand (e.g., animated maps via the scheduler).</li>
 </ul>
-<h3 id="fixed_8">Fixed<a class="headerlink" href="#fixed_8" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_10">Fixed<a class="headerlink" href="#fixed_10" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Fixed a crash caused by vulnerabilities introduced in Mojang's RakNet modifications (MCPE-228407).</li>
 <li>Fixed missing exports for <code>BlockFormEvent</code>, <code>BlockFromToEvent</code>, and <code>BlockGrowEvent</code> events.</li>
 </ul>
 <h2 id="0111-2026-02-20"><a href="https://github.com/EndstoneMC/endstone/compare/v0.11.0...v0.11.1">0.11.1</a> - 2026-02-20<a class="headerlink" href="#0111-2026-02-20" title="Permanent link">&para;</a></h2>
-<h3 id="added_8">Added<a class="headerlink" href="#added_8" title="Permanent link">&para;</a></h3>
+<h3 id="added_10">Added<a class="headerlink" href="#added_10" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Added support for BDS version 1.26.1.1.</li>
 <li>Added <code>ListTag.to_list()</code> and <code>CompoundTag.to_dict()</code> methods (Python) that recursively convert NBT tag trees to
@@ -5814,12 +6008,12 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>Exported <code>attribute</code>, <code>effect</code>, <code>nbt</code>, and <code>potion</code> submodules from the top-level <code>endstone</code> Python package.</li>
 <li>C++ API headers are now self-contained and no longer require additional standard library includes.</li>
 </ul>
-<h3 id="changed_5">Changed<a class="headerlink" href="#changed_5" title="Permanent link">&para;</a></h3>
+<h3 id="changed_6">Changed<a class="headerlink" href="#changed_6" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>BREAKING</strong>: <code>ServerListPingEvent.remote_host</code> and <code>ServerListPingEvent.remote_port</code> properties have been replaced by
   a single <code>ServerListPingEvent.address</code> property that returns a <code>SocketAddress</code>.</li>
 </ul>
-<h3 id="fixed_9">Fixed<a class="headerlink" href="#fixed_9" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_11">Fixed<a class="headerlink" href="#fixed_11" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Fixed <code>PlayerMoveEvent</code> and <code>PlayerJumpEvent</code> not firing.</li>
 <li>Fixed <code>WeatherChangeEvent</code> and <code>ThunderChangeEvent</code> not firing.</li>
@@ -5830,7 +6024,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
   across different platforms.</li>
 </ul>
 <h2 id="0110-2026-02-13"><a href="https://github.com/EndstoneMC/endstone/compare/v0.10.18...v0.11.0">0.11.0</a> - 2026-02-13<a class="headerlink" href="#0110-2026-02-13" title="Permanent link">&para;</a></h2>
-<h3 id="added_9">Added<a class="headerlink" href="#added_9" title="Permanent link">&para;</a></h3>
+<h3 id="added_11">Added<a class="headerlink" href="#added_11" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Added support for BDS 1.26.0.</li>
 <li><strong>NBT API</strong>: Plugins can now read, create, and manipulate NBT data directly. All 11 standard tag types are supported (
@@ -5880,7 +6074,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li><strong><code>ItemStack.translation_key</code></strong> property for getting an item's localisation key.</li>
 <li>Added support for Python 3.14.</li>
 </ul>
-<h3 id="changed_6">Changed<a class="headerlink" href="#changed_6" title="Permanent link">&para;</a></h3>
+<h3 id="changed_7">Changed<a class="headerlink" href="#changed_7" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>BREAKING</strong>: <code>NamespacedKey</code> has been replaced by <code>Identifier&lt;T&gt;</code>, a type-safe template that parses <code>"namespace:key"</code>
   strings and defaults to the <code>"minecraft"</code> namespace. C++ plugins must update all references. In Python, identifiers
@@ -5899,7 +6093,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>Crash stack traces are now cleaner and easier to read.</li>
 <li>Suppressed verbose BDS content logs and database auto-compaction messages to reduce log clutter.</li>
 </ul>
-<h3 id="fixed_10">Fixed<a class="headerlink" href="#fixed_10" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_12">Fixed<a class="headerlink" href="#fixed_12" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Fixed log files not reopening properly after rotation, which could cause logs to be written to stale files.</li>
 <li>Fixed Python interpreter not being found reliably in multi-Python environments.</li>
@@ -5908,50 +6102,50 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
   runtime to install plugins from file.</li>
 </ul>
 <h2 id="01018-2025-12-11"><a href="https://github.com/EndstoneMC/endstone/compare/v0.10.17...v0.10.18">0.10.18</a> - 2025-12-11<a class="headerlink" href="#01018-2025-12-11" title="Permanent link">&para;</a></h2>
-<h3 id="fixed_11">Fixed<a class="headerlink" href="#fixed_11" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_13">Fixed<a class="headerlink" href="#fixed_13" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Patched a vulnerability where a malformed login packet could crash the server.</li>
 </ul>
 <h2 id="01017-2025-12-11"><a href="https://github.com/EndstoneMC/endstone/compare/v0.10.16...v0.10.17">0.10.17</a> - 2025-12-11<a class="headerlink" href="#01017-2025-12-11" title="Permanent link">&para;</a></h2>
-<h3 id="changed_7">Changed<a class="headerlink" href="#changed_7" title="Permanent link">&para;</a></h3>
+<h3 id="changed_8">Changed<a class="headerlink" href="#changed_8" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Verbose content logs are now suppressed.</li>
 </ul>
-<h3 id="fixed_12">Fixed<a class="headerlink" href="#fixed_12" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_14">Fixed<a class="headerlink" href="#fixed_14" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Resolved several crashes.</li>
 </ul>
 <h2 id="01016-2025-12-11"><a href="https://github.com/EndstoneMC/endstone/compare/v0.10.15...v0.10.16">0.10.16</a> - 2025-12-11<a class="headerlink" href="#01016-2025-12-11" title="Permanent link">&para;</a></h2>
-<h3 id="added_10">Added<a class="headerlink" href="#added_10" title="Permanent link">&para;</a></h3>
+<h3 id="added_12">Added<a class="headerlink" href="#added_12" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Added support for BDS version 1.21.130.4.</li>
 </ul>
 <h2 id="01015-2025-11-21"><a href="https://github.com/EndstoneMC/endstone/compare/v0.10.14...v0.10.15">0.10.15</a> - 2025-11-21<a class="headerlink" href="#01015-2025-11-21" title="Permanent link">&para;</a></h2>
-<h3 id="added_11">Added<a class="headerlink" href="#added_11" title="Permanent link">&para;</a></h3>
+<h3 id="added_13">Added<a class="headerlink" href="#added_13" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Added support for BDS version 1.21.124.2.</li>
 </ul>
 <h2 id="01014-2025-11-18"><a href="https://github.com/EndstoneMC/endstone/compare/v0.10.13...v0.10.14">0.10.14</a> - 2025-11-18<a class="headerlink" href="#01014-2025-11-18" title="Permanent link">&para;</a></h2>
-<h3 id="added_12">Added<a class="headerlink" href="#added_12" title="Permanent link">&para;</a></h3>
+<h3 id="added_14">Added<a class="headerlink" href="#added_14" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Enable packet rate limiting by default to prevent packet flooding.</li>
 <li>Enabled connection frequency limiting to prevent abuse.</li>
 </ul>
-<h3 id="fixed_13">Fixed<a class="headerlink" href="#fixed_13" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_15">Fixed<a class="headerlink" href="#fixed_15" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Patched a vulnerability that allows malicious clients to continue sending packets after the connection is closed.</li>
 </ul>
 <h2 id="01013-2025-11-18"><a href="https://github.com/EndstoneMC/endstone/compare/v0.10.12...v0.10.13">0.10.13</a> - 2025-11-18<a class="headerlink" href="#01013-2025-11-18" title="Permanent link">&para;</a></h2>
-<h3 id="fixed_14">Fixed<a class="headerlink" href="#fixed_14" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_16">Fixed<a class="headerlink" href="#fixed_16" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Resolved a crash that could occur with certain worlds.</li>
 </ul>
 <h2 id="01012-2025-11-18"><a href="https://github.com/EndstoneMC/endstone/compare/v0.10.11...v0.10.12">0.10.12</a> - 2025-11-18<a class="headerlink" href="#01012-2025-11-18" title="Permanent link">&para;</a></h2>
-<h3 id="added_13">Added<a class="headerlink" href="#added_13" title="Permanent link">&para;</a></h3>
+<h3 id="added_15">Added<a class="headerlink" href="#added_15" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Added support for BDS version 1.21.123.2.</li>
 </ul>
-<h3 id="fixed_15">Fixed<a class="headerlink" href="#fixed_15" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_17">Fixed<a class="headerlink" href="#fixed_17" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Resolved a memory leak caused by chunks not unloading properly.</li>
 <li>Patched a vulnerability where a malformed login packet could crash the server.</li>
@@ -5960,27 +6154,27 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>IP bans are now checked before the server processes player login.</li>
 </ul>
 <h2 id="01011-2025-11-06"><a href="https://github.com/EndstoneMC/endstone/compare/v0.10.10...v0.10.11">0.10.11</a> - 2025-11-06<a class="headerlink" href="#01011-2025-11-06" title="Permanent link">&para;</a></h2>
-<h3 id="added_14">Added<a class="headerlink" href="#added_14" title="Permanent link">&para;</a></h3>
+<h3 id="added_16">Added<a class="headerlink" href="#added_16" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Added support for BDS version 1.21.121.1.</li>
 </ul>
-<h3 id="changed_8">Changed<a class="headerlink" href="#changed_8" title="Permanent link">&para;</a></h3>
+<h3 id="changed_9">Changed<a class="headerlink" href="#changed_9" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>PlayerChatEvent</code> is now triggered before Script API's <code>ChatSendBeforeEvent</code>.</li>
 <li>Verbose database logs (e.g. <code>Running AutoCompaction...</code>) are now suppressed.</li>
 </ul>
-<h3 id="fixed_16">Fixed<a class="headerlink" href="#fixed_16" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_18">Fixed<a class="headerlink" href="#fixed_18" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Resolved a crash that could occur when updating the scoreboard of an entity.</li>
 <li><code>Player::setWalkSpeed</code> now correctly sets the player's walk speed.</li>
 </ul>
 <h2 id="01010-2025-11-01"><a href="https://github.com/EndstoneMC/endstone/compare/v0.10.9...v0.10.10">0.10.10</a> - 2025-11-01<a class="headerlink" href="#01010-2025-11-01" title="Permanent link">&para;</a></h2>
-<h3 id="fixed_17">Fixed<a class="headerlink" href="#fixed_17" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_19">Fixed<a class="headerlink" href="#fixed_19" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>PlayerItemHeldEvent</code> is no longer triggered when the <code>from</code> slot is the same as the <code>to</code> slot.</li>
 </ul>
 <h2 id="0109-2025-10-30"><a href="https://github.com/EndstoneMC/endstone/compare/v0.10.8...v0.10.9">0.10.9</a> - 2025-10-30<a class="headerlink" href="#0109-2025-10-30" title="Permanent link">&para;</a></h2>
-<h3 id="fixed_18">Fixed<a class="headerlink" href="#fixed_18" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_20">Fixed<a class="headerlink" href="#fixed_20" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Resolved crashes in the chunk-related API.</li>
 <li>Stack traces are no longer shown when the server fails to start due to a port conflict on Windows.</li>
@@ -5989,41 +6183,41 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>Fixed a crash that could occur when the Minecraft service was unavailable.</li>
 </ul>
 <h2 id="0108-2025-10-28"><a href="https://github.com/EndstoneMC/endstone/compare/v0.10.7...v0.10.8">0.10.8</a> - 2025-10-28<a class="headerlink" href="#0108-2025-10-28" title="Permanent link">&para;</a></h2>
-<h3 id="added_15">Added<a class="headerlink" href="#added_15" title="Permanent link">&para;</a></h3>
+<h3 id="added_17">Added<a class="headerlink" href="#added_17" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Added support for BDS version 1.21.120.4.</li>
 </ul>
 <h2 id="0107-2025-10-14"><a href="https://github.com/EndstoneMC/endstone/compare/v0.10.6...v0.10.7">0.10.7</a> - 2025-10-14<a class="headerlink" href="#0107-2025-10-14" title="Permanent link">&para;</a></h2>
-<h3 id="added_16">Added<a class="headerlink" href="#added_16" title="Permanent link">&para;</a></h3>
+<h3 id="added_18">Added<a class="headerlink" href="#added_18" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Added support for BDS version 1.21.113.1.</li>
 </ul>
-<h3 id="fixed_19">Fixed<a class="headerlink" href="#fixed_19" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_21">Fixed<a class="headerlink" href="#fixed_21" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Resolve a crash when joining a server using a grayscale skin with an alpha channel.</li>
 <li>Resolve an issue where item stacks containing blocks could not be given to players.</li>
 </ul>
 <h2 id="0106-2025-10-02"><a href="https://github.com/EndstoneMC/endstone/compare/v0.10.5...v0.10.6">0.10.6</a> - 2025-10-02<a class="headerlink" href="#0106-2025-10-02" title="Permanent link">&para;</a></h2>
-<h3 id="added_17">Added<a class="headerlink" href="#added_17" title="Permanent link">&para;</a></h3>
+<h3 id="added_19">Added<a class="headerlink" href="#added_19" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Added support for BDS version 1.21.111.1.</li>
 </ul>
 <h2 id="0105-2025-09-26"><a href="https://github.com/EndstoneMC/endstone/compare/v0.10.4...v0.10.5">0.10.5</a> - 2025-09-26<a class="headerlink" href="#0105-2025-09-26" title="Permanent link">&para;</a></h2>
-<h3 id="added_18">Added<a class="headerlink" href="#added_18" title="Permanent link">&para;</a></h3>
+<h3 id="added_20">Added<a class="headerlink" href="#added_20" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Added support for BDS version 1.21.102.1.</li>
 <li>Added <code>Level::getSeed</code> to retrieve the seed of the current level.</li>
 <li>Added the <code>/seed</code> command to display the current level's seed.</li>
 <li>Added <code>PlayerChatEvent::getFormat</code> and <code>PlayerChatEvent::setFormat</code> to customize the message format.</li>
 </ul>
-<h3 id="changed_9">Changed<a class="headerlink" href="#changed_9" title="Permanent link">&para;</a></h3>
+<h3 id="changed_10">Changed<a class="headerlink" href="#changed_10" title="Permanent link">&para;</a></h3>
 <ul>
 <li>If a command usage includes a parameter of type <code>message</code>, it must be the final parameter. No additional parameters
   are allowed after it.</li>
 <li>On Windows, if the automatic loopback exemption fails, a warning will be shown, but the server will no longer stop
   running.</li>
 </ul>
-<h3 id="fixed_20">Fixed<a class="headerlink" href="#fixed_20" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_22">Fixed<a class="headerlink" href="#fixed_22" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Fixed a crash that could occur when a sub-client joined.</li>
 <li>Ensured <code>Inventory::setItem</code> properly updates the client.</li>
@@ -6032,35 +6226,35 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li><code>PlayerChatEvent::setMessage</code> now correctly displays the updated message to the client.</li>
 </ul>
 <h2 id="0104-2025-08-10"><a href="https://github.com/EndstoneMC/endstone/compare/v0.10.3...v0.10.4">0.10.4</a> - 2025-08-10<a class="headerlink" href="#0104-2025-08-10" title="Permanent link">&para;</a></h2>
-<h3 id="fixed_21">Fixed<a class="headerlink" href="#fixed_21" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_23">Fixed<a class="headerlink" href="#fixed_23" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Death messages are now correctly displayed on the death screen.</li>
 <li>Resolved a crash that could occur after payload updates in <code>PacketReceiveEvent</code>.</li>
 <li>Resolved a crash when running <code>/reload</code> after updating native plugins.</li>
 </ul>
 <h2 id="0103-2025-08-06"><a href="https://github.com/EndstoneMC/endstone/compare/v0.10.2...v0.10.3">0.10.3</a> - 2025-08-06<a class="headerlink" href="#0103-2025-08-06" title="Permanent link">&para;</a></h2>
-<h3 id="added_19">Added<a class="headerlink" href="#added_19" title="Permanent link">&para;</a></h3>
+<h3 id="added_21">Added<a class="headerlink" href="#added_21" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Added support for BDS version 1.21.100.7</li>
 </ul>
 <h2 id="0102-2025-08-05"><a href="https://github.com/EndstoneMC/endstone/compare/v0.10.1...v0.10.2">0.10.2</a> - 2025-08-05<a class="headerlink" href="#0102-2025-08-05" title="Permanent link">&para;</a></h2>
-<h3 id="added_20">Added<a class="headerlink" href="#added_20" title="Permanent link">&para;</a></h3>
+<h3 id="added_22">Added<a class="headerlink" href="#added_22" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Added support for game version 1.21.100</li>
 </ul>
-<h3 id="fixed_22">Fixed<a class="headerlink" href="#fixed_22" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_24">Fixed<a class="headerlink" href="#fixed_24" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Fixed an issue where knockback is still applied when <code>ActorDamageEvent</code> is cancelled</li>
 </ul>
 <h2 id="0101-2025-07-31"><a href="https://github.com/EndstoneMC/endstone/compare/v0.10.0...v0.10.1">0.10.1</a> - 2025-07-31<a class="headerlink" href="#0101-2025-07-31" title="Permanent link">&para;</a></h2>
-<h3 id="fixed_23">Fixed<a class="headerlink" href="#fixed_23" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_25">Fixed<a class="headerlink" href="#fixed_25" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Fixed a crash that occurred when parsing a command with an empty message argument.</li>
 <li>Resolve an issue where an actor could be damaged again in their invulnerability window if the damage value from a
   prior <code>ActorDamageEvent</code> had been lowered.</li>
 </ul>
 <h2 id="0100-2025-07-30"><a href="https://github.com/EndstoneMC/endstone/compare/v0.9.4...v0.10.0">0.10.0</a> - 2025-07-30<a class="headerlink" href="#0100-2025-07-30" title="Permanent link">&para;</a></h2>
-<h3 id="added_21">Added<a class="headerlink" href="#added_21" title="Permanent link">&para;</a></h3>
+<h3 id="added_23">Added<a class="headerlink" href="#added_23" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Added support for BDS version 1.21.95.1.</li>
 <li>Added ability to register commands as console-only by setting <code>console</code> in the <code>default</code> field.</li>
@@ -6080,7 +6274,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>Added a new configuration option <code>commands.log</code> to <code>endstone.toml</code> to control whether the server logs when a player
   executes a command.</li>
 </ul>
-<h3 id="changed_10">Changed<a class="headerlink" href="#changed_10" title="Permanent link">&para;</a></h3>
+<h3 id="changed_11">Changed<a class="headerlink" href="#changed_11" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>PlayerInteractEvent</code> now triggers on right- and left-clicks with both air and blocks.</li>
 <li><code>PlayerEmoteEvent</code> is now cancellable; cancelling prevents broadcasting to other players.</li>
@@ -6093,7 +6287,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>Changed VENV_DIR to "$HOME/.virtualenvs/endstone" in <code>autoinstall.sh</code> and <code>start.sh</code> to avoid polluting users' home
   directory by <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/GyanPrakash2483" title="GitHub User: GyanPrakash2483">@GyanPrakash2483</a> in <a href="https://github.com/EndstoneMC/endstone/pull/226">#226</a></li>
 </ul>
-<h3 id="fixed_24">Fixed<a class="headerlink" href="#fixed_24" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_26">Fixed<a class="headerlink" href="#fixed_26" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>PlayerKickEvent</code> no longer triggers when <code>PlayerLoginEvent</code> is cancelled.</li>
 <li>Input (<code>stdin</code>) can now be passed down from a parent process when Endstone is running as a subprocess.</li>
@@ -6105,43 +6299,43 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>Fixed <code>Server.name</code> property in Python API by <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/cenk" title="GitHub User: cenk">@cenk</a> in <a href="https://github.com/EndstoneMC/endstone/pull/220">#220</a></li>
 </ul>
 <h2 id="094-2025-07-14"><a href="https://github.com/EndstoneMC/endstone/compare/v0.9.3...v0.9.4">0.9.4</a> - 2025-07-14<a class="headerlink" href="#094-2025-07-14" title="Permanent link">&para;</a></h2>
-<h3 id="added_22">Added<a class="headerlink" href="#added_22" title="Permanent link">&para;</a></h3>
+<h3 id="added_24">Added<a class="headerlink" href="#added_24" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Added support for BDS version 1.21.94.2.</li>
 </ul>
 <h2 id="093-2025-07-04"><a href="https://github.com/EndstoneMC/endstone/compare/v0.9.2...v0.9.3">0.9.3</a> - 2025-07-04<a class="headerlink" href="#093-2025-07-04" title="Permanent link">&para;</a></h2>
-<h3 id="added_23">Added<a class="headerlink" href="#added_23" title="Permanent link">&para;</a></h3>
+<h3 id="added_25">Added<a class="headerlink" href="#added_25" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Added support for BDS version 1.21.93.1.</li>
 </ul>
 <h2 id="092-2025-06-30"><a href="https://github.com/EndstoneMC/endstone/compare/v0.9.1...v0.9.2">0.9.2</a> - 2025-06-30<a class="headerlink" href="#092-2025-06-30" title="Permanent link">&para;</a></h2>
-<h3 id="added_24">Added<a class="headerlink" href="#added_24" title="Permanent link">&para;</a></h3>
+<h3 id="added_26">Added<a class="headerlink" href="#added_26" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Added support for BDS version 1.21.92.1.</li>
 <li>Added <code>ChunkLoadEvent</code> and <code>ChunkUnloadEvent</code>, which are called during chunk loading and unloading.</li>
 <li>Added <code>PlayerPickupItemEvent</code>, which is called when a player is about to pick up an item from the ground.</li>
 </ul>
-<h3 id="changed_11">Changed<a class="headerlink" href="#changed_11" title="Permanent link">&para;</a></h3>
+<h3 id="changed_12">Changed<a class="headerlink" href="#changed_12" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>ActorRemoveEvent</code> is no longer triggered if <code>ActorSpawnEvent</code> is cancelled.</li>
 <li><code>PlayerTeleportEvent</code> is no longer triggered if <code>PlayerMoveEvent</code> or <code>PlayerJumpEvent</code> is cancelled.</li>
 </ul>
-<h3 id="fixed_25">Fixed<a class="headerlink" href="#fixed_25" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_27">Fixed<a class="headerlink" href="#fixed_27" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>Chunk::getZ()</code> now returns the correct value.</li>
 <li>Fixed a crash when accessing a registry entry multiple times.</li>
 </ul>
 <h2 id="091-2025-06-19"><a href="https://github.com/EndstoneMC/endstone/compare/v0.9.0...v0.9.1">0.9.1</a> - 2025-06-19<a class="headerlink" href="#091-2025-06-19" title="Permanent link">&para;</a></h2>
-<h3 id="added_25">Added<a class="headerlink" href="#added_25" title="Permanent link">&para;</a></h3>
+<h3 id="added_27">Added<a class="headerlink" href="#added_27" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Added support for BDS version 1.21.91.1.</li>
 </ul>
-<h3 id="fixed_26">Fixed<a class="headerlink" href="#fixed_26" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_28">Fixed<a class="headerlink" href="#fixed_28" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>ItemType::getTranslationKey</code> now returns the correct translation key.</li>
 </ul>
 <h2 id="090-2025-06-17"><a href="https://github.com/EndstoneMC/endstone/compare/v0.8.2...v0.9.0">0.9.0</a> - 2025-06-17<a class="headerlink" href="#090-2025-06-17" title="Permanent link">&para;</a></h2>
-<h3 id="added_26">Added<a class="headerlink" href="#added_26" title="Permanent link">&para;</a></h3>
+<h3 id="added_28">Added<a class="headerlink" href="#added_28" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Added support for BDS version 1.21.90.28 (preview).</li>
 <li>Added <code>PlayerConsumeItemEvent</code>, triggered when a player consumes an item (e.g., food, milk bucket).</li>
@@ -6151,7 +6345,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>Added <code>Server::getPort</code> and <code>Server::getPortV6</code> to retrieve server ports.</li>
 <li>Expanded the <code>Inventory</code> API with additional methods.</li>
 </ul>
-<h3 id="changed_12">Changed<a class="headerlink" href="#changed_12" title="Permanent link">&para;</a></h3>
+<h3 id="changed_13">Changed<a class="headerlink" href="#changed_13" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>BREAKING</strong>: Renamed various fields in the <code>Skin</code> class:<ul>
 <li><code>Skin::getSkinImage</code> -&gt; <code>Skin::getImage</code></li>
@@ -6164,21 +6358,21 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
   Ensure null safety when accessing the player object, as it may be <code>null</code> during pre-login.</li>
 </ul>
 <h2 id="082-2025-06-07"><a href="https://github.com/EndstoneMC/endstone/compare/v0.8.1...v0.8.2">0.8.2</a> - 2025-06-07<a class="headerlink" href="#082-2025-06-07" title="Permanent link">&para;</a></h2>
-<h3 id="added_27">Added<a class="headerlink" href="#added_27" title="Permanent link">&para;</a></h3>
+<h3 id="added_29">Added<a class="headerlink" href="#added_29" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Added support for BDS version 1.21.84.1</li>
 </ul>
-<h3 id="fixed_27">Fixed<a class="headerlink" href="#fixed_27" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_29">Fixed<a class="headerlink" href="#fixed_29" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Fixed an issue when parsing arguments in custom commands (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/190" title="GitHub Issue: squidfunk/mkdocs-material #190">#190</a>)</li>
 <li>Ensure only certain server files are overwritten during update (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/185" title="GitHub Issue: squidfunk/mkdocs-material #185">#185</a>)</li>
 </ul>
 <h2 id="081-2025-05-20"><a href="https://github.com/EndstoneMC/endstone/compare/v0.8.0...v0.8.1">0.8.1</a> - 2025-05-20<a class="headerlink" href="#081-2025-05-20" title="Permanent link">&para;</a></h2>
-<h3 id="added_28">Added<a class="headerlink" href="#added_28" title="Permanent link">&para;</a></h3>
+<h3 id="added_30">Added<a class="headerlink" href="#added_30" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Added support for BDS version 1.21.82.1</li>
 </ul>
-<h3 id="fixed_28">Fixed<a class="headerlink" href="#fixed_28" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_30">Fixed<a class="headerlink" href="#fixed_30" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Resolve compatibility issues with custom commands registered via the beta Script API (
   <code>init.customCommandRegistry.registerCommand</code>).</li>
@@ -6189,7 +6383,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li><code>BlockBreakEvent</code> will no longer fire when a player uses an item that's not supposed to break blocks in Creative mode.</li>
 </ul>
 <h2 id="080-2025-05-11"><a href="https://github.com/EndstoneMC/endstone/compare/v0.7.3...v0.8.0">0.8.0</a> - 2025-05-11<a class="headerlink" href="#080-2025-05-11" title="Permanent link">&para;</a></h2>
-<h3 id="added_29">Added<a class="headerlink" href="#added_29" title="Permanent link">&para;</a></h3>
+<h3 id="added_31">Added<a class="headerlink" href="#added_31" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Added support for BDS version 1.21.80.3</li>
 <li>Introduced a new Registry API for accessing the built-in definitions (e.g., all available enchantments via
@@ -6197,17 +6391,17 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>Added ability to edit item enchantments via the <code>ItemMeta</code> API</li>
 <li>Added ability to get and set an item's repair cost and mark it as unbreakable via the <code>ItemMeta</code> API</li>
 </ul>
-<h3 id="fixed_29">Fixed<a class="headerlink" href="#fixed_29" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_31">Fixed<a class="headerlink" href="#fixed_31" title="Permanent link">&para;</a></h3>
 <ul>
 <li>C++ plugins can now register event handlers for <code>PlayerDeathEvent</code></li>
 </ul>
 <h2 id="073-2025-05-06"><a href="https://github.com/EndstoneMC/endstone/compare/v0.7.2...v0.7.3">0.7.3</a> - 2025-05-06<a class="headerlink" href="#073-2025-05-06" title="Permanent link">&para;</a></h2>
-<h3 id="added_30">Added<a class="headerlink" href="#added_30" title="Permanent link">&para;</a></h3>
+<h3 id="added_32">Added<a class="headerlink" href="#added_32" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Added support for Minecraft v1.21.80.</li>
 <li>Added divider and header for <code>ActionForm</code>.</li>
 </ul>
-<h3 id="fixed_30">Fixed<a class="headerlink" href="#fixed_30" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_32">Fixed<a class="headerlink" href="#fixed_32" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Fixed a bug where player initialization could be processed multiple times
   (<a href="https://github.com/EndstoneMC/endstone/issues/171">#171</a>).</li>
@@ -6215,36 +6409,36 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>Python interpreter now launches correctly in multiprocessing scenarios.</li>
 </ul>
 <h2 id="072-2025-03-29"><a href="https://github.com/EndstoneMC/endstone/compare/v0.7.1...v0.7.2">0.7.2</a> - 2025-03-29<a class="headerlink" href="#072-2025-03-29" title="Permanent link">&para;</a></h2>
-<h3 id="added_31">Added<a class="headerlink" href="#added_31" title="Permanent link">&para;</a></h3>
+<h3 id="added_33">Added<a class="headerlink" href="#added_33" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Added support for BDS version 1.21.71.01.</li>
 <li>Added <code>getDamage</code> and <code>setDamage</code> to <code>ItemMeta</code> for handling item durability.</li>
 <li>Added <code>getRuntimeId</code> to <code>BlockData</code> to retrieve the runtime ID of a block permutation (also known as the network hash
   ID).</li>
 </ul>
-<h3 id="fixed_31">Fixed<a class="headerlink" href="#fixed_31" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_33">Fixed<a class="headerlink" href="#fixed_33" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Fixed an issue where outgoing packet statistics were not written to <code>packet-statistics.txt</code>.</li>
 </ul>
 <h2 id="071-2025-03-27"><a href="https://github.com/EndstoneMC/endstone/compare/v0.7.0...v0.7.1">0.7.1</a> - 2025-03-27<a class="headerlink" href="#071-2025-03-27" title="Permanent link">&para;</a></h2>
-<h3 id="added_32">Added<a class="headerlink" href="#added_32" title="Permanent link">&para;</a></h3>
+<h3 id="added_34">Added<a class="headerlink" href="#added_34" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Added support for BDS version 1.21.70.04.</li>
 <li>Added new <code>setPayload</code> method in <code>PacketSendEvent</code> and <code>PacketReceiveEvent</code> for editing packet contents.</li>
 <li>Introduced a configuration file, <code>endstone.toml</code>, for Endstone configurations.</li>
 </ul>
-<h3 id="changed_13">Changed<a class="headerlink" href="#changed_13" title="Permanent link">&para;</a></h3>
+<h3 id="changed_14">Changed<a class="headerlink" href="#changed_14" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Updated the behavior of server pack enforcement to match vanilla BDS: clients are not allowed to use custom packs when
   <code>texturepack-required</code> is set to <code>true</code> in <code>server.properties</code>. This behavior can be overridden by setting
   <code>allow-client-packs</code> in <code>endstone.toml</code>.</li>
 </ul>
-<h3 id="fixed_32">Fixed<a class="headerlink" href="#fixed_32" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_34">Fixed<a class="headerlink" href="#fixed_34" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Resolved a crash caused by sending packets within the <code>PacketSendEvent</code> handler.</li>
 </ul>
 <h2 id="070-2025-03-25"><a href="https://github.com/EndstoneMC/endstone/compare/v0.6.2...v0.7.0">0.7.0</a> - 2025-03-25<a class="headerlink" href="#070-2025-03-25" title="Permanent link">&para;</a></h2>
-<h3 id="added_33">Added<a class="headerlink" href="#added_33" title="Permanent link">&para;</a></h3>
+<h3 id="added_35">Added<a class="headerlink" href="#added_35" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Added support for Minecraft v1.21.70.</li>
 <li>Introduced the <code>Service</code> API, enabling plugins to register services that can be utilized by other plugins.</li>
@@ -6255,7 +6449,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li><strong>Inventory API</strong>: Introduced various methods to get and set items in armor slots as well as main/off-hand slots.</li>
 <li><strong>Inventory API</strong>: Added methods to get and set the selected hotbar slot.</li>
 </ul>
-<h3 id="changed_14">Changed<a class="headerlink" href="#changed_14" title="Permanent link">&para;</a></h3>
+<h3 id="changed_15">Changed<a class="headerlink" href="#changed_15" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>BREAKING</strong>: <code>DataPacketReceiveEvent</code> and <code>DataPacketSendEvent</code> have been renamed to <code>PacketReceiveEvent</code>
   and<br />
@@ -6263,19 +6457,19 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li><strong>BREAKING</strong>: <code>Player::sendPacket</code> now requires a packet ID and payload as arguments instead of a <code>Packet</code>
   object.</li>
 </ul>
-<h3 id="fixed_33">Fixed<a class="headerlink" href="#fixed_33" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_35">Fixed<a class="headerlink" href="#fixed_35" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Fixed a crash caused by a conflict with the event system of the scripting API.</li>
 </ul>
 <h2 id="062-2025-03-09"><a href="https://github.com/EndstoneMC/endstone/compare/v0.6.1...v0.6.2">0.6.2</a> - 2025-03-09<a class="headerlink" href="#062-2025-03-09" title="Permanent link">&para;</a></h2>
-<h3 id="added_34">Added<a class="headerlink" href="#added_34" title="Permanent link">&para;</a></h3>
+<h3 id="added_36">Added<a class="headerlink" href="#added_36" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Added support for Minecraft v1.21.62.</li>
 <li>Added <code>DataPacketReceiveEvent</code> and <code>DataPacketSendEvent</code> to allow viewing/intercepting low-level packet payloads.</li>
 <li>Added <code>Actor::remove</code> to remove an actor from its associated dimension.</li>
 <li><strong>Python API</strong>: Added <code>Dimension.get_highest_block_at</code> to get the top non-air block at a given coordinate.</li>
 </ul>
-<h3 id="fixed_34">Fixed<a class="headerlink" href="#fixed_34" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_36">Fixed<a class="headerlink" href="#fixed_36" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Usages are now displayed correctly as percentages in <code>/status</code> command output.</li>
 <li>Boss bars are now displayed correctly.</li>
@@ -6285,12 +6479,12 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>Crash reporting now works properly on Linux.</li>
 </ul>
 <h2 id="061-2025-02-20"><a href="https://github.com/EndstoneMC/endstone/compare/v0.6.0...v0.6.1">0.6.1</a> - 2025-02-20<a class="headerlink" href="#061-2025-02-20" title="Permanent link">&para;</a></h2>
-<h3 id="fixed_35">Fixed<a class="headerlink" href="#fixed_35" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_37">Fixed<a class="headerlink" href="#fixed_37" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Resolved a crash caused by <code>ProxiedCommandSender</code></li>
 </ul>
 <h2 id="060-2025-02-19"><a href="https://github.com/EndstoneMC/endstone/compare/v0.5.7.1...v0.6.0">0.6.0</a> - 2025-02-19<a class="headerlink" href="#060-2025-02-19" title="Permanent link">&para;</a></h2>
-<h3 id="added_35">Added<a class="headerlink" href="#added_35" title="Permanent link">&para;</a></h3>
+<h3 id="added_37">Added<a class="headerlink" href="#added_37" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Added support for Minecraft v1.21.60.</li>
 <li>Added more liquid-related data to the DevTools by <a href="https://github.com/smartcmd">@smartcmd</a> in <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/113" title="GitHub Issue: squidfunk/mkdocs-material #113">#113</a>.</li>
@@ -6310,28 +6504,28 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>Added a basic chunk API.</li>
 <li>Added block collision data to the DevTools by <a href="https://github.com/smartcmd">@smartcmd</a> in <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/132" title="GitHub Issue: squidfunk/mkdocs-material #132">#132</a>.</li>
 </ul>
-<h3 id="changed_15">Changed<a class="headerlink" href="#changed_15" title="Permanent link">&para;</a></h3>
+<h3 id="changed_16">Changed<a class="headerlink" href="#changed_16" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Python API</strong>: Events that are cancellable now inherit from <code>Cancellable</code>. You can check if an event is cancellable
   by using <code>isinstance(event, Cancellable)</code>.</li>
 <li><code>Dimension::getBlockAt</code> now returns a pointer to a <code>Block</code> directly instead of a <code>Result</code> wrapper, making the
   interface more concise. If the requested block is in an unloaded or unpopulated chunk, it returns an empty block.</li>
 </ul>
-<h3 id="fixed_36">Fixed<a class="headerlink" href="#fixed_36" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_38">Fixed<a class="headerlink" href="#fixed_38" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Fixed the logic of finding the Python executable associated with the current interpreter
   by <a href="https://github.com/killcerr">@killcerr</a> in <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/114" title="GitHub Issue: squidfunk/mkdocs-material #114">#114</a>.</li>
 <li>Fixed the logic for parsing the <code>message</code> command parameter type.</li>
 </ul>
 <h2 id="0571-2024-12-24"><a href="https://github.com/EndstoneMC/endstone/compare/v0.5.7...v0.5.7.1">0.5.7.1</a> - 2024-12-24<a class="headerlink" href="#0571-2024-12-24" title="Permanent link">&para;</a></h2>
-<h3 id="fixed_37">Fixed<a class="headerlink" href="#fixed_37" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_39">Fixed<a class="headerlink" href="#fixed_39" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Fixed an issue where the <code>event.is_cancelled</code> property in the Python binding was not writable.</li>
 <li>Prevented player command execution from being printed to the console if the <code>PlayerCommandEvent</code> was already cancelled
   by plugins.</li>
 </ul>
 <h2 id="057-2024-12-23"><a href="https://github.com/EndstoneMC/endstone/compare/v0.5.6...v0.5.7">0.5.7</a> - 2024-12-23<a class="headerlink" href="#057-2024-12-23" title="Permanent link">&para;</a></h2>
-<h3 id="added_36">Added<a class="headerlink" href="#added_36" title="Permanent link">&para;</a></h3>
+<h3 id="added_38">Added<a class="headerlink" href="#added_38" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Added getter and setter for name tags and score tags in the <code>Actor</code> class.</li>
 <li>Added the <code>Actor::getType</code> function to retrieve actor types (e.g., <code>minecraft:pig</code>).</li>
@@ -6342,12 +6536,12 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>Added setters for fields in <code>ServerListPingEvent</code> by <a href="https://github.com/theaddonn">@theaddonn</a>.</li>
 <li>Added a new color code (<code>§v</code>).</li>
 </ul>
-<h3 id="changed_16">Changed<a class="headerlink" href="#changed_16" title="Permanent link">&para;</a></h3>
+<h3 id="changed_17">Changed<a class="headerlink" href="#changed_17" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Renamed <code>Server::getPlayerBanList</code> to <code>Server::getBanList</code>.</li>
 <li>Removed deprecated material from DevTools by <a href="https://github.com/smartcmd">@smartcmd</a>.</li>
 </ul>
-<h3 id="fixed_38">Fixed<a class="headerlink" href="#fixed_38" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_40">Fixed<a class="headerlink" href="#fixed_40" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Prevented a crash caused by killing a player in a form callback, which invalidated the player object.</li>
 <li>Fixed an issue where the player inventory was not updated after calling <code>clear</code>.</li>
@@ -6357,7 +6551,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>Ensured players with matching IP addresses are immediately kicked upon banning.</li>
 </ul>
 <h2 id="056-2024-12-06"><a href="https://github.com/EndstoneMC/endstone/compare/v0.5.5...v0.5.6">0.5.6</a> - 2024-12-06<a class="headerlink" href="#056-2024-12-06" title="Permanent link">&para;</a></h2>
-<h3 id="added_37">Added<a class="headerlink" href="#added_37" title="Permanent link">&para;</a></h3>
+<h3 id="added_39">Added<a class="headerlink" href="#added_39" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Added support for Minecraft v1.21.50 (The Garden Awakens).</li>
 <li>Added <code>Inventory::getItem</code> and <code>Inventory::setItem</code> methods to manipulate a player's inventory.</li>
@@ -6367,17 +6561,17 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>Added <code>PluginManager::loadPlugin</code> to allow third-party plugin loaders to load plugins from single files instead of
   directories. <a href="https://github.com/EndstoneMC/endstone/issues/98">#98</a></li>
 </ul>
-<h3 id="changed_17">Changed<a class="headerlink" href="#changed_17" title="Permanent link">&para;</a></h3>
+<h3 id="changed_18">Changed<a class="headerlink" href="#changed_18" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Added support for loading a mixture of folder packs listed in <code>world_resource_packs.json</code> (the conventional method)
   and zipped packs in <code>.zip</code> or <code>.mcpack</code> format placed under <code>resource_packs</code>.</li>
 </ul>
-<h3 id="fixed_39">Fixed<a class="headerlink" href="#fixed_39" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_41">Fixed<a class="headerlink" href="#fixed_41" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Fixed an issue where <code>block_palette.nbt</code> was dumped twice in the DevTools.</li>
 </ul>
 <h2 id="055-2024-10-26"><a href="https://github.com/EndstoneMC/endstone/compare/v0.5.4.1...v0.5.5">0.5.5</a> - 2024-10-26<a class="headerlink" href="#055-2024-10-26" title="Permanent link">&para;</a></h2>
-<h3 id="added_38">Added<a class="headerlink" href="#added_38" title="Permanent link">&para;</a></h3>
+<h3 id="added_40">Added<a class="headerlink" href="#added_40" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Added support for Minecraft v1.21.40 (Bundles of Bravery).</li>
 <li>Python plugins now receive the correct command sender type (e.g., <code>Player</code>) instead of the base type.</li>
@@ -6395,29 +6589,29 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>Added <code>CommandSenderWrapper</code> to capture the output of command execution for any command sender.</li>
 <li>Added <code>Player::spawnParticle</code> to send a particle effect that is only visible to the player.</li>
 </ul>
-<h3 id="changed_18">Changed<a class="headerlink" href="#changed_18" title="Permanent link">&para;</a></h3>
+<h3 id="changed_19">Changed<a class="headerlink" href="#changed_19" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Error messages from DevTools, when OpenGL is not available, are now suppressed.</li>
 <li>Several API methods now throw descriptive exceptions on invalid input instead of returning error codes.</li>
 </ul>
-<h3 id="fixed_40">Fixed<a class="headerlink" href="#fixed_40" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_42">Fixed<a class="headerlink" href="#fixed_42" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Fixed a crash that occurred while handling server ping
   requests (<a href="https://github.com/EndstoneMC/endstone/issues/60">#60</a>).</li>
 </ul>
 <h2 id="0541-2024-09-19"><a href="https://github.com/EndstoneMC/endstone/compare/v0.5.4...v0.5.4.1">0.5.4.1</a> - 2024-09-19<a class="headerlink" href="#0541-2024-09-19" title="Permanent link">&para;</a></h2>
-<h3 id="fixed_41">Fixed<a class="headerlink" href="#fixed_41" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_43">Fixed<a class="headerlink" href="#fixed_43" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Fixed a crash that could occur when the player uses emotes.</li>
 </ul>
 <h2 id="054-2024-09-19"><a href="https://github.com/EndstoneMC/endstone/compare/v0.5.3...v0.5.4">0.5.4</a> - 2024-09-19<a class="headerlink" href="#054-2024-09-19" title="Permanent link">&para;</a></h2>
-<h3 id="added_39">Added<a class="headerlink" href="#added_39" title="Permanent link">&para;</a></h3>
+<h3 id="added_41">Added<a class="headerlink" href="#added_41" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Added support for Minecraft v1.21.30.</li>
 <li>Added support for Python 3.13.</li>
 <li>Added biome data to the DevTools by <a href="https://github.com/CoolLoong">@CoolLoong</a>.</li>
 </ul>
-<h3 id="changed_19">Changed<a class="headerlink" href="#changed_19" title="Permanent link">&para;</a></h3>
+<h3 id="changed_20">Changed<a class="headerlink" href="#changed_20" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>BREAKING</strong>: <code>Player::performCommand</code> now executes the command as a Player to
   resolve <a href="https://github.com/EndstoneMC/endstone/issues/53">#53</a>. This means the command execution will now depend on
@@ -6425,7 +6619,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
   command with elevated permissions, consider using <code>Server::dispatchCommand</code> to execute
   <code>execute as {player_name} run {command}</code>.</li>
 </ul>
-<h3 id="fixed_42">Fixed<a class="headerlink" href="#fixed_42" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_44">Fixed<a class="headerlink" href="#fixed_44" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>Actor::isOnGround</code>, <code>Actor::isInWater</code>, and <code>Actor::isInLava</code> now return the correct values.</li>
 <li>Fixed a typo in the documentation by <a href="https://github.com/thatgurkangurk">@thatgurkangurk</a>.</li>
@@ -6433,7 +6627,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>Fixed a crash when spawning a simulated player.</li>
 </ul>
 <h2 id="053-2024-09-12"><a href="https://github.com/EndstoneMC/endstone/compare/v0.5.2...v0.5.3">0.5.3</a> - 2024-09-12<a class="headerlink" href="#053-2024-09-12" title="Permanent link">&para;</a></h2>
-<h3 id="added_40">Added<a class="headerlink" href="#added_40" title="Permanent link">&para;</a></h3>
+<h3 id="added_42">Added<a class="headerlink" href="#added_42" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Added support for Minecraft v1.21.23.</li>
 <li>Introduced the <code>BlockData</code> class, which encapsulates both the block type and a specific state from all possible block
@@ -6447,13 +6641,13 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li><code>PlayerJoinEvent</code> and <code>PlayerQuitEvent</code> now include getter and setter methods for customizing join/quit messages.</li>
 <li>Integrated bStats metrics.</li>
 </ul>
-<h3 id="changed_20">Changed<a class="headerlink" href="#changed_20" title="Permanent link">&para;</a></h3>
+<h3 id="changed_21">Changed<a class="headerlink" href="#changed_21" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>BREAKING</strong>: Renamed <code>Server::getNewScoreboard</code> to <code>Server::createScoreboard</code> for consistency with other
   methods like <code>createBossbar</code> and <code>createBlockData</code>.</li>
 <li>Lifted the restriction on the <code>/reload</code> command for console use. It can now be executed in-game.</li>
 </ul>
-<h3 id="fixed_43">Fixed<a class="headerlink" href="#fixed_43" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_45">Fixed<a class="headerlink" href="#fixed_45" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Enforced the use of libc++ for C++ plugins on Linux to resolve symbol errors.</li>
 <li><code>Player::setExpProgress</code> now correctly sets experience progress without precision loss.</li>
@@ -6463,7 +6657,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li><code>PlayerInteractEvent::hasItem</code> now correctly returns <code>false</code> if the player has no item in hand when interacting.</li>
 </ul>
 <h2 id="052-2024-08-30"><a href="https://github.com/EndstoneMC/endstone/compare/v0.5.1...v0.5.2">0.5.2</a> - 2024-08-30<a class="headerlink" href="#052-2024-08-30" title="Permanent link">&para;</a></h2>
-<h3 id="added_41">Added<a class="headerlink" href="#added_41" title="Permanent link">&para;</a></h3>
+<h3 id="added_43">Added<a class="headerlink" href="#added_43" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Support for Minecraft v1.21.22.</li>
 <li>Boss bar API.</li>
@@ -6474,17 +6668,17 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li><code>PlayerInteractActorEvent</code> triggered when a player interacts with an actor.</li>
 <li>An auto installer script for installing Endstone on Linux (thanks to <a href="https://github.com/legitbox">@legitbox</a>).</li>
 </ul>
-<h3 id="changed_21">Changed<a class="headerlink" href="#changed_21" title="Permanent link">&para;</a></h3>
+<h3 id="changed_22">Changed<a class="headerlink" href="#changed_22" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Check chunk states before getting the block in <code>Dimension::getBlockAt</code>.</li>
 </ul>
-<h3 id="fixed_44">Fixed<a class="headerlink" href="#fixed_44" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_46">Fixed<a class="headerlink" href="#fixed_46" title="Permanent link">&para;</a></h3>
 <ul>
 <li><a href="https://github.com/EndstoneMC/endstone/issues/38">#38</a> - Plugins can now be properly loaded inside a virtual
   environment on Linux.</li>
 </ul>
 <h2 id="051-2024-08-24"><a href="https://github.com/EndstoneMC/endstone/compare/v0.5.0...v0.5.1">0.5.1</a> - 2024-08-24<a class="headerlink" href="#051-2024-08-24" title="Permanent link">&para;</a></h2>
-<h3 id="added_42">Added<a class="headerlink" href="#added_42" title="Permanent link">&para;</a></h3>
+<h3 id="added_44">Added<a class="headerlink" href="#added_44" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Support for Minecraft v1.21.20.</li>
 <li><code>Player::getScoreboard</code> and <code>Player::setScoreboard</code> methods to allow each player to have their own scoreboard (
@@ -6498,7 +6692,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li><code>Player::sendToast</code> method to send a toast message to players.</li>
 <li>Furnace-related item data to DevTools by <a href="https://github.com/smartcmd">@smartcmd</a>.</li>
 </ul>
-<h3 id="changed_22">Changed<a class="headerlink" href="#changed_22" title="Permanent link">&para;</a></h3>
+<h3 id="changed_23">Changed<a class="headerlink" href="#changed_23" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>Player::isOp</code> and <code>Player::setOp</code> methods are now consistent with the similar methods in the scripting API.</li>
 <li>The fix for the warning message about empty packets is now redundant and has been removed.</li>
@@ -6506,7 +6700,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li><strong>BREAKING</strong>: <code>Player::getDeviceId</code> now returns a string object instead of a UUID object, as it is not
   guaranteed to be a UUID on all platforms.</li>
 </ul>
-<h3 id="fixed_45">Fixed<a class="headerlink" href="#fixed_45" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_47">Fixed<a class="headerlink" href="#fixed_47" title="Permanent link">&para;</a></h3>
 <ul>
 <li><a href="https://github.com/EndstoneMC/endstone/issues/29">#29</a> - Commands will no longer be sent to a player who doesn't have</li>
 <li><a href="https://github.com/EndstoneMC/endstone/issues/32">#32</a> - Creating an action form without an <code>on_submit</code> callback will
@@ -6517,7 +6711,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>The Python executable can now be located in multiple possible locations on Linux.</li>
 </ul>
 <h2 id="050-2024-07-29"><a href="https://github.com/EndstoneMC/endstone/compare/v0.4.10...v0.5.0">0.5.0</a> - 2024-07-29<a class="headerlink" href="#050-2024-07-29" title="Permanent link">&para;</a></h2>
-<h3 id="added_43">Added<a class="headerlink" href="#added_43" title="Permanent link">&para;</a></h3>
+<h3 id="added_45">Added<a class="headerlink" href="#added_45" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Support for Minecraft v1.21.3.</li>
 <li><code>Actor::getId</code> function to get an actor's unique id, persisting between server runs.</li>
@@ -6532,32 +6726,32 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li><strong>Experimental</strong> Scoreboard API.</li>
 <li><strong>Experimental</strong> Form API.</li>
 </ul>
-<h3 id="changed_23">Changed<a class="headerlink" href="#changed_23" title="Permanent link">&para;</a></h3>
+<h3 id="changed_24">Changed<a class="headerlink" href="#changed_24" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>Player</code> class now inherits from the <code>Mob</code> class instead of <code>Actor</code> class.</li>
 <li><strong>BREAKING</strong>: Plugin names should only contain lowercase letters, numbers, and underscores. Use the prefix
   property to display a different name for the plugin logger.</li>
 <li><strong>BREAKING</strong>: The <code>player.ping</code> property now returns an <code>int</code> instead of <code>datetime.timedelta</code>.</li>
 </ul>
-<h3 id="fixed_46">Fixed<a class="headerlink" href="#fixed_46" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_48">Fixed<a class="headerlink" href="#fixed_48" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Fixed a crash when setting the maximum number of players.</li>
 <li>Fixed issue that python executable cannot be located when running in a virtual environment.</li>
 </ul>
 <h2 id="0410-2024-07-10"><a href="https://github.com/EndstoneMC/endstone/compare/v0.4.9...v0.4.10">0.4.10</a> - 2024-07-10<a class="headerlink" href="#0410-2024-07-10" title="Permanent link">&para;</a></h2>
-<h3 id="added_44">Added<a class="headerlink" href="#added_44" title="Permanent link">&para;</a></h3>
+<h3 id="added_46">Added<a class="headerlink" href="#added_46" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Support for Minecraft v1.21.2.</li>
 <li><code>Player::getSkin</code> method to retrieve the current skin of a player.</li>
 <li>Support for recipes with output items possessing NBT (Named Binary Tag) tags. These tags are now also included
   in the dumped data.</li>
 </ul>
-<h3 id="fixed_47">Fixed<a class="headerlink" href="#fixed_47" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_49">Fixed<a class="headerlink" href="#fixed_49" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Issue with shaped recipes. Recipes that have item tags as input (instead of item names) can now be dumped correctly.</li>
 </ul>
 <h2 id="049-2024-07-05"><a href="https://github.com/EndstoneMC/endstone/compare/v0.4.8.1...v0.4.9">0.4.9</a> - 2024-07-05<a class="headerlink" href="#049-2024-07-05" title="Permanent link">&para;</a></h2>
-<h3 id="added_45">Added<a class="headerlink" href="#added_45" title="Permanent link">&para;</a></h3>
+<h3 id="added_47">Added<a class="headerlink" href="#added_47" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Support for Minecraft v1.21.1.</li>
 <li><code>ActorDeathEvent</code> and <code>PlayerDeathEvent</code> triggers when an actor or a player dies.</li>
@@ -6575,21 +6769,21 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>A DevTools to help community projects get necessary data from BDS (currently only available on Windows). To open the
   DevTools, use command <code>/devtools</code> in the console.</li>
 </ul>
-<h3 id="changed_24">Changed<a class="headerlink" href="#changed_24" title="Permanent link">&para;</a></h3>
+<h3 id="changed_25">Changed<a class="headerlink" href="#changed_25" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>Permissible.op</code> property in the python binding is renamed to <code>Permissible.is_op</code>.</li>
 <li>Crash dumps will now print system and version info in addition to stacktraces.</li>
 </ul>
-<h3 id="fixed_48">Fixed<a class="headerlink" href="#fixed_48" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_50">Fixed<a class="headerlink" href="#fixed_50" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Suppressed warning message about empty UDP packets from the output.</li>
 </ul>
 <h2 id="0481-2024-06-15"><a href="https://github.com/EndstoneMC/endstone/compare/v0.4.7...v0.4.8.1">0.4.8.1</a> - 2024-06-15<a class="headerlink" href="#0481-2024-06-15" title="Permanent link">&para;</a></h2>
-<h3 id="added_46">Added<a class="headerlink" href="#added_46" title="Permanent link">&para;</a></h3>
+<h3 id="added_48">Added<a class="headerlink" href="#added_48" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Support Minecraft v1.21 (Tricky Trials)</li>
 </ul>
-<h3 id="fixed_49">Fixed<a class="headerlink" href="#fixed_49" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_51">Fixed<a class="headerlink" href="#fixed_51" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>Player::getPing</code> now returns correct value instead of -1 on Linux.</li>
 <li><code>Player::isFlying</code> now works correctly in all conditions.</li>
@@ -6598,7 +6792,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>Permission attachment now works as expected.</li>
 </ul>
 <h2 id="047-2024-06-13"><a href="https://github.com/EndstoneMC/endstone/compare/v0.4.6...v0.4.7">0.4.7</a> - 2024-06-13<a class="headerlink" href="#047-2024-06-13" title="Permanent link">&para;</a></h2>
-<h3 id="added_47">Added<a class="headerlink" href="#added_47" title="Permanent link">&para;</a></h3>
+<h3 id="added_49">Added<a class="headerlink" href="#added_49" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>Player::performCommand</code> allows a player to execute a given command. During the command execution, the player is
   temporarily granted the operator permission.</li>
@@ -6614,33 +6808,33 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
   be logged in.</li>
 <li><code>Server::getPlayer</code> now also accepts a string argument to get a player by name instead of UUID.</li>
 </ul>
-<h3 id="changed_25">Changed<a class="headerlink" href="#changed_25" title="Permanent link">&para;</a></h3>
+<h3 id="changed_26">Changed<a class="headerlink" href="#changed_26" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Endstone no longer requires debug symbols at runtime.</li>
 </ul>
-<h3 id="fixed_50">Fixed<a class="headerlink" href="#fixed_50" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_52">Fixed<a class="headerlink" href="#fixed_52" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>Actor::getVelocity</code> now returns the correct velocity when the actor rides a vehicle.</li>
 <li>Python plugin loader now works correctly with Python 3.9.</li>
 </ul>
 <h2 id="046-2024-05-15"><a href="https://github.com/EndstoneMC/endstone/compare/v0.4.5...v0.4.6">0.4.6</a> - 2024-05-15<a class="headerlink" href="#046-2024-05-15" title="Permanent link">&para;</a></h2>
-<h3 id="fixed_51">Fixed<a class="headerlink" href="#fixed_51" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_53">Fixed<a class="headerlink" href="#fixed_53" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Improved the detection of Python executable.</li>
 </ul>
 <h2 id="045-2024-05-14"><a href="https://github.com/EndstoneMC/endstone/compare/v0.4.3...v0.4.5">0.4.5</a> - 2024-05-14<a class="headerlink" href="#045-2024-05-14" title="Permanent link">&para;</a></h2>
-<h3 id="added_48">Added<a class="headerlink" href="#added_48" title="Permanent link">&para;</a></h3>
+<h3 id="added_50">Added<a class="headerlink" href="#added_50" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Bootstrap now protects specific files from overwriting during update.</li>
 <li>Python plugin loader now loads all <code>*.whl</code> plugins under the <code>plguins</code> folder and their dependencies during server
   start up.</li>
 </ul>
-<h3 id="fixed_52">Fixed<a class="headerlink" href="#fixed_52" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_54">Fixed<a class="headerlink" href="#fixed_54" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Scheduler now works on Linux.</li>
 </ul>
 <h2 id="043-2024-05-13"><a href="https://github.com/EndstoneMC/endstone/compare/v0.4.2...v0.4.3">0.4.3</a> - 2024-05-13<a class="headerlink" href="#043-2024-05-13" title="Permanent link">&para;</a></h2>
-<h3 id="added_49">Added<a class="headerlink" href="#added_49" title="Permanent link">&para;</a></h3>
+<h3 id="added_51">Added<a class="headerlink" href="#added_51" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>Server::getOnlinePlayers</code> for getting all online players.</li>
 <li><code>Player::kick</code> for kicking a specific player with a custom message.</li>
@@ -6648,7 +6842,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li><code>Actor::getLocation</code> and <code>Actor::getVelocity</code> for getting the location and velocity of an actor respectively.</li>
 <li><code>Actor::getLevel</code> for getting the <code>Level</code> that an actor resides in.</li>
 </ul>
-<h3 id="changed_26">Changed<a class="headerlink" href="#changed_26" title="Permanent link">&para;</a></h3>
+<h3 id="changed_27">Changed<a class="headerlink" href="#changed_27" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>Level</code> is no longer created for each <code>Dimension</code> in a Minecraft world. Instead, one <code>Level</code> now manages multiple
   <code>Dimension</code>s.</li>
@@ -6659,7 +6853,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>Endstone server will now ask the user whether to update the Bedrock Dedicated Server if an older version is found.</li>
 </ul>
 <h2 id="042-2024-04-30"><a href="https://github.com/EndstoneMC/endstone/compare/v0.4.1...v0.4.2">0.4.2</a> - 2024-04-30<a class="headerlink" href="#042-2024-04-30" title="Permanent link">&para;</a></h2>
-<h3 id="added_50">Added<a class="headerlink" href="#added_50" title="Permanent link">&para;</a></h3>
+<h3 id="added_52">Added<a class="headerlink" href="#added_52" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>Level::getDimension</code> for getting the dimension of a specific level.</li>
 <li><code>Player::getAddress</code> and <code>Player::getPort</code> for getting the socket address and port of a specific player, respectively.</li>
@@ -6667,16 +6861,16 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>Basic scheduler implementation, currently supporting only synchronized task execution.</li>
 <li><code>PlayerLoginEvent</code> is called when a player attempts to log in.</li>
 </ul>
-<h3 id="changed_27">Changed<a class="headerlink" href="#changed_27" title="Permanent link">&para;</a></h3>
+<h3 id="changed_28">Changed<a class="headerlink" href="#changed_28" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Support for Minecraft v1.20.81 (Bedrock)</li>
 </ul>
-<h3 id="fixed_53">Fixed<a class="headerlink" href="#fixed_53" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_55">Fixed<a class="headerlink" href="#fixed_55" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Server no longer crashes when the weather is changed on Linux.</li>
 </ul>
 <h2 id="041-2024-04-24"><a href="https://github.com/EndstoneMC/endstone/compare/v0.4.0...v0.4.1">0.4.1</a> - 2024-04-24<a class="headerlink" href="#041-2024-04-24" title="Permanent link">&para;</a></h2>
-<h3 id="added_51">Added<a class="headerlink" href="#added_51" title="Permanent link">&para;</a></h3>
+<h3 id="added_53">Added<a class="headerlink" href="#added_53" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Commands executed by players are now logged to the console.</li>
 <li>Message of <code>/say</code> command will be logged to the console.</li>
@@ -6684,17 +6878,17 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li><code>Server::broadcastMessage</code> for broadcasting messages to all players.</li>
 <li><code>BroadcastMessageEvent</code> is called when a message is broadcast by the server.</li>
 </ul>
-<h3 id="changed_28">Changed<a class="headerlink" href="#changed_28" title="Permanent link">&para;</a></h3>
+<h3 id="changed_29">Changed<a class="headerlink" href="#changed_29" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Support for Minecraft v1.20.80 - Armored Paws (Bedrock)</li>
 </ul>
-<h3 id="fixed_54">Fixed<a class="headerlink" href="#fixed_54" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_56">Fixed<a class="headerlink" href="#fixed_56" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Player permissions are recalculated when the op status is changed.</li>
 <li>Incorrect UUID for Players corrected.</li>
 </ul>
 <h2 id="040-2024-04-20"><a href="https://github.com/EndstoneMC/endstone/compare/v0.3.0...v0.4.0">0.4.0</a> - 2024-04-20<a class="headerlink" href="#040-2024-04-20" title="Permanent link">&para;</a></h2>
-<h3 id="added_52">Added<a class="headerlink" href="#added_52" title="Permanent link">&para;</a></h3>
+<h3 id="added_54">Added<a class="headerlink" href="#added_54" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Event system that allows plugins to listen for specific events.</li>
 <li><code>ServerLoadEvent</code> is called when a server is started up.</li>
@@ -6715,19 +6909,19 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li><code>ActorRemoveEvent</code> is called when an actor is removed from the level.</li>
 <li><code>PlayerChatEvent</code> is called when a player sends a message.</li>
 </ul>
-<h3 id="changed_29">Changed<a class="headerlink" href="#changed_29" title="Permanent link">&para;</a></h3>
+<h3 id="changed_30">Changed<a class="headerlink" href="#changed_30" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Macro <code>ENDSTONE_PLUGIN</code> is improved to simplify the definition of plugin metadata.</li>
 <li><code>ColorFormat</code> and <code>GameMode</code> have been moved from <code>endstone.util</code> to <code>endstone</code> in the Python package.</li>
 <li>Release builds now include debug information for stack trace printing.</li>
 <li>Support for Minecraft v1.20.73 (Bedrock)</li>
 </ul>
-<h3 id="fixed_55">Fixed<a class="headerlink" href="#fixed_55" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_57">Fixed<a class="headerlink" href="#fixed_57" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Server no longer crashes when <code>/listd</code> command is executed.</li>
 </ul>
 <h2 id="030-2024-03-21"><a href="https://github.com/EndstoneMC/endstone/compare/v0.2.0...v0.3.0">0.3.0</a> - 2024-03-21<a class="headerlink" href="#030-2024-03-21" title="Permanent link">&para;</a></h2>
-<h3 id="added_53">Added<a class="headerlink" href="#added_53" title="Permanent link">&para;</a></h3>
+<h3 id="added_55">Added<a class="headerlink" href="#added_55" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Basic permission systems.</li>
 <li>Enforced Plugin API version checks for C++ and Python plugins to ensure ABI/API compatibility.</li>
@@ -6736,18 +6930,18 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>PluginDescription properties are extended to support <code>website</code>, <code>load_order</code>, <code>depend</code>, <code>soft_depend</code>, <code>load_before</code>,
   and <code>provides</code>.</li>
 </ul>
-<h3 id="changed_30">Changed<a class="headerlink" href="#changed_30" title="Permanent link">&para;</a></h3>
+<h3 id="changed_31">Changed<a class="headerlink" href="#changed_31" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Improved <code>ENDSTONE_PLUGIN</code> macro to further simplify the definition of plugin metadata.</li>
 <li>Plugin names and websites are now displayed when using <code>/version [plugin: PluginName]</code>.</li>
 <li>Support for Minecraft v1.20.72 (Bedrock)</li>
 </ul>
-<h3 id="fixed_56">Fixed<a class="headerlink" href="#fixed_56" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_58">Fixed<a class="headerlink" href="#fixed_58" title="Permanent link">&para;</a></h3>
 <ul>
 <li>C++ plugin loader now respects the <code>prefix</code> property of a plugin.</li>
 </ul>
 <h2 id="020-2024-03-19"><a href="https://github.com/EndstoneMC/endstone/releases/tag/v0.2.0">0.2.0</a> - 2024-03-19<a class="headerlink" href="#020-2024-03-19" title="Permanent link">&para;</a></h2>
-<h3 id="added_54">Added<a class="headerlink" href="#added_54" title="Permanent link">&para;</a></h3>
+<h3 id="added_56">Added<a class="headerlink" href="#added_56" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Basic plugin loader for C++ and Python plugins.</li>
 <li>Basic command system that allows plugins to register custom commands.</li>

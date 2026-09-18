@@ -24,12 +24,13 @@
 
 #pragma once
 
-#include <string>
 #include <utility>
+#include <vector>
 
 #include "endstone/event/cancellable.h"
 #include "endstone/event/player/player_event.h"
 #include "endstone/inventory/item_stack.h"
+#include "endstone/inventory/recipe.h"
 
 namespace endstone {
 
@@ -37,21 +38,30 @@ class PlayerCraftItemEvent final : public Cancellable<PlayerEvent> {
 public:
     ENDSTONE_EVENT(PlayerCraftItemEvent);
 
-    PlayerCraftItemEvent(const NotNull<Player> &player, ItemStack item, std::string recipe_id, int amount)
-        : Cancellable(player), item_(std::move(item)), recipe_id_(std::move(recipe_id)), amount_(amount)
+    PlayerCraftItemEvent(const NotNull<Player> &player, NotNull<Recipe> recipe, std::vector<ItemStack> ingredients,
+                         std::vector<ItemStack> results, int repetitions)
+        : Cancellable(player), recipe_(std::move(recipe)), ingredients_(std::move(ingredients)),
+          results_(std::move(results)), repetitions_(repetitions)
     {
     }
 
-    [[nodiscard]] const ItemStack &getItem() const { return item_; }
+    [[nodiscard]] NotNull<Recipe> getRecipe() const { return recipe_; }
 
-    [[nodiscard]] const std::string &getRecipeId() const { return recipe_id_; }
+    [[nodiscard]] const std::vector<ItemStack> &getIngredients() const { return ingredients_; }
 
-    [[nodiscard]] int getAmount() const { return amount_; }
+    [[nodiscard]] const std::vector<ItemStack> &getResults() const { return results_; }
+
+    void setResults(std::vector<ItemStack> results) { results_ = std::move(results); }
+
+    [[nodiscard]] int getRepetitions() const { return repetitions_; }
+
+    void setRepetitions(int repetitions) { repetitions_ = repetitions; }
 
 private:
-    ItemStack item_;
-    std::string recipe_id_;
-    int amount_;
+    NotNull<Recipe> recipe_;
+    std::vector<ItemStack> ingredients_;
+    std::vector<ItemStack> results_;
+    int repetitions_;
 };
 
 }  // namespace endstone

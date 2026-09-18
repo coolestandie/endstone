@@ -15,12 +15,17 @@
 * `#include <string>`
 * `#include <string_view>`
 * `#include <variant>`
+* `#include "endstone/ability.h"`
 * `#include "endstone/actor/mob.h"`
+* `#include "endstone/block/block_actor_state.h"`
+* `#include "endstone/block/block_data.h"`
+* `#include "endstone/block/sign.h"`
 * `#include "endstone/form/action_form.h"`
 * `#include "endstone/form/message_form.h"`
 * `#include "endstone/form/modal_form.h"`
 * `#include "endstone/game_mode.h"`
 * `#include "endstone/inventory/player_inventory.h"`
+* `#include "endstone/json.h"`
 * `#include "endstone/level/location.h"`
 * `#include "endstone/map/map_view.h"`
 * `#include "endstone/scoreboard/scoreboard.h"`

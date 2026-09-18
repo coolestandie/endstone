@@ -5,6 +5,7 @@
 
 ## a
 
+* **AbilityValue** ([**endstone**](namespaceendstone.md))
 * **ActorTypeId** ([**endstone**](namespaceendstone.md))
 * **AttributeId** ([**endstone**](namespaceendstone.md))
 * **AttributeModifierId** ([**endstone**](namespaceendstone.md))
@@ -68,6 +69,9 @@
 
 ## j
 
+* **JsonArray** ([**endstone**](namespaceendstone.md))
+* **JsonObject** ([**endstone**](namespaceendstone.md))
+* **JsonValue** ([**endstone**](namespaceendstone.md))
 * **join** ([**endstone::detail**](namespaceendstone_1_1detail.md))
 
 

@@ -109,6 +109,26 @@ Inherits the following classes: [endstone::Container](classendstone_1_1Container
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Public Functions
 
 | Type | Name |
@@ -126,6 +146,16 @@ See [endstone::Container](classendstone_1_1Container.md)
 | Type | Name |
 | ---: | :--- |
 | virtual [**Inventory**](classendstone_1_1Inventory.md) & | [**getInventory**](classendstone_1_1Container.md#function-getinventory) () const = 0<br>_Gets the inventory of the block represented by this block state._  |
+
+
+## Public Functions inherited from endstone::BlockActorState
+
+See [endstone::BlockActorState](classendstone_1_1BlockActorState.md)
+
+| Type | Name |
+| ---: | :--- |
+| virtual [**bool**](classendstone_1_1Identifier.md) | [**isSnapshot**](classendstone_1_1BlockActorState.md#function-issnapshot) () const = 0<br>_Gets whether this state is backed by an independent block entity snapshot._  |
+|   | [**~BlockActorState**](classendstone_1_1BlockActorState.md#function-blockactorstate) () override<br> |
 
 
 ## Public Functions inherited from endstone::BlockState
@@ -158,10 +188,36 @@ See [endstone::Object](classendstone_1_1Object.md)
 | ---: | :--- |
 |  [**T**](classendstone_1_1Identifier.md) \* | [**as**](classendstone_1_1Object.md#function-as-12) () <br>_Attempts to cast this object to the given type T._  |
 |  [**const**](classendstone_1_1Identifier.md) [**T**](classendstone_1_1Identifier.md) \* | [**as**](classendstone_1_1Object.md#function-as-22) () const<br>_Attempts to cast this object to the given type T._  |
-| virtual [**const**](classendstone_1_1Identifier.md) std::type\_info & | [**getClassTypeId**](classendstone_1_1Object.md#function-getclasstypeid) () const = 0<br> |
+| virtual [**ClassInfo**](classendstone_1_1ClassInfo.md) | [**getClassInfo**](classendstone_1_1Object.md#function-getclassinfo) () const = 0<br> |
 |  [**bool**](classendstone_1_1Identifier.md) | [**is**](classendstone_1_1Object.md#function-is) () const<br>_Checks if this object is an instance of the given type T (or a subclass of T)._  |
-| virtual [**bool**](classendstone_1_1Identifier.md) | [**isInstanceOf**](classendstone_1_1Object.md#function-isinstanceof) ([**const**](classendstone_1_1Identifier.md) std::type\_info & target) const = 0<br> |
+| virtual [**bool**](classendstone_1_1Identifier.md) | [**isInstanceOf**](classendstone_1_1Object.md#function-isinstanceof) ([**ClassInfo**](classendstone_1_1ClassInfo.md) target) const = 0<br> |
 | virtual  | [**~Object**](classendstone_1_1Object.md#function-object) () = default<br> |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

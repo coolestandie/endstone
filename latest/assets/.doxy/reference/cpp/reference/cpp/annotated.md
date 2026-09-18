@@ -5,6 +5,8 @@
 Here are the classes, structs, unions and interfaces with brief descriptions:
 
 * **namespace** [**endstone**](namespaceendstone.md) _Represents a button with text and an optional icon._     
+    * **class** [**Ability**](classendstone_1_1Ability.md) _All player abilities._     
+    * **class** [**AbilityId**](classendstone_1_1AbilityId.md) _Represents the identifier of a player ability, carrying the type of the ability's value._     
     * **class** [**ActionForm**](classendstone_1_1ActionForm.md) _Represents a form with buttons that let the player take action._     
     * **class** [**Actor**](classendstone_1_1Actor.md) _Represents a base actor in the level._     
     * **class** [**ActorChangeBlockEvent**](classendstone_1_1ActorChangeBlockEvent.md) _Called when an_ [_**Actor**_](classendstone_1_1Actor.md) _changes a block as part of its own behaviour, such as a creeper exploding, an enderman picking a block up, a ravager trampling crops or a zombie breaking a door._    
@@ -23,13 +25,17 @@ Here are the classes, structs, unions and interfaces with brief descriptions:
     * **class** [**ActorToggleGlideEvent**](classendstone_1_1ActorToggleGlideEvent.md) _Called when an_ [_**Actor**_](classendstone_1_1Actor.md) _'s gliding state is toggled with an elytra._    
     * **class** [**ActorToggleSwimEvent**](classendstone_1_1ActorToggleSwimEvent.md) _Called when an_ [_**Actor**_](classendstone_1_1Actor.md) _'s swimming state is toggled._    
     * **class** [**ActorType**](classendstone_1_1ActorType.md)     
+    * **class** [**AdvancedBarChart**](classendstone_1_1AdvancedBarChart.md) _A bStats bar chart with several bars per category._     
+    * **class** [**AdvancedPie**](classendstone_1_1AdvancedPie.md) _A bStats pie chart with named values._     
     * **class** [**Attribute**](classendstone_1_1Attribute.md) _All attribute types._     
     * **class** [**AttributeInstance**](classendstone_1_1AttributeInstance.md) _Represents a mutable instance of an attribute and its associated modifiers and values._     
     * **class** [**AttributeModifier**](classendstone_1_1AttributeModifier.md) _Concrete implementation of an attribute modifier._     
     * **class** [**BanEntry**](classendstone_1_1BanEntry.md) _A single entry from a ban list._     
     * **class** [**BanList**](classendstone_1_1BanList.md) _Represents a ban list, containing bans._     
     * **class** [**Biome**](classendstone_1_1Biome.md) 
+    * **class** [**BlastingRecipe**](classendstone_1_1BlastingRecipe.md) _Represents a blasting recipe._     
     * **class** [**Block**](classendstone_1_1Block.md) _Represents a block._     
+    * **class** [**BlockActorState**](classendstone_1_1BlockActorState.md) _Represents a captured state of a block entity._     
     * **class** [**BlockBreakEvent**](classendstone_1_1BlockBreakEvent.md) _Called when a block is broken by a player._     
     * **class** [**BlockCommandSender**](classendstone_1_1BlockCommandSender.md) _Represents a block command sender._     
     * **class** [**BlockCookEvent**](classendstone_1_1BlockCookEvent.md) _Called when an_ [_**ItemStack**_](classendstone_1_1ItemStack.md) _is successfully cooked in a block._    
@@ -50,11 +56,14 @@ Here are the classes, structs, unions and interfaces with brief descriptions:
     * **class** [**BroadcastMessageEvent**](classendstone_1_1BroadcastMessageEvent.md) [_**Event**_](classendstone_1_1Event.md) _triggered for server broadcast messages such as from_[_**Server::broadcast()**_](classendstone_1_1Server.md#function-broadcast) _._    
     * **class** [**Button**](classendstone_1_1Button.md) _Represents a button with text and an optional icon._     
     * **class** [**Campfire**](classendstone_1_1Campfire.md) _Represents a captured state of a campfire._     
+    * **class** [**CampfireRecipe**](classendstone_1_1CampfireRecipe.md) _Represents a campfire recipe._     
     * **class** [**Cancellable**](classendstone_1_1Cancellable.md) _A type characterizing events that may be cancelled by a plugin or the server._     
+    * **class** [**CauldronLevelChangeEvent**](classendstone_1_1CauldronLevelChangeEvent.md) _Called when a cauldron's level or contents change._     
     * **class** [**Chunk**](classendstone_1_1Chunk.md) _Represents a chunk of blocks._     
     * **class** [**ChunkEvent**](classendstone_1_1ChunkEvent.md) _Represents a_ [_**Chunk**_](classendstone_1_1Chunk.md) _related event._    
     * **class** [**ChunkLoadEvent**](classendstone_1_1ChunkLoadEvent.md) _Called when a chunk is loaded._     
     * **class** [**ChunkUnloadEvent**](classendstone_1_1ChunkUnloadEvent.md) _Called when a chunk is unloaded._     
+    * **class** [**ClassInfo**](classendstone_1_1ClassInfo.md) _A type identity that stays comparable across shared library boundaries._     
     * **class** [**Color**](classendstone_1_1Color.md) _Represents a color with red, green, blue, and alpha components._     
     * **struct** [**ColorFormat**](structendstone_1_1ColorFormat.md) _All supported color and format codes._     
     * **class** [**Colors**](classendstone_1_1Colors.md) _Provides a collection of predefined colors._     
@@ -63,25 +72,35 @@ Here are the classes, structs, unions and interfaces with brief descriptions:
     * **class** [**CommandMap**](classendstone_1_1CommandMap.md) _Represents a command map that manages all commands of the_ [_**Server**_](classendstone_1_1Server.md) _._    
     * **class** [**CommandSender**](classendstone_1_1CommandSender.md) _Represents a command sender._     
     * **class** [**CommandSenderWrapper**](classendstone_1_1CommandSenderWrapper.md) _Represents a wrapper that forwards commands to the wrapped_ [_**CommandSender**_](classendstone_1_1CommandSender.md) _and captures its output._    
+    * **class** [**ComplexAliasIngredient**](classendstone_1_1ComplexAliasIngredient.md) _Represents an ingredient that matches any item an id stands for._     
+    * **class** [**ComplexRecipe**](classendstone_1_1ComplexRecipe.md) _Represents a complex recipe which has imperative server-defined behavior, eg armor dyeing._     
     * **class** [**CompoundTag**](classendstone_1_1CompoundTag.md) _An NBT tag holding a set of named child tags, keyed by string._     
     * **class** [**ConsoleCommandSender**](classendstone_1_1ConsoleCommandSender.md) _Represents a console command sender._ 
     * **class** [**Container**](classendstone_1_1Container.md) _Represents a captured state of a container block, such as a chest._     
+    * **class** [**CookingRecipe**](classendstone_1_1CookingRecipe.md) _Represents a cooking recipe._     
     * **class** [**CreatureSpawner**](classendstone_1_1CreatureSpawner.md) _Represents a captured state of a creature spawner._     
     * **class** [**Criteria**](classendstone_1_1Criteria.md) _Represents a scoreboard criteria._     
     * **class** [**CrossbowMeta**](classendstone_1_1CrossbowMeta.md) _Represents the meta for a crossbow that can have a charged projectile._     
+    * **class** [**CustomChart**](classendstone_1_1CustomChart.md) _Represents a custom chart._     
     * **class** [**DamageSource**](classendstone_1_1DamageSource.md) _Represents a source of damage._     
     * **class** [**Dimension**](classendstone_1_1Dimension.md) _Represents a dimension within a_ [_**Level**_](classendstone_1_1Level.md) _._    
     * **class** [**DimensionCreator**](classendstone_1_1DimensionCreator.md) _Represents the options that may be used to create a custom_ [_**Dimension**_](classendstone_1_1Dimension.md) _._    
     * **class** [**DimensionEvent**](classendstone_1_1DimensionEvent.md) _Represents events within a dimension._     
+    * **class** [**DimensionLoadEvent**](classendstone_1_1DimensionLoadEvent.md) _Called when a dimension is loaded._     
     * **class** [**Divider**](classendstone_1_1Divider.md) _Represents a divider._     
+    * **class** [**DrilldownPie**](classendstone_1_1DrilldownPie.md) _A bStats pie chart with grouped named values._     
     * **class** [**Dropdown**](classendstone_1_1Dropdown.md) _Represents a dropdown with a set of predefined options._     
     * **class** [**Effect**](classendstone_1_1Effect.md) _Represents an effect that can be added to a_ [_**Mob**_](classendstone_1_1Mob.md) _._    
     * **class** [**EffectType**](classendstone_1_1EffectType.md) _Represents an effect type._     
+    * **class** [**EnchantItemEvent**](classendstone_1_1EnchantItemEvent.md) _Called when a player enchants an item at an enchanting table._     
     * **class** [**Enchantment**](classendstone_1_1Enchantment.md) _Represents an enchantment that may be added to armor, weapons, tools or other items._     
+    * **class** [**EnchantmentOffer**](classendstone_1_1EnchantmentOffer.md) _Represents an offer made by an enchanting table._     
     * **class** [**Event**](classendstone_1_1Event.md) _Represents an event._     
     * **class** [**EventHandler**](classendstone_1_1EventHandler.md) _Represents a registered_ [_**EventHandler**_](classendstone_1_1EventHandler.md) _which associates with a_[_**Plugin**_](classendstone_1_1Plugin.md) _._    
+    * **class** [**ExactIngredient**](classendstone_1_1ExactIngredient.md) _Represents an ingredient that matches one item with one exact data value._     
     * **class** [**Form**](classendstone_1_1Form.md) _Represents a generic form._     
     * **class** [**Furnace**](classendstone_1_1Furnace.md) _Represents a captured state of a furnace._     
+    * **class** [**FurnaceRecipe**](classendstone_1_1FurnaceRecipe.md) _Represents a furnace recipe._     
     * **class** [**GameRule**](classendstone_1_1GameRule.md) _Represents a game rule._     
     * **class** [**GameRuleId**](classendstone_1_1GameRuleId.md) _Represents the identifier of a game rule, carrying the type of the rule's value._     
     * **class** [**HandlerList**](classendstone_1_1HandlerList.md) _A list of event handlers._     
@@ -92,6 +111,10 @@ Here are the classes, structs, unions and interfaces with brief descriptions:
     * **class** [**Image**](classendstone_1_1Image.md) _Represents an RGBA image._     
     * **class** [**Input**](classendstone_1_1Input.md) _Represents a movement input applied to a player._     
     * **class** [**Inventory**](classendstone_1_1Inventory.md) _Interface to the various inventories._     
+    * **class** [**InventoryCloseEvent**](classendstone_1_1InventoryCloseEvent.md) _Called when a player closes an inventory._     
+    * **class** [**InventoryEvent**](classendstone_1_1InventoryEvent.md) _Represents a player related inventory event._     
+    * **class** [**InventoryInteractEvent**](classendstone_1_1InventoryInteractEvent.md) _An abstract base class for events that describe an interaction between a_ [_**Player**_](classendstone_1_1Player.md) _and the contents of an_[_**Inventory**_](classendstone_1_1Inventory.md) _._    
+    * **class** [**InventoryOpenEvent**](classendstone_1_1InventoryOpenEvent.md) _Called when a player opens an inventory._     
     * **class** [**IpBanEntry**](classendstone_1_1IpBanEntry.md) _Represents an entry for a banned IP address._     
     * **class** [**IpBanList**](classendstone_1_1IpBanList.md) _Represents a ban list, containing banned IP addresses._     
     * **class** [**Item**](classendstone_1_1Item.md) _Represents a dropped item that can be picked up by players._     
@@ -99,7 +122,9 @@ Here are the classes, structs, unions and interfaces with brief descriptions:
     * **class** [**ItemFrame**](classendstone_1_1ItemFrame.md) _Represents a captured state of an item frame._     
     * **class** [**ItemMeta**](classendstone_1_1ItemMeta.md) _Represents the metadata of a generic item._     
     * **class** [**ItemStack**](classendstone_1_1ItemStack.md) _Represents a stack of items._     
+    * **class** [**ItemTagIngredient**](classendstone_1_1ItemTagIngredient.md) _Represents an ingredient that matches any item carrying a tag._     
     * **class** [**ItemType**](classendstone_1_1ItemType.md) _Represents an item type._     
+    * **class** [**ItemTypeIngredient**](classendstone_1_1ItemTypeIngredient.md) _Represents an ingredient that matches an item type, whatever its data value._     
     * **class** [**Label**](classendstone_1_1Label.md) _Represents a text label._     
     * **class** [**Language**](classendstone_1_1Language.md) _Represents the interface for translating text into different languages._     
     * **class** [**LeavesDecayEvent**](classendstone_1_1LeavesDecayEvent.md) _Called when leaves are decaying naturally._     
@@ -116,8 +141,12 @@ Here are the classes, structs, unions and interfaces with brief descriptions:
     * **class** [**MapRenderer**](classendstone_1_1MapRenderer.md) _Represents a renderer for a map._     
     * **class** [**MapView**](classendstone_1_1MapView.md) _Represents a map item._     
     * **class** [**MessageForm**](classendstone_1_1MessageForm.md) _Represents a form with two buttons._     
+    * **class** [**Metrics**](classendstone_1_1Metrics.md) _Collects and submits anonymous usage statistics for a plugin to bStats._     
+    * **class** [**MetricsBase**](classendstone_1_1MetricsBase.md) _Collects and submits the data behind a_ [_**Metrics**_](classendstone_1_1Metrics.md) _instance._    
     * **class** [**Mob**](classendstone_1_1Mob.md) _Represents a mobile entity (i.e._     
     * **class** [**ModalForm**](classendstone_1_1ModalForm.md) _Represents a modal form with controls._     
+    * **class** [**MolangIngredient**](classendstone_1_1MolangIngredient.md) _Represents an ingredient that matches the items a Molang expression selects._     
+    * **class** [**MultiLineChart**](classendstone_1_1MultiLineChart.md) _A bStats line chart with a line per named value._     
     * **class** [**NotNull**](classendstone_1_1NotNull.md) _A wrapper around a std::shared\_ptr that documents that it is never null._     
     * **class** [**Nullable**](classendstone_1_1Nullable.md) _A wrapper around a std::shared\_ptr that may be null._     
     * **class** [**Object**](classendstone_1_1Object.md) _Base class providing runtime type identification and safe casting._     
@@ -137,16 +166,21 @@ Here are the classes, structs, unions and interfaces with brief descriptions:
     * **class** [**PlayerBedEnterEvent**](classendstone_1_1PlayerBedEnterEvent.md) _Called when a player is almost about to enter the bed._     
     * **class** [**PlayerBedLeaveEvent**](classendstone_1_1PlayerBedLeaveEvent.md) _Called when a player is leaving a bed._     
     * **class** [**PlayerBucketActorEvent**](classendstone_1_1PlayerBucketActorEvent.md) _Represents an event that is called when a player captures an actor in a bucket._     
+    * **class** [**PlayerBucketEmptyEvent**](classendstone_1_1PlayerBucketEmptyEvent.md) _Called when a player empties a bucket._     
+    * **class** [**PlayerBucketEvent**](classendstone_1_1PlayerBucketEvent.md) _Provides common data for events involving a player's bucket interaction._     
+    * **class** [**PlayerBucketFillEvent**](classendstone_1_1PlayerBucketFillEvent.md) _Called when a player fills a bucket._     
     * **class** [**PlayerChatEvent**](classendstone_1_1PlayerChatEvent.md) _Called when a player sends a chat message._     
     * **class** [**PlayerCommandEvent**](classendstone_1_1PlayerCommandEvent.md) _Called whenever a player runs a command._     
-    * **class** [**PlayerCraftItemEvent**](classendstone_1_1PlayerCraftItemEvent.md) _Called when a player crafts an item._     
+    * **class** [**PlayerCraftItemEvent**](classendstone_1_1PlayerCraftItemEvent.md) _Called when a player crafts an item, either inside a crafting grid or straight from the recipe book._     
     * **class** [**PlayerDeathEvent**](classendstone_1_1PlayerDeathEvent.md) _Called when a_ [_**Player**_](classendstone_1_1Player.md) _dies._    
     * **class** [**PlayerDimensionChangeEvent**](classendstone_1_1PlayerDimensionChangeEvent.md) _Called when a player switches to another dimension._     
     * **class** [**PlayerDropItemEvent**](classendstone_1_1PlayerDropItemEvent.md) _Called when a player drops an item from their inventory._     
+    * **class** [**PlayerEditBookEvent**](classendstone_1_1PlayerEditBookEvent.md) _Called when a player edits or signs a book._     
     * **class** [**PlayerEmoteEvent**](classendstone_1_1PlayerEmoteEvent.md) _Called when a player uses an emote._     
     * **class** [**PlayerEvent**](classendstone_1_1PlayerEvent.md) _Represents a player related event._     
     * **class** [**PlayerExpChangeEvent**](classendstone_1_1PlayerExpChangeEvent.md) _Called when a player's experience changes._     
     * **class** [**PlayerGameModeChangeEvent**](classendstone_1_1PlayerGameModeChangeEvent.md) _Called when the GameMode of the player is changed._     
+    * **class** [**PlayerHideActorEvent**](classendstone_1_1PlayerHideActorEvent.md) _Called when a visible actor is hidden from a player._     
     * **class** [**PlayerInputEvent**](classendstone_1_1PlayerInputEvent.md) _Called when a player sends updated input to the server._     
     * **class** [**PlayerInteractActorEvent**](classendstone_1_1PlayerInteractActorEvent.md) _Called when a player right-clicks an actor._     
     * **class** [**PlayerInteractEvent**](classendstone_1_1PlayerInteractEvent.md) _Called when a player interacts with an object or air._     
@@ -159,6 +193,7 @@ Here are the classes, structs, unions and interfaces with brief descriptions:
     * **class** [**PlayerLevelChangeEvent**](classendstone_1_1PlayerLevelChangeEvent.md) _Called when a player's level changes._     
     * **class** [**PlayerLoginEvent**](classendstone_1_1PlayerLoginEvent.md) _Called when a player attempts to login in._     
     * **class** [**PlayerMoveEvent**](classendstone_1_1PlayerMoveEvent.md) _Called when a player moves._     
+    * **class** [**PlayerOpenSignEvent**](classendstone_1_1PlayerOpenSignEvent.md) _Called when a player begins editing a sign's text._     
     * **class** [**PlayerPickupArrowEvent**](classendstone_1_1PlayerPickupArrowEvent.md) _Called when a player picks up an arrow or a thrown trident from the ground._     
     * **class** [**PlayerPickupExperienceEvent**](classendstone_1_1PlayerPickupExperienceEvent.md) _Called when a player picks up an experience orb._     
     * **class** [**PlayerPickupItemEvent**](classendstone_1_1PlayerPickupItemEvent.md) _Called when a player picks an item up from the ground._     
@@ -167,7 +202,9 @@ Here are the classes, structs, unions and interfaces with brief descriptions:
     * **class** [**PlayerRecipeBookSettingsChangeEvent**](classendstone_1_1PlayerRecipeBookSettingsChangeEvent.md) _Called when a player changes recipe book settings._     
     * **class** [**PlayerRespawnEvent**](classendstone_1_1PlayerRespawnEvent.md) _Called when a player respawns._     
     * **class** [**PlayerRiptideEvent**](classendstone_1_1PlayerRiptideEvent.md) _Called when a player activates the riptide enchantment, using their trident to propel them through the air._     
+    * **class** [**PlayerSetSpawnEvent**](classendstone_1_1PlayerSetSpawnEvent.md) _Called when a player's spawn is set, either by themselves or otherwise._     
     * **class** [**PlayerShearActorEvent**](classendstone_1_1PlayerShearActorEvent.md) _Called when a player shears an_ [_**Actor**_](classendstone_1_1Actor.md) _._    
+    * **class** [**PlayerShowActorEvent**](classendstone_1_1PlayerShowActorEvent.md) _Called when a hidden actor is shown to a player._     
     * **class** [**PlayerSkinChangeEvent**](classendstone_1_1PlayerSkinChangeEvent.md) _Called when a player changes their skin._     
     * **class** [**PlayerTeleportEvent**](classendstone_1_1PlayerTeleportEvent.md) _Called when a player is teleported from one location to another._     
     * **class** [**PlayerToggleCrawlEvent**](classendstone_1_1PlayerToggleCrawlEvent.md) _Called when a player toggles their crawling state._     
@@ -184,7 +221,10 @@ Here are the classes, structs, unions and interfaces with brief descriptions:
     * **class** [**PotionMeta**](classendstone_1_1PotionMeta.md) _Represents the metadata for a potion item._     
     * **class** [**PotionType**](classendstone_1_1PotionType.md) _Represents a potion type._     
     * **class** [**Preconditions**](classendstone_1_1Preconditions.md) _Static helpers for validating method arguments and object state._     
+    * **class** [**PrepareItemEnchantEvent**](classendstone_1_1PrepareItemEnchantEvent.md) _Called when an enchanting table prepares offers for an item._     
+    * **class** [**ProxiedCommandSender**](classendstone_1_1ProxiedCommandSender.md) _Represents a command sender that is running a command on behalf of another one, as_ `/execute` _does._    
     * **class** [**Recipe**](classendstone_1_1Recipe.md) _Represents some type of crafting recipe._     
+    * **class** [**RecipeIngredient**](classendstone_1_1RecipeIngredient.md) _Represents a potential item match within a recipe._     
     * **class** [**Registry**](classendstone_1_1Registry.md) _Abstract registry interface for objects with identifiers._     
         * **class** [**Type**](classendstone_1_1Registry_1_1Type.md) _CRTP base for registry-backed types identified by an_ [_**Identifier**_](classendstone_1_1Identifier.md) _._    
     * **class** [**Scheduler**](classendstone_1_1Scheduler.md) _Represents a scheduler that executes various tasks._     
@@ -198,10 +238,19 @@ Here are the classes, structs, unions and interfaces with brief descriptions:
     * **class** [**ServerLoadEvent**](classendstone_1_1ServerLoadEvent.md) _Called when either the server startup or reload has completed._     
     * **class** [**Service**](classendstone_1_1Service.md) _Services represent a list of methods._     
     * **class** [**ServiceManager**](classendstone_1_1ServiceManager.md) _Represent a service manager that manages services and service providers._     
+    * **class** [**ShapedRecipe**](classendstone_1_1ShapedRecipe.md) _Represents a shaped (ie normal) crafting recipe._     
+    * **class** [**ShapelessRecipe**](classendstone_1_1ShapelessRecipe.md) _Represents a shapeless recipe, where the arrangement of the ingredients on the crafting grid does not matter._     
     * **class** [**Sign**](classendstone_1_1Sign.md) _Represents a captured state of a sign._     
     * **class** [**SignSide**](classendstone_1_1SignSide.md) _Represents a side of a sign._     
+    * **class** [**SimpleBarChart**](classendstone_1_1SimpleBarChart.md) _A bStats bar chart with a single bar per category._     
+    * **class** [**SimplePie**](classendstone_1_1SimplePie.md) _A bStats pie chart with a single value._     
+    * **class** [**SingleLineChart**](classendstone_1_1SingleLineChart.md) _A bStats line chart with a single line._     
     * **class** [**Skin**](classendstone_1_1Skin.md) _Represents a player skin._     
     * **class** [**Slider**](classendstone_1_1Slider.md) _Represents a slider with a label._     
+    * **class** [**SmithingRecipe**](classendstone_1_1SmithingRecipe.md) _Represents a smithing recipe._     
+    * **class** [**SmithingTransformRecipe**](classendstone_1_1SmithingTransformRecipe.md) _Represents a smithing transform recipe._     
+    * **class** [**SmithingTrimRecipe**](classendstone_1_1SmithingTrimRecipe.md) _Represents a smithing trim recipe._     
+    * **class** [**SmokingRecipe**](classendstone_1_1SmokingRecipe.md) _Represents a smoking recipe._     
     * **class** [**SocketAddress**](classendstone_1_1SocketAddress.md) _Represents an IP Socket Address (hostname + port number)._     
     * **class** [**StepSlider**](classendstone_1_1StepSlider.md) _Represents a step slider with a set of predefined options._     
     * **class** [**Task**](classendstone_1_1Task.md) _Represents a task being executed by the scheduler._     
@@ -210,6 +259,7 @@ Here are the classes, structs, unions and interfaces with brief descriptions:
     * **class** [**Toggle**](classendstone_1_1Toggle.md) _Represents a toggle button with a label._     
     * **class** [**Translatable**](classendstone_1_1Translatable.md) _Represents an object with a text representation that can be translated by the Minecraft client._     
     * **class** [**UUID**](classendstone_1_1UUID.md) _Implementation of Universally Unique_ [_**Identifier**_](classendstone_1_1Identifier.md) _(_[_**UUID**_](classendstone_1_1UUID.md) _)._    
+    * **class** [**UnknownCommandEvent**](classendstone_1_1UnknownCommandEvent.md) _Called when a command sender executes a command that is not defined._     
     * **class** [**Vector**](classendstone_1_1Vector.md) _Represents a 3-dimensional vector._     
     * **class** [**WeatherChangeEvent**](classendstone_1_1WeatherChangeEvent.md) _Called when the weather (rain) state in a world is changing._     
     * **class** [**WeatherEvent**](classendstone_1_1WeatherEvent.md) _Represents a Weather-related event._     
@@ -262,6 +312,7 @@ Here are the classes, structs, unions and interfaces with brief descriptions:
     * **struct** [**formatter&lt; endstone::detail::JoinView&lt; It, Sentinel &gt; &gt;**](structstd_1_1formatter_3_01endstone_1_1detail_1_1JoinView_3_01It_00_01Sentinel_01_4_01_4.md)     
     * **struct** [**formatter&lt; endstone::nbt::Tag &gt;**](structstd_1_1formatter_3_01endstone_1_1nbt_1_1Tag_01_4.md)     
     * **struct** [**formatter&lt; endstone::nbt::escape\_view &gt;**](structstd_1_1formatter_3_01endstone_1_1nbt_1_1escape__view_01_4.md)     
+    * **struct** [**hash&lt; endstone::ClassInfo &gt;**](structstd_1_1hash_3_01endstone_1_1ClassInfo_01_4.md)     
     * **struct** [**hash&lt; endstone::Identifier&lt; T &gt; &gt;**](structstd_1_1hash_3_01endstone_1_1Identifier_3_01T_01_4_01_4.md)     
     * **struct** [**hash&lt; endstone::NotNull&lt; T &gt; &gt;**](structstd_1_1hash_3_01endstone_1_1NotNull_3_01T_01_4_01_4.md)     
     * **struct** [**hash&lt; endstone::Nullable&lt; T &gt; &gt;**](structstd_1_1hash_3_01endstone_1_1Nullable_3_01T_01_4_01_4.md)     

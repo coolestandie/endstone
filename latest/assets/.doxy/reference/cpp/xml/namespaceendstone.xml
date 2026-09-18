@@ -2,6 +2,8 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
   <compounddef id="namespaceendstone" kind="namespace" language="C++">
     <compoundname>endstone</compoundname>
+    <innerclass refid="classendstone_1_1Ability" prot="public">endstone::Ability</innerclass>
+    <innerclass refid="classendstone_1_1AbilityId" prot="public">endstone::AbilityId</innerclass>
     <innerclass refid="classendstone_1_1ActionForm" prot="public">endstone::ActionForm</innerclass>
     <innerclass refid="classendstone_1_1Actor" prot="public">endstone::Actor</innerclass>
     <innerclass refid="classendstone_1_1ActorChangeBlockEvent" prot="public">endstone::ActorChangeBlockEvent</innerclass>
@@ -20,13 +22,17 @@
     <innerclass refid="classendstone_1_1ActorToggleGlideEvent" prot="public">endstone::ActorToggleGlideEvent</innerclass>
     <innerclass refid="classendstone_1_1ActorToggleSwimEvent" prot="public">endstone::ActorToggleSwimEvent</innerclass>
     <innerclass refid="classendstone_1_1ActorType" prot="public">endstone::ActorType</innerclass>
+    <innerclass refid="classendstone_1_1AdvancedBarChart" prot="public">endstone::AdvancedBarChart</innerclass>
+    <innerclass refid="classendstone_1_1AdvancedPie" prot="public">endstone::AdvancedPie</innerclass>
     <innerclass refid="classendstone_1_1Attribute" prot="public">endstone::Attribute</innerclass>
     <innerclass refid="classendstone_1_1AttributeInstance" prot="public">endstone::AttributeInstance</innerclass>
     <innerclass refid="classendstone_1_1AttributeModifier" prot="public">endstone::AttributeModifier</innerclass>
     <innerclass refid="classendstone_1_1BanEntry" prot="public">endstone::BanEntry</innerclass>
     <innerclass refid="classendstone_1_1BanList" prot="public">endstone::BanList</innerclass>
     <innerclass refid="classendstone_1_1Biome" prot="public">endstone::Biome</innerclass>
+    <innerclass refid="classendstone_1_1BlastingRecipe" prot="public">endstone::BlastingRecipe</innerclass>
     <innerclass refid="classendstone_1_1Block" prot="public">endstone::Block</innerclass>
+    <innerclass refid="classendstone_1_1BlockActorState" prot="public">endstone::BlockActorState</innerclass>
     <innerclass refid="classendstone_1_1BlockBreakEvent" prot="public">endstone::BlockBreakEvent</innerclass>
     <innerclass refid="classendstone_1_1BlockCommandSender" prot="public">endstone::BlockCommandSender</innerclass>
     <innerclass refid="classendstone_1_1BlockCookEvent" prot="public">endstone::BlockCookEvent</innerclass>
@@ -47,11 +53,14 @@
     <innerclass refid="classendstone_1_1BroadcastMessageEvent" prot="public">endstone::BroadcastMessageEvent</innerclass>
     <innerclass refid="classendstone_1_1Button" prot="public">endstone::Button</innerclass>
     <innerclass refid="classendstone_1_1Campfire" prot="public">endstone::Campfire</innerclass>
+    <innerclass refid="classendstone_1_1CampfireRecipe" prot="public">endstone::CampfireRecipe</innerclass>
     <innerclass refid="classendstone_1_1Cancellable" prot="public">endstone::Cancellable</innerclass>
+    <innerclass refid="classendstone_1_1CauldronLevelChangeEvent" prot="public">endstone::CauldronLevelChangeEvent</innerclass>
     <innerclass refid="classendstone_1_1Chunk" prot="public">endstone::Chunk</innerclass>
     <innerclass refid="classendstone_1_1ChunkEvent" prot="public">endstone::ChunkEvent</innerclass>
     <innerclass refid="classendstone_1_1ChunkLoadEvent" prot="public">endstone::ChunkLoadEvent</innerclass>
     <innerclass refid="classendstone_1_1ChunkUnloadEvent" prot="public">endstone::ChunkUnloadEvent</innerclass>
+    <innerclass refid="classendstone_1_1ClassInfo" prot="public">endstone::ClassInfo</innerclass>
     <innerclass refid="classendstone_1_1Color" prot="public">endstone::Color</innerclass>
     <innerclass refid="structendstone_1_1ColorFormat" prot="public">endstone::ColorFormat</innerclass>
     <innerclass refid="classendstone_1_1Colors" prot="public">endstone::Colors</innerclass>
@@ -60,25 +69,35 @@
     <innerclass refid="classendstone_1_1CommandMap" prot="public">endstone::CommandMap</innerclass>
     <innerclass refid="classendstone_1_1CommandSender" prot="public">endstone::CommandSender</innerclass>
     <innerclass refid="classendstone_1_1CommandSenderWrapper" prot="public">endstone::CommandSenderWrapper</innerclass>
+    <innerclass refid="classendstone_1_1ComplexAliasIngredient" prot="public">endstone::ComplexAliasIngredient</innerclass>
+    <innerclass refid="classendstone_1_1ComplexRecipe" prot="public">endstone::ComplexRecipe</innerclass>
     <innerclass refid="classendstone_1_1CompoundTag" prot="public">endstone::CompoundTag</innerclass>
     <innerclass refid="classendstone_1_1ConsoleCommandSender" prot="public">endstone::ConsoleCommandSender</innerclass>
     <innerclass refid="classendstone_1_1Container" prot="public">endstone::Container</innerclass>
+    <innerclass refid="classendstone_1_1CookingRecipe" prot="public">endstone::CookingRecipe</innerclass>
     <innerclass refid="classendstone_1_1CreatureSpawner" prot="public">endstone::CreatureSpawner</innerclass>
     <innerclass refid="classendstone_1_1Criteria" prot="public">endstone::Criteria</innerclass>
     <innerclass refid="classendstone_1_1CrossbowMeta" prot="public">endstone::CrossbowMeta</innerclass>
+    <innerclass refid="classendstone_1_1CustomChart" prot="public">endstone::CustomChart</innerclass>
     <innerclass refid="classendstone_1_1DamageSource" prot="public">endstone::DamageSource</innerclass>
     <innerclass refid="classendstone_1_1Dimension" prot="public">endstone::Dimension</innerclass>
     <innerclass refid="classendstone_1_1DimensionCreator" prot="public">endstone::DimensionCreator</innerclass>
     <innerclass refid="classendstone_1_1DimensionEvent" prot="public">endstone::DimensionEvent</innerclass>
+    <innerclass refid="classendstone_1_1DimensionLoadEvent" prot="public">endstone::DimensionLoadEvent</innerclass>
     <innerclass refid="classendstone_1_1Divider" prot="public">endstone::Divider</innerclass>
+    <innerclass refid="classendstone_1_1DrilldownPie" prot="public">endstone::DrilldownPie</innerclass>
     <innerclass refid="classendstone_1_1Dropdown" prot="public">endstone::Dropdown</innerclass>
     <innerclass refid="classendstone_1_1Effect" prot="public">endstone::Effect</innerclass>
     <innerclass refid="classendstone_1_1EffectType" prot="public">endstone::EffectType</innerclass>
+    <innerclass refid="classendstone_1_1EnchantItemEvent" prot="public">endstone::EnchantItemEvent</innerclass>
     <innerclass refid="classendstone_1_1Enchantment" prot="public">endstone::Enchantment</innerclass>
+    <innerclass refid="classendstone_1_1EnchantmentOffer" prot="public">endstone::EnchantmentOffer</innerclass>
     <innerclass refid="classendstone_1_1Event" prot="public">endstone::Event</innerclass>
     <innerclass refid="classendstone_1_1EventHandler" prot="public">endstone::EventHandler</innerclass>
+    <innerclass refid="classendstone_1_1ExactIngredient" prot="public">endstone::ExactIngredient</innerclass>
     <innerclass refid="classendstone_1_1Form" prot="public">endstone::Form</innerclass>
     <innerclass refid="classendstone_1_1Furnace" prot="public">endstone::Furnace</innerclass>
+    <innerclass refid="classendstone_1_1FurnaceRecipe" prot="public">endstone::FurnaceRecipe</innerclass>
     <innerclass refid="classendstone_1_1GameRule" prot="public">endstone::GameRule</innerclass>
     <innerclass refid="classendstone_1_1GameRuleId" prot="public">endstone::GameRuleId</innerclass>
     <innerclass refid="classendstone_1_1HandlerList" prot="public">endstone::HandlerList</innerclass>
@@ -88,6 +107,10 @@
     <innerclass refid="classendstone_1_1Image" prot="public">endstone::Image</innerclass>
     <innerclass refid="classendstone_1_1Input" prot="public">endstone::Input</innerclass>
     <innerclass refid="classendstone_1_1Inventory" prot="public">endstone::Inventory</innerclass>
+    <innerclass refid="classendstone_1_1InventoryCloseEvent" prot="public">endstone::InventoryCloseEvent</innerclass>
+    <innerclass refid="classendstone_1_1InventoryEvent" prot="public">endstone::InventoryEvent</innerclass>
+    <innerclass refid="classendstone_1_1InventoryInteractEvent" prot="public">endstone::InventoryInteractEvent</innerclass>
+    <innerclass refid="classendstone_1_1InventoryOpenEvent" prot="public">endstone::InventoryOpenEvent</innerclass>
     <innerclass refid="classendstone_1_1IpBanEntry" prot="public">endstone::IpBanEntry</innerclass>
     <innerclass refid="classendstone_1_1IpBanList" prot="public">endstone::IpBanList</innerclass>
     <innerclass refid="classendstone_1_1IRegistry" prot="public">endstone::IRegistry</innerclass>
@@ -96,7 +119,9 @@
     <innerclass refid="classendstone_1_1ItemFrame" prot="public">endstone::ItemFrame</innerclass>
     <innerclass refid="classendstone_1_1ItemMeta" prot="public">endstone::ItemMeta</innerclass>
     <innerclass refid="classendstone_1_1ItemStack" prot="public">endstone::ItemStack</innerclass>
+    <innerclass refid="classendstone_1_1ItemTagIngredient" prot="public">endstone::ItemTagIngredient</innerclass>
     <innerclass refid="classendstone_1_1ItemType" prot="public">endstone::ItemType</innerclass>
+    <innerclass refid="classendstone_1_1ItemTypeIngredient" prot="public">endstone::ItemTypeIngredient</innerclass>
     <innerclass refid="classendstone_1_1Label" prot="public">endstone::Label</innerclass>
     <innerclass refid="classendstone_1_1Language" prot="public">endstone::Language</innerclass>
     <innerclass refid="classendstone_1_1LeavesDecayEvent" prot="public">endstone::LeavesDecayEvent</innerclass>
@@ -113,8 +138,12 @@
     <innerclass refid="classendstone_1_1MapRenderer" prot="public">endstone::MapRenderer</innerclass>
     <innerclass refid="classendstone_1_1MapView" prot="public">endstone::MapView</innerclass>
     <innerclass refid="classendstone_1_1MessageForm" prot="public">endstone::MessageForm</innerclass>
+    <innerclass refid="classendstone_1_1Metrics" prot="public">endstone::Metrics</innerclass>
+    <innerclass refid="classendstone_1_1MetricsBase" prot="public">endstone::MetricsBase</innerclass>
     <innerclass refid="classendstone_1_1Mob" prot="public">endstone::Mob</innerclass>
     <innerclass refid="classendstone_1_1ModalForm" prot="public">endstone::ModalForm</innerclass>
+    <innerclass refid="classendstone_1_1MolangIngredient" prot="public">endstone::MolangIngredient</innerclass>
+    <innerclass refid="classendstone_1_1MultiLineChart" prot="public">endstone::MultiLineChart</innerclass>
     <innerclass refid="classendstone_1_1NotNull" prot="public">endstone::NotNull</innerclass>
     <innerclass refid="classendstone_1_1Nullable" prot="public">endstone::Nullable</innerclass>
     <innerclass refid="classendstone_1_1Object" prot="public">endstone::Object</innerclass>
@@ -135,16 +164,21 @@
     <innerclass refid="classendstone_1_1PlayerBedEnterEvent" prot="public">endstone::PlayerBedEnterEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerBedLeaveEvent" prot="public">endstone::PlayerBedLeaveEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerBucketActorEvent" prot="public">endstone::PlayerBucketActorEvent</innerclass>
+    <innerclass refid="classendstone_1_1PlayerBucketEmptyEvent" prot="public">endstone::PlayerBucketEmptyEvent</innerclass>
+    <innerclass refid="classendstone_1_1PlayerBucketEvent" prot="public">endstone::PlayerBucketEvent</innerclass>
+    <innerclass refid="classendstone_1_1PlayerBucketFillEvent" prot="public">endstone::PlayerBucketFillEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerChatEvent" prot="public">endstone::PlayerChatEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerCommandEvent" prot="public">endstone::PlayerCommandEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerCraftItemEvent" prot="public">endstone::PlayerCraftItemEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerDeathEvent" prot="public">endstone::PlayerDeathEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerDimensionChangeEvent" prot="public">endstone::PlayerDimensionChangeEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerDropItemEvent" prot="public">endstone::PlayerDropItemEvent</innerclass>
+    <innerclass refid="classendstone_1_1PlayerEditBookEvent" prot="public">endstone::PlayerEditBookEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerEmoteEvent" prot="public">endstone::PlayerEmoteEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerEvent" prot="public">endstone::PlayerEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerExpChangeEvent" prot="public">endstone::PlayerExpChangeEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerGameModeChangeEvent" prot="public">endstone::PlayerGameModeChangeEvent</innerclass>
+    <innerclass refid="classendstone_1_1PlayerHideActorEvent" prot="public">endstone::PlayerHideActorEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerInputEvent" prot="public">endstone::PlayerInputEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerInteractActorEvent" prot="public">endstone::PlayerInteractActorEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerInteractEvent" prot="public">endstone::PlayerInteractEvent</innerclass>
@@ -157,6 +191,7 @@
     <innerclass refid="classendstone_1_1PlayerLevelChangeEvent" prot="public">endstone::PlayerLevelChangeEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerLoginEvent" prot="public">endstone::PlayerLoginEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerMoveEvent" prot="public">endstone::PlayerMoveEvent</innerclass>
+    <innerclass refid="classendstone_1_1PlayerOpenSignEvent" prot="public">endstone::PlayerOpenSignEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerPickupArrowEvent" prot="public">endstone::PlayerPickupArrowEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerPickupExperienceEvent" prot="public">endstone::PlayerPickupExperienceEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerPickupItemEvent" prot="public">endstone::PlayerPickupItemEvent</innerclass>
@@ -165,7 +200,9 @@
     <innerclass refid="classendstone_1_1PlayerRecipeBookSettingsChangeEvent" prot="public">endstone::PlayerRecipeBookSettingsChangeEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerRespawnEvent" prot="public">endstone::PlayerRespawnEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerRiptideEvent" prot="public">endstone::PlayerRiptideEvent</innerclass>
+    <innerclass refid="classendstone_1_1PlayerSetSpawnEvent" prot="public">endstone::PlayerSetSpawnEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerShearActorEvent" prot="public">endstone::PlayerShearActorEvent</innerclass>
+    <innerclass refid="classendstone_1_1PlayerShowActorEvent" prot="public">endstone::PlayerShowActorEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerSkinChangeEvent" prot="public">endstone::PlayerSkinChangeEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerTeleportEvent" prot="public">endstone::PlayerTeleportEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerToggleCrawlEvent" prot="public">endstone::PlayerToggleCrawlEvent</innerclass>
@@ -182,7 +219,10 @@
     <innerclass refid="classendstone_1_1PotionMeta" prot="public">endstone::PotionMeta</innerclass>
     <innerclass refid="classendstone_1_1PotionType" prot="public">endstone::PotionType</innerclass>
     <innerclass refid="classendstone_1_1Preconditions" prot="public">endstone::Preconditions</innerclass>
+    <innerclass refid="classendstone_1_1PrepareItemEnchantEvent" prot="public">endstone::PrepareItemEnchantEvent</innerclass>
+    <innerclass refid="classendstone_1_1ProxiedCommandSender" prot="public">endstone::ProxiedCommandSender</innerclass>
     <innerclass refid="classendstone_1_1Recipe" prot="public">endstone::Recipe</innerclass>
+    <innerclass refid="classendstone_1_1RecipeIngredient" prot="public">endstone::RecipeIngredient</innerclass>
     <innerclass refid="classendstone_1_1Registry" prot="public">endstone::Registry</innerclass>
     <innerclass refid="classendstone_1_1Scheduler" prot="public">endstone::Scheduler</innerclass>
     <innerclass refid="classendstone_1_1Score" prot="public">endstone::Score</innerclass>
@@ -195,10 +235,19 @@
     <innerclass refid="classendstone_1_1ServerLoadEvent" prot="public">endstone::ServerLoadEvent</innerclass>
     <innerclass refid="classendstone_1_1Service" prot="public">endstone::Service</innerclass>
     <innerclass refid="classendstone_1_1ServiceManager" prot="public">endstone::ServiceManager</innerclass>
+    <innerclass refid="classendstone_1_1ShapedRecipe" prot="public">endstone::ShapedRecipe</innerclass>
+    <innerclass refid="classendstone_1_1ShapelessRecipe" prot="public">endstone::ShapelessRecipe</innerclass>
     <innerclass refid="classendstone_1_1Sign" prot="public">endstone::Sign</innerclass>
     <innerclass refid="classendstone_1_1SignSide" prot="public">endstone::SignSide</innerclass>
+    <innerclass refid="classendstone_1_1SimpleBarChart" prot="public">endstone::SimpleBarChart</innerclass>
+    <innerclass refid="classendstone_1_1SimplePie" prot="public">endstone::SimplePie</innerclass>
+    <innerclass refid="classendstone_1_1SingleLineChart" prot="public">endstone::SingleLineChart</innerclass>
     <innerclass refid="classendstone_1_1Skin" prot="public">endstone::Skin</innerclass>
     <innerclass refid="classendstone_1_1Slider" prot="public">endstone::Slider</innerclass>
+    <innerclass refid="classendstone_1_1SmithingRecipe" prot="public">endstone::SmithingRecipe</innerclass>
+    <innerclass refid="classendstone_1_1SmithingTransformRecipe" prot="public">endstone::SmithingTransformRecipe</innerclass>
+    <innerclass refid="classendstone_1_1SmithingTrimRecipe" prot="public">endstone::SmithingTrimRecipe</innerclass>
+    <innerclass refid="classendstone_1_1SmokingRecipe" prot="public">endstone::SmokingRecipe</innerclass>
     <innerclass refid="classendstone_1_1SocketAddress" prot="public">endstone::SocketAddress</innerclass>
     <innerclass refid="classendstone_1_1StepSlider" prot="public">endstone::StepSlider</innerclass>
     <innerclass refid="classendstone_1_1Task" prot="public">endstone::Task</innerclass>
@@ -206,6 +255,7 @@
     <innerclass refid="classendstone_1_1ThunderChangeEvent" prot="public">endstone::ThunderChangeEvent</innerclass>
     <innerclass refid="classendstone_1_1Toggle" prot="public">endstone::Toggle</innerclass>
     <innerclass refid="classendstone_1_1Translatable" prot="public">endstone::Translatable</innerclass>
+    <innerclass refid="classendstone_1_1UnknownCommandEvent" prot="public">endstone::UnknownCommandEvent</innerclass>
     <innerclass refid="classendstone_1_1UUID" prot="public">endstone::UUID</innerclass>
     <innerclass refid="classendstone_1_1Vector" prot="public">endstone::Vector</innerclass>
     <innerclass refid="classendstone_1_1WeatherChangeEvent" prot="public">endstone::WeatherChangeEvent</innerclass>
@@ -262,6 +312,13 @@
           <detaileddescription>
           </detaileddescription>
         </enumvalue>
+        <enumvalue id="namespaceendstone_1aec620d05bd961a002c83b008e178a785aad6e7652b1bdfb38783486c2c3d5e806" prot="public">
+          <name>Self</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
         <briefdescription>
 <para>Represents the face of a block. </para>
         </briefdescription>
@@ -269,7 +326,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/block/block_face.h" line="21" column="1" bodyfile="include/endstone/block/block_face.h" bodystart="21" bodyend="28"/>
+        <location file="include/endstone/block/block_face.h" line="21" column="1" bodyfile="include/endstone/block/block_face.h" bodystart="21" bodyend="29"/>
       </memberdef>
       <memberdef kind="enum" id="namespaceendstone_1a554d2e220ce8a5afd95c31e6065a75f6" prot="public" static="no" strong="yes">
         <type></type>
@@ -1012,6 +1069,20 @@
       </memberdef>
     </sectiondef>
     <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="namespaceendstone_1abe5f8dc169d844308940720b959caa0b" prot="public" static="no">
+        <type>std::variant&lt; <ref refid="classendstone_1_1Identifier" kindref="compound">bool</ref>, <ref refid="classendstone_1_1Identifier" kindref="compound">float</ref> &gt;</type>
+        <definition>using endstone::AbilityValue = typedef std::variant&lt;bool, float&gt;</definition>
+        <argsstring></argsstring>
+        <name>AbilityValue</name>
+        <qualifiedname>endstone::AbilityValue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/ability.h" line="24" column="1" bodyfile="include/endstone/ability.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
       <memberdef kind="typedef" id="namespaceendstone_1a94ee63841c0963c0a0676b0783e03486" prot="public" static="no">
         <type><ref refid="classendstone_1_1Identifier" kindref="compound">Identifier</ref>&lt; <ref refid="classendstone_1_1ActorType" kindref="compound">ActorType</ref> &gt;</type>
         <definition>using endstone::ActorTypeId = typedef Identifier&lt;ActorType&gt;</definition>
@@ -1139,6 +1210,48 @@
         </inbodydescription>
         <location file="include/endstone/inventory/item_type.h" line="24" column="1" bodyfile="include/endstone/inventory/item_type.h" bodystart="24" bodyend="-1"/>
       </memberdef>
+      <memberdef kind="typedef" id="namespaceendstone_1a567577ecf1eeef4a08051a8253634e73" prot="public" static="no">
+        <type>nlohmann::json</type>
+        <definition>using endstone::JsonValue = typedef nlohmann::json</definition>
+        <argsstring></argsstring>
+        <name>JsonValue</name>
+        <qualifiedname>endstone::JsonValue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/json.h" line="21" column="1" bodyfile="include/endstone/json.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceendstone_1aa8b90fdb9576651df540bc058845cf61" prot="public" static="no">
+        <type>nlohmann::json::object_t</type>
+        <definition>using endstone::JsonObject = typedef nlohmann::json::object_t</definition>
+        <argsstring></argsstring>
+        <name>JsonObject</name>
+        <qualifiedname>endstone::JsonObject</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/json.h" line="22" column="1" bodyfile="include/endstone/json.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceendstone_1a0a9429f5c39e092606ad2e113ad0707b" prot="public" static="no">
+        <type>nlohmann::json::array_t</type>
+        <definition>using endstone::JsonArray = typedef nlohmann::json::array_t</definition>
+        <argsstring></argsstring>
+        <name>JsonArray</name>
+        <qualifiedname>endstone::JsonArray</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/json.h" line="23" column="1" bodyfile="include/endstone/json.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
       <memberdef kind="typedef" id="namespaceendstone_1a50a151fb732635e869fd9c0a4ef78c2c" prot="public" static="no">
         <type><ref refid="classendstone_1_1Identifier" kindref="compound">Identifier</ref>&lt; <ref refid="classendstone_1_1Dimension" kindref="compound">Dimension</ref> &gt;</type>
         <definition>typedef Identifier&lt; class Dimension &gt; endstone::DimensionId</definition>
@@ -1151,7 +1264,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/level/dimension.h" line="35" column="1" bodyfile="include/endstone/level/dimension.h" bodystart="35" bodyend="-1"/>
+        <location file="include/endstone/level/dimension.h" line="37" column="1" bodyfile="include/endstone/level/dimension.h" bodystart="37" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="namespaceendstone_1ab1be61859bf80a227cf5d0b12a26ef78" prot="public" static="no">
         <type>std::variant&lt; std::string, <ref refid="classendstone_1_1Translatable" kindref="compound">Translatable</ref> &gt;</type>
@@ -1748,6 +1861,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="include/endstone/actor/actor.h" line="26" column="1"/>
+    <location file="include/endstone/ability.h" line="22" column="1"/>
   </compounddef>
 </doxygen>

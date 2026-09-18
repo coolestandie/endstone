@@ -8,6 +8,12 @@
 * **Action** ([**endstone::ActorEffectEvent**](classendstone_1_1ActorEffectEvent.md), [**endstone::PlayerInteractEvent**](classendstone_1_1PlayerInteractEvent.md))
 
 
+## c
+
+* **ChangeReason** ([**endstone::CauldronLevelChangeEvent**](classendstone_1_1CauldronLevelChangeEvent.md))
+* **Cause** ([**endstone::PlayerOpenSignEvent**](classendstone_1_1PlayerOpenSignEvent.md), [**endstone::PlayerSetSpawnEvent**](classendstone_1_1PlayerSetSpawnEvent.md))
+
+
 ## g
 
 * **Generation** ([**endstone::BookMeta**](classendstone_1_1BookMeta.md))

@@ -47,6 +47,7 @@
 #include "endstone/map/map_view.h"
 #include "endstone/message.h"
 #include "endstone/plugin/service_manager.h"
+#include "endstone/object.h"
 #include "endstone/scoreboard/scoreboard.h"
 #include "endstone/util/pointers.h"
 #include "endstone/util/uuid.h"
@@ -60,8 +61,11 @@ class ItemFactory;
 class ItemType;
 class IRegistry;
 class Level;
+class MetricsBase;
+class Recipe;
 class Scheduler;
 class Player;
+class Plugin;
 class PluginCommand;
 class PluginManager;
 
@@ -117,8 +121,6 @@ public:
 
     [[nodiscard]] virtual int getPort() const = 0;
 
-    [[nodiscard]] virtual int getPortV6() const = 0;
-
     [[nodiscard]] virtual bool getOnlineMode() const = 0;
 
     [[nodiscard]] virtual Nullable<Player> getPlayer(std::string name) const = 0;
@@ -165,10 +167,10 @@ public:
 
     [[nodiscard]] virtual std::chrono::system_clock::time_point getStartTime() = 0;
 
-    [[nodiscard]] virtual NotNull<BossBar> createBossBar(std::string title, BarColor color, BarStyle style) const = 0;
+    [[nodiscard]] virtual NotNull<BossBar> createBossBar(std::string title, BarColor color, BarStyle style) = 0;
 
     [[nodiscard]] virtual NotNull<BossBar> createBossBar(std::string title, BarColor color, BarStyle style,
-                                                         std::vector<BarFlag> flags) const = 0;
+                                                         std::vector<BarFlag> flags) = 0;
 
     [[nodiscard]] virtual NotNull<BlockData> createBlockData(BlockTypeId type) const = 0;
 
@@ -180,17 +182,25 @@ public:
 
     [[nodiscard]] virtual ServiceManager &getServiceManager() const = 0;
 
-    [[nodiscard]] virtual IRegistry *_getRegistry(const std::type_info &type) const = 0;
+    [[nodiscard]] virtual IRegistry *_getRegistry(ClassInfo type) const = 0;
 
     template <typename T>
     [[nodiscard]] const Registry<T> &getRegistry() const
     {
-        return *static_cast<Registry<T> *>(_getRegistry(typeid(T)));
+        auto *registry = _getRegistry(typeid(T));
+        if (!registry) {
+            throw std::out_of_range{std::format("No registry is present for type: {}", typeid(T).name())};
+        }
+        return *static_cast<Registry<T> *>(registry);
     }
 
     [[nodiscard]] virtual MapView *getMap(std::int64_t id) const = 0;
 
     [[nodiscard]] virtual MapView &createMap(const NotNull<Dimension> &dimension) const = 0;
+
+    [[nodiscard]] virtual NotNull<MetricsBase> createMetrics(Plugin &plugin, int service_id) = 0;
+
+    [[nodiscard]] virtual std::vector<NotNull<Recipe>> getRecipes() const = 0;
 
     inline static const std::string BroadcastChannelAdmin = "endstone.broadcast.admin";
 

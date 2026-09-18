@@ -10,11 +10,12 @@
 
 
 
-* `#include <string>`
 * `#include <utility>`
+* `#include <vector>`
 * `#include "endstone/event/cancellable.h"`
 * `#include "endstone/event/player/player_event.h"`
 * `#include "endstone/inventory/item_stack.h"`
+* `#include "endstone/inventory/recipe.h"`
 
 
 
@@ -39,7 +40,7 @@
 
 | Type | Name |
 | ---: | :--- |
-| class | [**PlayerCraftItemEvent**](classendstone_1_1PlayerCraftItemEvent.md) <br>_Called when a player crafts an item._  |
+| class | [**PlayerCraftItemEvent**](classendstone_1_1PlayerCraftItemEvent.md) <br>_Called when a player crafts an item, either inside a crafting grid or straight from the recipe book._  |
 
 
 

@@ -24,18 +24,38 @@
 
 #pragma once
 
+#include <cstddef>
+#include <cstring>
+#include <functional>
 #include <type_traits>
 #include <typeinfo>
 
 namespace endstone {
 
+class ClassInfo {
+public:
+    ClassInfo(const std::type_info &info) noexcept : info_(&info) {}  // NOLINT(*-explicit-constructor)
+
+    [[nodiscard]] const char *name() const noexcept { return info_->name(); }
+
+    [[nodiscard]] const std::type_info &info() const noexcept { return *info_; }
+
+    bool operator==(const ClassInfo &other) const noexcept
+    {
+        return info_ == other.info_ || std::strcmp(name(), other.name()) == 0;
+    }
+
+private:
+    const std::type_info *info_;
+};
+
 class Object {
 public:
     virtual ~Object() = default;
 
-    [[nodiscard]] virtual const std::type_info &getClassTypeId() const = 0;
+    [[nodiscard]] virtual ClassInfo getClassInfo() const = 0;
 
-    [[nodiscard]] virtual bool isInstanceOf(const std::type_info &target) const = 0;
+    [[nodiscard]] virtual bool isInstanceOf(ClassInfo target) const = 0;
 
     template <typename T>
         requires std::is_base_of_v<Object, T>
@@ -66,6 +86,18 @@ public:
 };
 
 }  // namespace endstone
+
+template <>
+struct std::hash<endstone::ClassInfo> {
+    std::size_t operator()(const endstone::ClassInfo &info) const noexcept
+    {
+        std::size_t hash = 5381;
+        for (const auto *ptr = info.name(); *ptr != '\0'; ++ptr) {
+            hash = hash * 33 ^ static_cast<unsigned char>(*ptr);
+        }
+        return hash;
+    }
+};
 ```
 
 
