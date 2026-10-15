@@ -17,8 +17,10 @@
 #include <cstddef>
 #include <functional>
 #include <unordered_map>
+#include <unordered_set>
 
 #include "bedrock/bedrock.h"
+#include "bedrock/platform/threading/mutex_details.h"
 #include "bedrock/world/level/dimension_manager.h"
 #include "bedrock/world/level/gameplay_user_manager_connector.h"
 #include "bedrock/world/level/map_data_manager_options.h"
@@ -32,7 +34,7 @@ public:
     virtual ~MapDataManager() = default;
     virtual void registerOnGameplayUserAddedSubscription(IGameplayUserManagerConnector &);
     void registerOnSaveLevelDataSubscription(ILevelStorageManagerConnector &level_storage_manager_connector);
-    ENDSTONE_HOOK_LINUX MapItemSavedData *getMapSavedData(const ActorUniqueID uuid);
+    MapItemSavedData *getMapSavedData(const ActorUniqueID uuid);
     [[nodiscard]] const size_t getMapDataMapSize() const;
     MapItemSavedData &createMapSavedData(const ActorUniqueID &uuid, const BlockPos &origin, DimensionType dimension,
                                          int return_scale_level);
@@ -52,7 +54,10 @@ public:
 
 protected:
     virtual void _copyAndLockMap(const ActorUniqueID original_map_uuid, const ActorUniqueID new_map_uuid);
-    ENDSTONE_HOOK_WIN32 MapItemSavedData *_loadMapData(const ActorUniqueID &uuid);
+    MapItemSavedData *_loadMapData(const ActorUniqueID &uuid);
+    std::unique_ptr<MapItemSavedData> _deserializeMapData(const ActorUniqueID &uuid);
+    ENDSTONE_HOOK MapItemSavedData *_publishMapData(const ActorUniqueID &uuid,
+                                                    std::unique_ptr<MapItemSavedData> loaded_map);
     void _onSaveLevelData(LevelStorage &level_storage);
     DimensionManager &dimension_manager_;
     LevelStorage *level_storage_;
@@ -61,12 +66,13 @@ protected:
     Bedrock::PubSub::Subscription on_save_level_data_;
     std::unordered_map<ActorUniqueID, std::unique_ptr<MapItemSavedData>> map_data_;
     Bedrock::NonOwnerPointer<PacketSender> packet_sender_;
-    // 1.26.51 appended members Endstone reads none of; only their size matters, because
-    // ServerMapDataManager's second base sits right after them.
-#ifdef _WIN32
-    std::byte unknown_200_[208];
-#elif __linux__
-    std::byte unknown_160_[120];
-#endif
+
+private:
+    struct DeferredLoadData {
+        Bedrock::Threading::Mutex mutex;
+        std::unordered_map<ActorUniqueID, std::unique_ptr<MapItemSavedData>> maps;
+        std::unordered_set<ActorUniqueID> map_ids_requested_for_load;
+    };
+    DeferredLoadData deferred_load_data_;
 };
 BEDROCK_STATIC_ASSERT_SIZE(MapDataManager, 408, 288);

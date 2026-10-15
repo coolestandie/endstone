@@ -11,7 +11,7 @@
 </p>
 
 [![Build](https://github.com/EndstoneMC/endstone/actions/workflows/build.yml/badge.svg)](https://github.com/EndstoneMC/endstone/actions/workflows/build.yml)
-[![Minecraft](https://img.shields.io/badge/minecraft-v26.51_(Bedrock)-black)](https://feedback.minecraft.net/hc/en-us/sections/360001186971-Release-Changelogs)
+[![Minecraft](https://img.shields.io/badge/minecraft-v26.52_(Bedrock)-black)](https://feedback.minecraft.net/hc/en-us/sections/360001186971-Release-Changelogs)
 [![PyPI - Version](https://img.shields.io/pypi/v/endstone)](https://pypi.org/project/endstone)
 [![Python](https://img.shields.io/pypi/pyversions/endstone?logo=python&logoColor=white)](https://www.python.org/)
 [![GitHub License](https://img.shields.io/github/license/endstonemc/endstone)](LICENSE)
@@ -24,8 +24,9 @@
 
 Bedrock's official addon and script APIs let you add content, but can hardly modify core gameplay. Custom servers like
 PocketMine and Nukkit offer that control, but sacrifice vanilla features. Endstone gives you both: cancellable events,
-packet control, and deep gameplay access with full vanilla compatibility. Think of it as Paper for Bedrock. If you've
-ever wished Bedrock servers had the same modding power as Java Edition, this is it.
+packet control, and deep gameplay access with full vanilla compatibility. It's also the fastest way to run a vanilla
+Bedrock server, with over 2x the TPS of BDS under heavy load. Think of it as Paper for Bedrock. If you've ever wished
+Bedrock servers had the same modding power as Java Edition, this is it.
 
 ## Quick Start
 
@@ -60,6 +61,9 @@ class MyPlugin(Plugin):
 
 ## Features
 
+- **High performance** - Major optimizations to chunk loading, terrain generation, networking, and more, all without
+  changing vanilla gameplay. Over 2x the TPS of vanilla BDS with 100 players online. See the [benchmarks](BENCHMARK.md).
+
 - **Cross-platform** - Runs natively on both Windows and Linux without emulation, making deployment flexible and
   straightforward.
 
@@ -79,7 +83,7 @@ class MyPlugin(Plugin):
 
 ## Installation
 
-Requires Python 3.10+ on Windows 10+ or Linux (Ubuntu 22.04+, Debian 12+).
+Requires Python 3.11+ on Windows 10+ or Linux (Ubuntu 22.04+, Debian 12+).
 
 ### Using pip (recommended)
 

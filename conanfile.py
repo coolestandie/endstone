@@ -23,6 +23,9 @@ class EndstoneRecipe(ConanFile):
         "fPIC": True,
         "boost/*:header_only": True,
         "date/*:header_only": True,
+        "mimalloc/*:shared": True,
+        "mimalloc/*:override": True,
+        "mimalloc/*:inject": True,
         "raknet/*:minecraft_version": "r26u3",
         "spdlog/*:use_std_fmt": True,
     }
@@ -49,6 +52,7 @@ class EndstoneRecipe(ConanFile):
         cmake_layout(self)
 
     def requirements(self):
+        self.requires("asio/1.38.2")
         self.requires("base64/0.5.2")
         self.requires("boost/1.91.0")
         self.requires("concurrentqueue/1.0.4")
@@ -58,6 +62,7 @@ class EndstoneRecipe(ConanFile):
         self.requires("expected-lite/0.9.0")
         self.requires("funchook/1.1.3")
         self.requires("glm/1.0.3")
+        self.requires("libdeflate/1.25")
         self.requires("magic_enum/0.9.7")
         self.requires("ms-gsl/4.2.2")
         self.requires("nlohmann_json/3.12.0")
@@ -65,6 +70,7 @@ class EndstoneRecipe(ConanFile):
         self.requires("raknet/4.081-mojang")
         self.requires("replxx/0.0.4")
         self.requires("sentry-native/0.14.2")
+        self.requires("snappy/1.2.1")
         self.requires("spdlog/1.17.0")
         self.requires("tomlplusplus/3.3.0")
         self.requires("zstr/1.0.7")
@@ -73,6 +79,7 @@ class EndstoneRecipe(ConanFile):
             self.requires("detours/cci.20220630")
         elif self.settings.os == "Linux":
             self.requires("libelf/0.8.13")
+            self.requires("mimalloc/3.5.1")
 
         if self._with_devtools:
             self.requires("glfw/3.4")
@@ -107,6 +114,9 @@ class EndstoneRecipe(ConanFile):
             tc.variables["ENDSTONE_ENABLE_DEVTOOLS"] = True
         sentry_bin = os.path.join(self.dependencies["sentry-native"].package_folder, "bin")
         tc.variables["SENTRY_NATIVE_BIN_DIR"] = sentry_bin.replace("\\", "/")
+        if self.settings.os == "Linux":
+            mimalloc_lib = os.path.join(self.dependencies["mimalloc"].package_folder, "lib", "libmimalloc.so")
+            tc.variables["MIMALLOC_LIBRARY"] = os.path.realpath(mimalloc_lib)
         tc.generate()
 
     def build(self):

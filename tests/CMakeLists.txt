@@ -24,8 +24,10 @@ add_executable(endstone_test
         test_cpp_plugin_loader.cpp
         test_logger_factory.cpp
         test_player_ban_list.cpp
+        test_plugin_manager.cpp
         test_scheduler.cpp
         test_service_manager.cpp
+        test_text_formatter.cpp
         test_thread_pool_executor.cpp
         test_uuid.cpp
         test_vector.cpp

@@ -42,6 +42,7 @@
 #include "bedrock/world/inventory/transaction/inventory_transaction_manager.h"
 #include "bedrock/world/item/item_group.h"
 #include "bedrock/world/level/game_type.h"
+#include "bedrock/world/level/levelgen/structure/structure_feature_type.h"
 #include "bedrock/world/player_ui_container.h"
 
 class PlayerRespawnRandomizer;
@@ -127,8 +128,7 @@ public:
     virtual void deleteContainerManager() = 0;
     virtual bool isActorRelevant(Actor const &) = 0;
     [[nodiscard]] virtual bool isTeacher() const = 0;
-    // TODO(fixme): check the name
-    virtual void unknown224() = 0;
+    [[nodiscard]] virtual bool isExternalCommunicationAllowed() const = 0;
     virtual void onSuspension() = 0;
     virtual void onLinkedSlotsChanged() = 0;
     virtual void sendInventoryTransaction(InventoryTransaction const &) const = 0;
@@ -351,7 +351,7 @@ private:
     unsigned int emote_message_count_;
     std::string device_id_;
     bool flag_client_for_bai_reset_;
-    bool send_inventory_options_to_client_;
+    std::uint8_t send_player_options_flags_;
     bool is_hosting_player_;
     bool prev_blocked_using_shield_;
     bool prev_blocked_using_damaged_shield_;

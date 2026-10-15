@@ -7,17 +7,17 @@ name = "endstone"
 authors = [{ name = "Vincent Wu", email = "magicdroidx@gmail.com" }]
 description = "Endstone offers a plugin API for Bedrock Dedicated Servers, supporting both Python and C++."
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 keywords = ["plugin", "python", "minecraft", "bedrock"]
 license-files = ["LICENSE"]
 classifiers = [
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
     "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: 3.15",
     "License :: OSI Approved :: Apache Software License",
     "Operating System :: Microsoft :: Windows",
     "Operating System :: POSIX :: Linux",
@@ -96,14 +96,7 @@ repair-wheel-command = [
 ]
 
 [tool.cibuildwheel.linux]
-manylinux-x86_64-image = "ghcr.io/endstonemc/manylinux_2_31_x86_64"
-environment = { LLVM_VERSION = 20, CC = "/usr/bin/clang", CXX = "/usr/bin/clang++" }
+manylinux-x86_64-image = "ghcr.io/endstonemc/manylinux_2_31_x86_64_clang20"
+environment = { CC = "/usr/bin/clang", CXX = "/usr/bin/clang++" }
 # The runner's ninja is outside the container, and the conan profile needs one on PATH.
 before-build = "pip install ninja uv"
-before-all = [
-    "apt-get update -y -q && apt-get install -y -q build-essential lsb-release wget software-properties-common gnupg",
-    "wget https://apt.llvm.org/llvm.sh && chmod +x llvm.sh && ./llvm.sh ${LLVM_VERSION}",
-    "apt-get install -y -q libc++-${LLVM_VERSION}-dev libc++abi-${LLVM_VERSION}-dev clang-tools-${LLVM_VERSION}",
-    "update-alternatives --install /usr/bin/clang clang /usr/bin/clang-${LLVM_VERSION} 100",
-    "update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-${LLVM_VERSION} 100",
-]

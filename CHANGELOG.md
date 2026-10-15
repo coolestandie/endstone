@@ -7,6 +7,90 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.11.14] - 2026-10-12
+
+### Added
+
+- Added support for Python 3.15.
+
+### Changed
+
+- Improved the performance of sending and receiving packets when no plugin listens for `PacketSendEvent` or `PacketReceiveEvent`.
+- Improved the performance of packet compression.
+- Improved server performance when many chunks are loaded, such as when players are spread out across the world.
+- Improved server performance when players explore with client-side chunk generation enabled.
+- Reduced the cost of random block ticks.
+- Improved server performance with many players online.
+- Reduced the cost of the locator bar with many players online.
+- Improved server performance while many players wait for new terrain to load, such as after joining or teleporting.
+- Improved how quickly new terrain generates.
+- Linux servers now use mimalloc as the memory allocator unless `LD_PRELOAD` names another allocator or `libc.so.6`.
+- New servers now default to a `view-distance` of 10 in `server.properties`.
+- New servers now keep the vanilla default `client-side-chunk-generation-enabled=true`.
+
+### Removed
+
+- **BREAKING**: Dropped support for Python 3.10.
+
+### Fixed
+
+- Fixed a packet sent from a `PacketSendEvent` handler replacing the packet that was being sent.
+- Fixed `PacketSendEvent` reporting the wrong player and sub-client ID for packets sent to a split-screen player.
+- Fixed `PacketReceiveEvent` reporting the wrong player and sub-client ID for packets sent by a split-screen player.
+- Fixed MSPT leaving out network and other work outside the level tick, and rounding to whole milliseconds.
+- Fixed the hidden DevTools window using CPU on Windows.
+- Fixed `/status` freezing the server for a moment on Windows.
+- Fixed the scheduler's idle threads using CPU.
+
+## [0.11.13] - 2026-10-06
+
+### Added
+
+- Added support for BDS version 1.26.52.
+- The logger handles ANSI escape codes alongside `§` colour codes, so a plugin can log text that is already coloured. Colour sequences reach the console as written, and every escape sequence is stripped from the log file, which previously kept them verbatim.
+
+### Changed
+
+- Operators can run cheat commands such as `/give` and `/tp` without turning on cheats for the world.
+- Improved the performance of Python callbacks on the server thread.
+- Python thread-local and context-variable state now persists across callbacks on the server thread.
+
+### Fixed
+
+- Fixed `network.stun-servers` having no effect on NetherNet, which left a server behind NAT unable to discover and advertise its public address.
+- Fixed a C++ plugin rejected for an incompatible API version staying loaded.
+- Fixed `PlayerDropItemEvent` firing for a player who has not finished joining.
+- Fixed `Dimension.actors` and `Level.actors` leaving out connected players.
+- Fixed `BlockType.translation_key` returning a key the client cannot translate.
+- Fixed Python raising a generic `TypeError` instead of the intended error when a colour, image or UUID argument has an invalid value.
+- Fixed `BossBar.remove_player` hiding the bar from a player who was never added to it.
+- Fixed the server slowing down over time on Windows as maps are loaded (#537).
+- Fixed `MapInitializeEvent` not firing on Windows for maps loaded from the world.
+- Fixed `MapInitializeEvent` not firing on Linux for a map inside a chest or other container when its chunk loads.
+- Fixed redstone using more memory and getting slower over time when a block next to a torch, repeater or lever is broken and replaced again and again, such as by a piston clock.
+
+## [0.11.12] - 2026-09-20
+
+### Added
+
+- On NetherNet, STUN servers can now be configured under `network.stun-servers` in `endstone.toml`, so a server behind NAT can tell clients its public address.
+
+### Fixed
+
+- Endstone no longer sets `server-udp-ports` on NetherNet servers, which narrowed Bedrock's UDP port window to the single port every session had to share.
+- Fixed teleporting an actor or a player to a location in another dimension, which BDS ignored. Introduced in 0.11.11 along with BDS 1.26.51 support.
+- Fixed the location a player is moved to when they travel through a portal, and the locations `PlayerPortalEvent` reports. Introduced in 0.11.11 along with BDS 1.26.51 support.
+- Fixed poplar leaves decaying with the trunk still standing. The leaf-decay check did not count poplar logs and wood as part of a tree, and did not recognise the three poplar leaf blocks as leaves (#536).
+- Fixed the server slowing to a few ticks per second over time on worlds that contain maps. Introduced in 0.11.11.
+- Fixed `MapInitializeEvent` firing over and over for a map that was already loaded.
+- Fixed a map showing only one marker, which hid explorer map targets and the markers of other players (#517).
+- Fixed `MapView.is_virtual` always reporting `true`, even when the map has no plugin renderer.
+- Fixed decorations on a map that no plugin renders losing their colour.
+- Fixed a custom map renderer blanking the map unless it painted every pixel.
+- Fixed a map item losing whether it shows markers when a plugin edited its item metadata.
+- Fixed a crash when the server saved the scoreboard after a plugin reset an entry's scores or moved a player to another scoreboard (#539).
+- Fixed unregistering a scoreboard objective leaving a stale reference to it behind.
+
 ## [0.11.11] - 2026-09-16
 
 ### Added
@@ -1193,7 +1277,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Basic plugin loader for C++ and Python plugins.
 - Basic command system that allows plugins to register custom commands.
 
-[Unreleased]: https://github.com/EndstoneMC/endstone/compare/v0.11.11...HEAD
+[Unreleased]: https://github.com/EndstoneMC/endstone/compare/v0.11.14...HEAD
+[0.11.14]: https://github.com/EndstoneMC/endstone/compare/v0.11.13...v0.11.14
+[0.11.13]: https://github.com/EndstoneMC/endstone/compare/v0.11.12...v0.11.13
+[0.11.12]: https://github.com/EndstoneMC/endstone/compare/v0.11.11...v0.11.12
 [0.11.11]: https://github.com/EndstoneMC/endstone/compare/v0.11.10...v0.11.11
 [0.11.10]: https://github.com/EndstoneMC/endstone/compare/v0.11.9...v0.11.10
 [0.11.9]: https://github.com/EndstoneMC/endstone/compare/v0.11.8...v0.11.9

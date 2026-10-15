@@ -20,11 +20,12 @@
 #include "bedrock/world/actor/actor.h"
 #include "bedrock/world/actor/actor_definition_identifier.h"
 
+class Experiments;
 class Level;
 
 class ActorFactory {
 public:
-    ActorFactory(Bedrock::NotNullNonOwnerPtr<Level> level);
+    ActorFactory(Bedrock::NotNullNonOwnerPtr<Level> level, const Experiments &experiments);
     virtual ~ActorFactory();
     OwnerPtr<EntityContext> createSpawnedActor(const ActorDefinitionIdentifier &identifier, Actor *spawner,
                                                const Vec3 &position, const Vec2 &rotation);

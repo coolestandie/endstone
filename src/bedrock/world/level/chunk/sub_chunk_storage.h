@@ -14,11 +14,18 @@
 
 #pragma once
 
-class IPlayerConnectionConnector {
+#include <cstdint>
+
+class Block;
+
+template <typename T>
+class SubChunkStorage;
+
+template <>
+class SubChunkStorage<Block> {
 public:
-    virtual ~IPlayerConnectionConnector() = default;
-    // TODO(fixme): check the names
-    virtual void unknown2() = 0;
-    virtual void unknown3() = 0;
+    virtual ~SubChunkStorage();
+    [[nodiscard]] virtual bool isUniform(const Block &) const = 0;
+    [[nodiscard]] virtual bool isPaletteUniform(const Block &) const = 0;
+    [[nodiscard]] virtual const Block &getElement(std::uint16_t) const = 0;
 };
-static_assert(sizeof(IPlayerConnectionConnector) == 8);
